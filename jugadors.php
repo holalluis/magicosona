@@ -13,12 +13,12 @@
 
 <!--LOGO-->
 <h2 onclick="window.location.reload()" style="cursor:pointer">
-Jugadors (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?>)</a>
+Jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?>)</a>
 </h2>
 
 <table>
 	<tr>
-		<th colspan=2> Jugadors per ordre alfabètic
+		<th colspan=2> Nom
 		<th>Punts
 		<th>Articles en venta
 	<?php

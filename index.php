@@ -110,7 +110,7 @@ Lliga Osonenca de Modern — Pàgina Principal
 	<tr><th>Top<th>Jugador
 	<?php
 		// Llista d'esdeveniments
-		$sql="SELECT * FROM esdeveniments";
+		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 		$res=mysql_query($sql);
 		while($row=mysql_fetch_array($res))
 		{
@@ -132,7 +132,7 @@ Lliga Osonenca de Modern — Pàgina Principal
 			echo "<tr>";
 			echo "	<td class=top align=center>$i
 				<td><a href=jugador.php?id=".$row['id'].">".$row['nom']."</a>";
-			$sql="SELECT * FROM esdeveniments";
+			$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 			$ress=mysql_query($sql);
 			while($roww=mysql_fetch_array($ress))
 			{

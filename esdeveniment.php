@@ -32,7 +32,7 @@
 <div style="padding:0.5em;background-color:#ccc">
 Resultats: 
 <?php
-	$sql="SELECT * FROM esdeveniments";
+	$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 	$res=mysql_query($sql);
 	while($roww=mysql_fetch_array($res))
 		echo "<a href=esdeveniment.php?id=".$roww['id'].">".$roww['nom']."</a> | ";

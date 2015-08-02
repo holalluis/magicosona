@@ -59,7 +59,7 @@
 	<tr><th>Torneig<th>Punts<th>Baralla
 	<?php
 		$punts_totals=0;
-		$sql="SELECT * FROM esdeveniments";
+		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 		$res=mysql_query($sql);
 		while($row=mysql_fetch_array($res))
 		{
