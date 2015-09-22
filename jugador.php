@@ -106,9 +106,10 @@
 								>Esborra</button>";
 					}
 				}
+				$participacions++;
 			}
 		}
-		echo "<tr><th>TOTAL<td colspan=2 align=center>$punts_totals punts";
+		echo "<tr><th>TOTAL<td colspan=1 align=center><b>$punts_totals punts</b> <td>(".round($punts_totals/$participacions,1)." punts/torneig)";
 	?>
 </table>
 
