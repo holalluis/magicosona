@@ -23,12 +23,6 @@
 	<title>NO inscrits al Pròxim Torneig</title>
 	<?php include 'compteEnrere.php' ?>
 	<script>
-		function init()
-		//es crida a body onload
-		{
-			//comença a comptar cada segon
-			setInterval(function(){compta()},1000)
-		}
 		function nouAssistent()
 		{
 			var id_jugador = document.getElementById('id_assistent').value;
@@ -40,8 +34,7 @@
 		}
 	</script>
 </head>
-<body onload=init()><center>
-<?php include 'header_sessio.php' ?>
+<body><center>
 
 <div id=menu style=padding:0.5em>
 	<a href='index.php'>Pàgina principal</a>
@@ -59,8 +52,7 @@
 
 <!-- PROXIM ESDEVENIMENT -->
 <div style="padding:0.5em;background-color:gold">
-	<?php echo "<b> Pròxim torneig ($nomProximTorneig):</b> $dataProximTorneig | "; ?>
-	<b><span id=comptador_dies> Falta: calculant... </span></b>
+	<?php echo "<b> Pròxim torneig ($nomProximTorneig):</b> $dataProximTorneig "; ?>
 </div> 
 
 <?php include 'menuAdmin.php'; ?>

@@ -22,6 +22,8 @@
 	}
 ?>
 
+<?php include'header_sessio.php'?>
+<div style=background:#ccc>
 <table><tr>
 	<?php 
 		creaLink('index.php',		'<img width=15 src=img/home.svg> Pàgina principal');
@@ -33,3 +35,4 @@
 		creaLink('contacte.php',	'<img width=15 src=img/contacte.png> Contacte');
 	?>
 </table>
+</div>

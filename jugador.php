@@ -25,7 +25,6 @@
 		}
 	</script>
 </head><body><center>
-<?php include 'header_sessio.php' ?>
 <?php include 'cover.php' ?>
 <?php include 'menu.php' ?>
 <?php
@@ -42,7 +41,7 @@
 	if(!isset($_COOKIE['jugador']))
 	{
 		echo "<div style='border:1px solid #ccc;max-width:50%;font-size:11px'>
-			<form action=login_jugador.php method=get>
+			<form action=controller/login_jugador.php method=get>
 				<input name=pass type=password placeholder=Contrasenya size=10 maxlength=10> 
 				<input name=id value=$id hidden>
 				 <button>Inicia Sessió</button>
@@ -116,78 +115,11 @@
 <br>
 
 <!--LLISTA DE CARTES EN VENTA-->
-<table>
-	<tr><th 
-		<?php 
-			if($_COOKIE['jugador']==$id || isset($_COOKIE['admin']) )
-			     echo "colspan=5";
-			else echo "colspan=4";
-		?>
-	>Cartes en venta 
-	(<?php
-		//compta el nombre de cartes en venta
-		echo mysql_num_rows(mysql_query("SELECT 1 FROM ofertes WHERE id_jugador=$id"));
-	?>)
-
-	&nbsp;&nbsp;&nbsp;&nbsp;
-
-	<button onclick="window.location='album.php?id=<?php echo $id ?>'"
-		style="background-color:#af0;padding:1em"
-		>Veure Àlbum Visual</button>
-
-	<tr><th>Carta<th>Quantitat<th>Foil<th>Preu
-		<?php 
-			if($_COOKIE['jugador']==$id || isset($_COOKIE['admin']) ) echo "<th>Opcions";
-		?>
-	<?php
-		$sql="SELECT * FROM ofertes WHERE id_jugador=$id ORDER BY carta ASC,preu ASC";
-		$res=mysql_query($sql);
-		while($row=mysql_fetch_array($res))
-		{
-			$id_oferta=$row['id'];
-			$carta=mysql_real_escape_string($row['carta']);
-			$quantitat=$row['quantitat'];
-			$foil=$row['foil']? "Sí" : "<span style=color:#ccc>No</span>";
-			$preu=$row['preu'];
-			echo "<tr>";
-			echo "<td><a
-				onmousemove=\"mostraCover('$carta',event)\"
-				onmouseout=amagaCover()
-				>".str_replace('\\','',$carta)."</a>";
-			echo "<td align=center>$quantitat";
-			echo "<td align=center>$foil";
-			echo "<td align=center>$preu €";
-			if($_COOKIE['jugador']==$id || isset($_COOKIE['admin']) )
-			{
-				echo "<td>";
-				if($quantitat>  0) echo "<button onclick=window.location='controller/modificaOfertaResta1.php?id=$id_oferta'>-1</button> ";
-				if($quantitat<=10) echo "<button onclick=window.location='controller/modificaOfertaSuma1.php?id=$id_oferta'>+1</button> ";
-				echo "<button onclick=if(confirm('Continuar?')){window.location='controller/esborraOferta.php?id=$id_oferta'}>Esborra</button>";
-			}
-		}
-		//NOVA CARTA EN VENTA FORMULARI
-		if($_COOKIE['jugador']==$id || isset($_COOKIE['admin']) )
-		{
-			echo "
-				<tr><td align=center>Afegir nova carta <br>(NOM EN ANGLÈS)
-				<form method=POST action='controller/novaOferta.php'>
-					<input name=carta 
-						placeholder='p.ex. Remand' 
-						required 
-						autocomplete=off 
-						maxlength=50
-						size=13>
-					<td align=center><select name=quantitat>
-						<option>1 <option>2 <option>3 <option>4 <option>5 <option>6 <option>7 <option>8 <option>9 <option>10
-					</select>
-					<td align=center><input name=foil type=checkbox>
-					<td><input name=preu size=3 placeholder='preu' required autocomplete=off> €
-					<td align=center><input name=id_jugador value=$id style=display:none>
-					<button type=submit>Guarda</button>
-				</form>";
-		}
-	?>
-</table>
+<button 
+	onclick="window.location='album.php?id=<?php echo $id ?>'"
+	style="background-color:#af0;padding:1em"
+	>Veure Àlbum de cartes en venda
+</button>
 
 <?php
 //Boto esborrar jugador admin
@@ -198,5 +130,3 @@ if(isset($_COOKIE['admin']))
 		>Esborrar Jugador
 		</button>";
 ?>
-
-<br><a href="javascript:infoVenta()">Informació</a>

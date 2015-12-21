@@ -5,7 +5,6 @@
 	<link rel=stylesheet type="text/css" href="estils.css" />
 	<title>Lliga Osonenca de Modern - Bases</title>
 </head><body><center>
-<?php include 'header_sessio.php' ?>
 <?php include 'menu.php' ?>
 <h2>Bases — Normes de la lliga</h2>
 <div style=max-width:65% align=left>

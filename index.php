@@ -2,6 +2,19 @@
 	// PÀGINA PRINCIPAL
 	include 'mysql.php';
 	include 'dataProximTorneig.php';
+	function comptaPot()
+	{
+		$pot=0; //euros
+		$res=mysql_query("SELECT * FROM esdeveniments");
+		while($row=mysql_fetch_array($res))
+		{
+			$id_esdeveniment=$row['id'];
+			$sql="SELECT COUNT(id) FROM resultats WHERE id_esdeveniment=$id_esdeveniment";
+			$participants=current(mysql_fetch_array(mysql_query($sql)));
+			$pot+=2*$participants;
+		}
+		return $pot;
+	}
 ?>
 <!doctype html><html><head>
 	<meta charset=utf-8>
@@ -66,9 +79,6 @@
 		function init()
 		//es crida a body onload
 		{
-			//comença a comptar cada segon
-			setInterval(function(){compta()},1000)
-
 			//ordena la taula de puntuació
 			ordena('taula')
 
@@ -78,28 +88,27 @@
 		}
 	</script>
 </head><body onload=init()><center>
-<?php include 'header_sessio.php' ?>
 <?php include 'menu.php' ?>
+<!-- PROXIM ESDEVENIMENT -->
+<div style="padding:0.8em;background-color:gold">
+	<?php 
+		echo "<b> Pròxim torneig: $nomProximTorneig: </b>";
+		//compta el numero de jugadors apuntats
+		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
+		echo "$dataProximTorneig | ";
+		echo "<a href=assistents.php>Jugadors inscrits ($assistents)</a>";
+	?>
+</div> 
+<!-- MENU ADMIN --> <?php include 'menuAdmin.php' ?>
 
 <!--LOGO-->
 <h2 onclick="window.location.reload()" style="cursor:pointer">
 Lliga Osonenca de Modern — Pàgina Principal
 </h2>
 
-<!-- PROXIM ESDEVENIMENT -->
-<div style="padding:0.8em;background-color:gold">
-	<?php echo "<b> Pròxim torneig: $nomProximTorneig:</b>"; ?> 
-	<?php
-		//compta el numero de jugadors apuntats
-		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
-		echo "$dataProximTorneig | ";
-		echo "<a href=assistents.php>Jugadors inscrits ($assistents)</a>";
-	?> |
-	<b><span id=comptador_dies> Falta: calculant... </span></b>
-</div> 
-
-<!-- MENU ADMIN -->
-<?php include 'menuAdmin.php' ?>
+<!--pot acumulat per la final--> <div>
+Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b>
+</div>
 
 <!-- CLASSIFICACIÓ -->
 <div style=margin-bottom:0;padding:0.5em><b>
@@ -157,7 +166,7 @@ Lliga Osonenca de Modern — Pàgina Principal
 function login()
 {
 	var p=prompt('Contrasenya?')
-	if(p) window.location='login.php?pass='+p
+	if(p) window.location='controller/login.php?pass='+p
 }
 </script>
 <br><br><a href=# onclick=login()>Admin</a>

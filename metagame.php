@@ -56,7 +56,6 @@
 		}
 	</script>
 </head><body onload="ordena('metagame',1)"><center>
-<?php include 'header_sessio.php' ?>
 <?php include 'menu.php' ?>
 
 <h2>Metagame</h2>

@@ -25,7 +25,6 @@
 	</script>
 </head>
 <body onload=init()><center>
-<?php include 'header_sessio.php' ?>
 <?php include 'menu.php' ?>
 
 <!-- RESULTATS D'ESDEVENIMENTS -->
