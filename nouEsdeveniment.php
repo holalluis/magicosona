@@ -51,7 +51,7 @@
 		<?php
 			$sql="SELECT * FROM assistentsProximTorneig,jugadors WHERE jugadors.id=assistentsProximTorneig.id_jugador ORDER BY nom ";	
 			$res=mysql_query($sql);
-			while($row=mysql_fetch_array($res))
+			while($row=mysql_fetch_assoc($res))
 			{
 				echo "<tr>";
 				echo "<td>".$row['nom'];

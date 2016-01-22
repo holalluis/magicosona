@@ -15,7 +15,7 @@
 		if("/$url"==$_SERVER['PHP_SELF']) 
 			echo "<a href='$url' style='color:black;font-weight:normal'>$contingut</a>";
 		else
-			echo "<a href='$url'>$contingut</a>";
+			echo "<a href='$url' style=font-weight:normal>$contingut</a>";
 
 		//separa si el browser es mobil
 		if(isMobile()) echo "<tr>";
@@ -24,15 +24,14 @@
 
 <?php include'header_sessio.php'?>
 <div style=background:#ccc>
-<table><tr>
-	<?php 
-		creaLink('index.php',		'<img width=15 src=img/home.svg> Pàgina principal');
-		creaLink('bases.php',		'<img width=15 src=img/bases.png> Bases');
-		creaLink('compraVenta.php',	'<img width=15 src=img/mercadian.png> Compra-Venta');
-		creaLink('metagame.php',	'<img width=15 src=img/metagame.png> Metagame');
-		creaLink('jugadors.php',	'<img width=15 src=img/jugadors.png> Jugadors');
-		creaLink('fotos.php',		'<img width=15 src=img/fotos.png> Fotos');
-		creaLink('contacte.php',	'<img width=15 src=img/contacte.png> Contacte');
-	?>
-</table>
+	<table><tr>
+		<?php 
+			creaLink('index.php',		'<img width=15 src=img/home.svg> Pàgina principal');
+			creaLink('bases.php',		'<img width=15 src=img/bases.png> Bases');
+			creaLink('compraVenta.php',	'<img width=15 src=img/mercadian.png> Compra-Venta');
+			creaLink('metagame.php',	'<img width=15 src=img/metagame.png> Metagame');
+			creaLink('jugadors.php',	'<img width=15 src=img/jugadors.png> Jugadors');
+			creaLink('contacte.php',	'<img width=15 src=img/contacte.png> Contacte');
+		?>
+	</table>
 </div>

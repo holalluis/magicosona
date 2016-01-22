@@ -4,7 +4,7 @@
 	include 'mysql.php';
 	$sql="SELECT * FROM esdeveniments WHERE id=$id";
 	$res=mysql_query($sql);
-	$row=mysql_fetch_array($res);
+	$row=mysql_fetch_assoc($res);
 ?>
 <!doctype html><html><head>
 	<meta charset=utf-8>
@@ -33,7 +33,7 @@ Resultats:
 <?php
 	$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 	$res=mysql_query($sql);
-	while($roww=mysql_fetch_array($res))
+	while($roww=mysql_fetch_assoc($res))
 		echo "<a href=esdeveniment.php?id=".$roww['id'].">".$roww['nom']."</a> | ";
 ?>
 </div>
@@ -65,7 +65,7 @@ Resultats del Torneig "<?php echo $row['nom']."\" ($nombreAssistents jugadors)" 
 			ORDER BY punts DESC";
 		$res=mysql_query($sql);
 		$i=1;
-		while($row=mysql_fetch_array($res))
+		while($row=mysql_fetch_assoc($res))
 		{
 			$jugador=$row['jugador'];
 			$id_jugador=$row['id_jugador'];
@@ -79,7 +79,7 @@ Resultats del Torneig "<?php echo $row['nom']."\" ($nombreAssistents jugadors)" 
 			echo "<td>";
 			if($id_baralla>0)
 			{
-				$roww=mysql_fetch_array(mysql_query("SELECT nom FROM baralles WHERE id=$id_baralla"));
+				$roww=mysql_fetch_assoc(mysql_query("SELECT nom FROM baralles WHERE id=$id_baralla"));
 				$baralla=$roww['nom'];
 				echo "$baralla";
 			}

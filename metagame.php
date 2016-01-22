@@ -67,7 +67,7 @@
 	$sql="SELECT DISTINCT baralla FROM resultats ORDER BY baralla";
 	$res=mysql_query($sql);
 	$i=0;
-	while($row=mysql_fetch_array($res))
+	while($row=mysql_fetch_assoc($res))
 	{
 		if($row['baralla']=='') continue;
 		$baralla[$i]=$row['baralla'];
@@ -80,12 +80,12 @@
 	{
 		$sql="SELECT COUNT(id) FROM resultats WHERE baralla='".$baralla[$i]."'";
 		$res=mysql_query($sql);
-		$row=mysql_fetch_array($res);
+		$row=mysql_fetch_assoc($res);
 		$numero=$row['COUNT(id)'];
 
 		$sql="SELECT nom FROM baralles WHERE id='".$baralla[$i]."'";
 		$res=mysql_query($sql);
-		$row=mysql_fetch_array($res);
+		$row=mysql_fetch_assoc($res);
 		$nom=$row['nom'];
 
 		echo "<tr><td>$nom<td>$numero";

@@ -5,7 +5,7 @@
 	$id=$_GET['id'];
 	include 'mysql.php';
 	$res=mysql_query("SELECT nom,mkm FROM jugadors WHERE id=$id");
-	$row=mysql_fetch_array($res);
+	$row=mysql_fetch_assoc($res);
 	$jugador->nom=$row['nom'];
 	$jugador->mkm=$row['mkm'];
 ?>

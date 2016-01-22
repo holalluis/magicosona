@@ -6,11 +6,11 @@
 	{
 		$pot=0; //euros
 		$res=mysql_query("SELECT * FROM esdeveniments");
-		while($row=mysql_fetch_array($res))
+		while($row=mysql_fetch_assoc($res))
 		{
 			$id_esdeveniment=$row['id'];
 			$sql="SELECT COUNT(id) FROM resultats WHERE id_esdeveniment=$id_esdeveniment";
-			$participants=current(mysql_fetch_array(mysql_query($sql)));
+			$participants=current(mysql_fetch_assoc(mysql_query($sql)));
 			$pot+=2*$participants;
 		}
 		return $pot;
@@ -20,7 +20,7 @@
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 	<link rel=stylesheet type="text/css" href="estils.css" />
-	<title>Lliga Osonenca de Modern - Pàgina Principal</title>
+	<title>Magic Osona - Pàgina Principal</title>
 	<?php include 'compteEnrere.php' ?>
 	<script>
 		function nouAssistent()
@@ -80,7 +80,7 @@
 		//es crida a body onload
 		{
 			//ordena la taula de puntuació
-			ordena('taula')
+			ordena('taula');
 
 			//posa els 16 primers en color daurat
 			for(var i=0;i<16;i++)
@@ -99,21 +99,17 @@
 		echo "<a href=assistents.php>Jugadors inscrits ($assistents)</a>";
 	?>
 </div> 
-<!-- MENU ADMIN --> <?php include 'menuAdmin.php' ?>
 
+<!--MENU ADMIN--> <?php include 'menuAdmin.php' ?>
 <!--LOGO-->
 <h2 onclick="window.location.reload()" style="cursor:pointer">
-Lliga Osonenca de Modern — Pàgina Principal
+	Magic Osona Lliga 2016 — Pàgina Principal
 </h2>
 
-<!--pot acumulat per la final--> <div>
-Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b>
+<!--CLASSIFICACIÓ-->
+<div style=margin-bottom:0;padding:0.5em>
+<b> CLASSIFICACIÓ </b> - Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
 </div>
-
-<!-- CLASSIFICACIÓ -->
-<div style=margin-bottom:0;padding:0.5em><b>
-	CLASSIFICACIÓ GENERAL
-</b></div>
 
 <table cellpadding=5 id=taula>
 	<tr><th>Top<th>Jugador
@@ -121,7 +117,7 @@ Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b>
 		// Llista d'esdeveniments
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 		$res=mysql_query($sql);
-		while($row=mysql_fetch_array($res))
+		while($row=mysql_fetch_assoc($res))
 		{
 			$id=$row['id'];
 			$nom=$row['nom'];
@@ -134,7 +130,7 @@ Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b>
 		$sql="SELECT * FROM jugadors";
 		$res=mysql_query($sql);
 		$i=1;
-		while($row=mysql_fetch_array($res))
+		while($row=mysql_fetch_assoc($res))
 		{
 			//comprova quants punts han fet a cada esdeveniment
 			$total_punts=0;
@@ -143,17 +139,15 @@ Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b>
 				<td><a href=jugador.php?id=".$row['id'].">".$row['nom']."</a>";
 			$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 			$ress=mysql_query($sql);
-			while($roww=mysql_fetch_array($ress))
+			while($roww=mysql_fetch_assoc($ress))
 			{
 				echo "<td align=center>";
 				//per cada esdeveniment troba els resultats de cada jugador
 				$sql="SELECT * FROM resultats WHERE id_jugador=".$row['id']." AND id_esdeveniment=".$roww['id'];
 				$resss=mysql_query($sql);
-				while($rowww=mysql_fetch_array($resss))
+				while($rowww=mysql_fetch_assoc($resss))
 				{
-					if($rowww['punts']!=0)
-						echo $rowww['punts'];
-
+					if($rowww['punts']!=0){ echo $rowww['punts'];}
 					$total_punts+=$rowww['punts'];
 				}
 			}
@@ -170,4 +164,3 @@ function login()
 }
 </script>
 <br><br><a href=# onclick=login()>Admin</a>
-

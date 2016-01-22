@@ -20,7 +20,7 @@ Jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?
 	<?php
 		$sql="SELECT * FROM jugadors ORDER BY nom";
 		$res=mysql_query($sql);
-		while($row=mysql_fetch_array($res))
+		while($row=mysql_fetch_assoc($res))
 		{
 			$id=$row['id'];
 			$nom=$row['nom'];
@@ -29,7 +29,7 @@ Jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?
 			$sql="SELECT punts FROM resultats WHERE id_jugador=$id";
 			$ress=mysql_query($sql) or die('error');
 			$punts=0;
-			while($roww=mysql_fetch_array($ress))
+			while($roww=mysql_fetch_assoc($ress))
 				$punts+=$roww['punts'];
 			echo "<td align=center>$punts";
 		}

@@ -60,7 +60,7 @@
 <table cellpadding=1 id=taula>
 	<?php
 		$i=1;
-		while($row=mysql_fetch_array($result))
+		while($row=mysql_fetch_assoc($result))
 		{
 			$nom=$row['nom'];
 			$id=$row['id'];

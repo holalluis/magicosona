@@ -30,7 +30,7 @@
 <?php
 	$sql="SELECT * FROM jugadors WHERE id=$id";
 	$res=mysql_query($sql);
-	$row=mysql_fetch_array($res);
+	$row=mysql_fetch_assoc($res);
 ?>
 
 <!--TITOL-->
@@ -60,12 +60,12 @@
 		$punts_totals=0;
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 		$res=mysql_query($sql);
-		while($row=mysql_fetch_array($res))
+		while($row=mysql_fetch_assoc($res))
 		{
 			$esd=$row['id'];
 			$sql="SELECT * FROM resultats WHERE id_esdeveniment=$esd AND id_jugador=$id";
 			$ress=mysql_query($sql);
-			$roww=mysql_fetch_array($ress);
+			$roww=mysql_fetch_assoc($ress);
 			$punts=$roww['punts'];
 			$punts_totals+=$punts;
 			if($punts=='')
@@ -85,7 +85,7 @@
 					echo "	<option>--SELECCIONA--";
 					$sql="SELECT * FROM baralles ORDER BY nom";
 					$resss=mysql_query($sql) or die('error');
-					while($rowww=mysql_fetch_array($resss))
+					while($rowww=mysql_fetch_assoc($resss))
 					{
 						echo "<option value=".$rowww['id'].">".$rowww['nom'];
 					}
@@ -96,7 +96,7 @@
 					if($baralla>0)
 					{
 						$resss=mysql_query("SELECT nom FROM baralles WHERE id=$baralla");
-						$nomBaralla=mysql_fetch_array($resss);
+						$nomBaralla=mysql_fetch_assoc($resss);
 						echo $nomBaralla['nom'];
 						//boto esborra baralla
 						if($_COOKIE['jugador']==$id || isset($_COOKIE['admin']) )

@@ -26,7 +26,7 @@
 				(SELECT 1 FROM assistentsProximTorneig WHERE assistentsProximTorneig.id_jugador = jugadors.id) 
 			ORDER BY jugadors.nom";
 		$res=mysql_query($sql);
-		while($row=mysql_fetch_array($res))
+		while($row=mysql_fetch_assoc($res))
 		{
 			$id=$row['id'];
 			$nom=$row['nom'];

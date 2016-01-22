@@ -53,7 +53,7 @@
 		$sql="SELECT * FROM baralles ORDER BY nom";
 		$res=mysql_query($sql);
 		$i=1;
-		while($row=mysql_fetch_array($res))
+		while($row=mysql_fetch_assoc($res))
 		{
 			$id=$row['id'];
 			$nom=$row['nom'];
