@@ -16,7 +16,7 @@
 	{
 		setcookie('jugador',$id, time()+86400,'/') or exit("error setting cookie");
 		echo "Contrasenya correcta<br>";
-		header("Location: jugador.php?id=$id");
+		header("location: ../jugador.php?id=$id");
 	}
 	else
 	{

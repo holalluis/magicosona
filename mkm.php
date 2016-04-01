@@ -6,6 +6,8 @@
 	$accessToken    = "82QknOtVb57k9IEERVJHEig337GM5t3m";
 	$accessSecret   = "cSNjy850YUlEoWvjUMEXe53ak86MAbSO";
 
+	$url="$api/user/holalluis";
+
 	/** Authenticate and retrieve stock */
 	function mkmapi($url)
 	{

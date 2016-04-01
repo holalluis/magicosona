@@ -12,7 +12,7 @@
 		$nom=$roww['nom'];
 		echo "Sessió iniciada com a 
 			<a style=color:white href=jugador.php?id=".$_COOKIE['jugador'].">$nom</a>";
-		echo " | <button onclick=window.location='controller/logout_jugador.php'>Finalitza sessió</button>";
+		echo " | <button onclick=window.location='controller/logout.php'>Finalitza sessió</button>";
 	}
 	else
 	{

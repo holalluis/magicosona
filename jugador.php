@@ -1,11 +1,12 @@
 <?php
-	$id=$_GET['id'];
 	include 'mysql.php';
+
+	$id=$_GET['id'];
 ?>
 <!doctype html><html><head>
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
+	<link rel=stylesheet href="estils.css">
 	<title>Pàgina de perfil</title>
 	<script>
 		function esborrar()
@@ -19,13 +20,8 @@
 			var url="controller/setejaBaralla.php?id="+id_resultat+"&baralla="+encodeURI(baralla)
 			window.location=url;
 		}
-		function infoVenta()
-		{
-			alert("És responsabilitat de cada jugador de contactar amb els altres jugadors per fer compra-venta de cartes. El Totoptero Team no ens fem responsables del preu ni la disponibilitat de les cartes que els jugadors llistin dins la web.")
-		}
 	</script>
 </head><body><center>
-<?php include 'cover.php' ?>
 <?php include 'menu.php' ?>
 <?php
 	$sql="SELECT * FROM jugadors WHERE id=$id";
@@ -40,18 +36,35 @@
 	//avis de sessio no iniciada
 	if(!isset($_COOKIE['jugador']))
 	{
-		echo "<div style='border:1px solid #ccc;max-width:50%;font-size:11px'>
+		echo "<div style='max-width:50%;font-size:11px;margin-bottom:1em'>
 			<form action=controller/login_jugador.php method=get>
-				<input name=pass type=password placeholder=Contrasenya size=10 maxlength=10> 
+				<input name=pass type=password placeholder=Contrasenya size=12 maxlength=10> 
 				<input name=id value=$id hidden>
 				 <button>Inicia Sessió</button>
-				Per saber la teva contrasenya contacta amb en Lluís pel Whatsapp
+				(Per saber la teva contrasenya contacta amb en Lluís pel Whatsapp)
 			</form>
 		</div>";
 	}
 ?>
 
-<br>
+<!--LLISTA DE CARTES EN VENTA-->
+<?php
+	echo "<div style=margin:1em>";
+	if($row['mkm']!="")
+	{ 
+		?>
+			<button style="background-color:#af0;padding:1em"
+				onclick="window.location='album.php?id=<?php echo $id ?>'"
+				>Veure cartes en venda
+			</button>
+		<?php	
+	}
+	else
+	{
+		echo "No té usuari de Magiccardmarket associat";
+	}
+	echo "</div>";
+?>
 
 <!--PUNTS DEL JUGADOR A CADA TORNEIG-->
 <table cellpadding=5>
@@ -108,18 +121,9 @@
 				$participacions++;
 			}
 		}
-		echo "<tr><th>TOTAL<td colspan=1 align=center><b>$punts_totals punts</b> <td>(".round($punts_totals/$participacions,1)." punts/torneig)";
+		echo "<tr><th>TOTAL<td colspan=2 align=center><b>$punts_totals punts</b> (".round($punts_totals/$participacions,1)." punts/torneig)";
 	?>
 </table>
-
-<br>
-
-<!--LLISTA DE CARTES EN VENTA-->
-<button 
-	onclick="window.location='album.php?id=<?php echo $id ?>'"
-	style="background-color:#af0;padding:1em"
-	>Veure Àlbum de cartes en venda
-</button>
 
 <?php
 //Boto esborrar jugador admin

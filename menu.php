@@ -28,9 +28,9 @@
 		<?php 
 			creaLink('index.php',		'<img width=15 src=img/home.svg> Pàgina principal');
 			creaLink('bases.php',		'<img width=15 src=img/bases.png> Bases');
+			creaLink('jugadors.php',	'<img width=15 src=img/jugadors.png> Jugadors');
 			creaLink('compraVenta.php',	'<img width=15 src=img/mercadian.png> Compra-Venta');
 			creaLink('metagame.php',	'<img width=15 src=img/metagame.png> Metagame');
-			creaLink('jugadors.php',	'<img width=15 src=img/jugadors.png> Jugadors');
 			creaLink('contacte.php',	'<img width=15 src=img/contacte.png> Contacte');
 		?>
 	</table>

@@ -3,25 +3,33 @@
 
 	include 'mysql.php';
 	include 'dataProximTorneig.php';
+	$ass = isset($_GET['ass']) ? $_GET['ass'] : "si";
 
 	//compta el total de jugadors a la lliga
 	$sql="SELECT 1 FROM jugadors";
 	$result=mysql_query($sql) or die('error');
 	$total=mysql_num_rows($result);
 
-	//request: jugadors apuntats al proxim torneig
-	$sql="SELECT * FROM assistentsProximTorneig,jugadors WHERE id_jugador=jugadors.id ORDER BY jugadors.nom";	
-	$result=mysql_query($sql) or die('error al request');
-
-	//calcula el nombre de jugadors apuntats
+	if($ass=="si")
+	{
+		//request SI
+		$sql="SELECT * FROM assistentsProximTorneig,jugadors WHERE id_jugador=jugadors.id ORDER BY jugadors.nom";	
+	}
+	else
+	{
+		//request NO
+		$sql="SELECT * FROM jugadors 
+			WHERE NOT EXISTS (SELECT 1 FROM assistentsProximTorneig WHERE assistentsProximTorneig.id_jugador = jugadors.id)
+			ORDER BY nom ASC";
+	}
+	$result=mysql_query($sql) or die('error');
 	$n=mysql_num_rows($result);
 ?>
-<!doctype html> <html> <head>
+<!doctype html><html><head>
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
+	<link rel=stylesheet href="estils.css">
 	<title>Assistents Pròxim Torneig</title>
-	<?php include 'compteEnrere.php' ?>
 	<script>
 		function llistaWA()
 		//confirm per fer copiar pegar
@@ -73,25 +81,24 @@
 <body><center>
 
 <div style=padding:0.5em>
-	<a href='index.php'>Pàgina principal</a>
-	|
-	Jugadors inscrits
-	|
-	<a href='assistents_NO.php'>Jugadors NO inscrits</a>
+	<a href='index.php'>Pàgina principal</a> |
+	<?php
+		if($ass=="si")
+			echo "<a href=assistents.php?ass=no>Llista NO inscrits</a>";
+		else
+			echo "<a href=assistents.php?ass=si>Llista inscrits</a>";
+	?>
 </div>
 
-<h2>Jugadors inscrits al pròxim torneig</h2>
+<h2>Jugadors <?php if($ass=="no") echo "NO" ?> inscrits al pròxim torneig</h2>
 <h4>
-	Hi ha <?php echo $n."/".$total ?> jugadors inscrits.
+	<?php echo $n."/".$total ?> jugadors <?php if($ass=="no") echo "NO" ?> inscrits
+	<br>
 	<b>Inscripcions</b>: Whatsapp (grup "Magic Osona") o <a href=mailto:holalluis@gmail.com>holalluis@gmail.com</a>
 </h4>
 
-<!-- PROXIM ESDEVENIMENT -->
-<div style="padding:0.5em;background-color:gold">
-	<?php echo "<b> Pròxim torneig ($nomProximTorneig):</b> $dataProximTorneig"; ?>
-</div> 
-
-<?php include 'menuAdmin.php'; ?>
+<!--PROXIM ESDEVENIMENT--><div style="padding:0.5em;background-color:gold"> <?php echo "<b> Pròxim torneig ($nomProximTorneig):</b> $dataProximTorneig"; ?> </div> 
+<?php include 'menuAdmin.php'?>
 
 <table cellpadding=1 id=taula>
 	<?php
@@ -102,7 +109,7 @@
 			$id=$row['id'];
 			echo "<tr><td>$i<td><a href=jugador.php?id=$id>$nom</a>";
 
-			if(isset($_COOKIE['admin']))
+			if($ass=="si" && isset($_COOKIE['admin']))
 				echo "<td><button onclick=eliminaAssistent($id)>Elimina</button>";
 
 			$i++;

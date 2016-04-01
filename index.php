@@ -11,7 +11,7 @@
 			$id_esdeveniment=$row['id'];
 			$sql="SELECT COUNT(id) FROM resultats WHERE id_esdeveniment=$id_esdeveniment";
 			$participants=current(mysql_fetch_assoc(mysql_query($sql)));
-			$pot+=2*$participants;
+			$pot+=2*$participants; //2 euros per participant
 		}
 		return $pot;
 	}
@@ -19,9 +19,8 @@
 <!doctype html><html><head>
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-	<link rel=stylesheet type="text/css" href="estils.css" />
+	<link rel=stylesheet href="estils.css">
 	<title>Magic Osona - Pàgina Principal</title>
-	<?php include 'compteEnrere.php' ?>
 	<script>
 		function nouAssistent()
 		//posa un nou jugador a la llista d'assistents al proxim torneig
@@ -89,6 +88,7 @@
 	</script>
 </head><body onload=init()><center>
 <?php include 'menu.php' ?>
+
 <!-- PROXIM ESDEVENIMENT -->
 <div style="padding:0.8em;background-color:gold">
 	<?php 
@@ -96,7 +96,7 @@
 		//compta el numero de jugadors apuntats
 		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
 		echo "$dataProximTorneig | ";
-		echo "<a href=assistents.php>Jugadors inscrits ($assistents)</a>";
+		echo "<a href=assistents.php>Llista inscrits ($assistents)</a>";
 	?>
 </div> 
 
@@ -108,7 +108,7 @@
 
 <!--CLASSIFICACIÓ-->
 <div style=margin-bottom:0;padding:0.5em>
-<b> CLASSIFICACIÓ </b> - Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
+<b> CLASSIFICACIÓ </b> — Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
 </div>
 
 <table cellpadding=5 id=taula>

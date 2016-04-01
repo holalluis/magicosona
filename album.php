@@ -17,17 +17,13 @@
 </head><body><center>
 <?php include 'menu.php' ?>
 
-<!--TITOL--><h2>Àlbum Visual - <?php echo $nomJugador ?></h2>
+<!--TITOL--><h2>Magic Card Market - <?php echo $jugador->nom ?></h2>
 
 <div>
 	<?php 
-		if($jugador->mkm=="")die('No té usuari de mkm');
-
-		include'mkm.php';
-		$url="$api/user/$jugador->mkm";
-		$url="$api/user/holalluis";
-		$a=mkmapi($url);
-		echo $a;
+		if($jugador->mkm=="")die('El jugador no té compte de magiccardmarket');
 	?>
+	<iframe style="width:95%;height:50em" src="https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $jugador->mkm?>">
+	</iframe>
 </div>
 
