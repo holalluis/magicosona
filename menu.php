@@ -13,12 +13,10 @@
 	{
 		echo "<td onclick=window.location='$url' class=nav>";
 		if("/$url"==$_SERVER['PHP_SELF']) 
-			echo "<a href='$url' style='color:black;font-weight:normal'>$contingut</a>";
+			echo "<a href='$url' style='color:black;font-weight:normal;text-decoration:underline'>$contingut</a>";
 		else
 			echo "<a href='$url' style=font-weight:normal>$contingut</a>";
 
-		//separa si el browser es mobil
-		if(isMobile()) echo "<tr>";
 	}
 ?>
 
@@ -29,6 +27,8 @@
 			creaLink('index.php',		'<img width=15 src=img/home.svg> Pàgina principal');
 			creaLink('bases.php',		'<img width=15 src=img/bases.png> Bases');
 			creaLink('jugadors.php',	'<img width=15 src=img/jugadors.png> Jugadors');
+			//separa si el browser es mobil
+			if(isMobile()) echo "<tr>";
 			creaLink('compraVenta.php',	'<img width=15 src=img/mercadian.png> Compra-Venta');
 			creaLink('metagame.php',	'<img width=15 src=img/metagame.png> Metagame');
 			creaLink('contacte.php',	'<img width=15 src=img/contacte.png> Contacte');

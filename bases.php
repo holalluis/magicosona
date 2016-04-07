@@ -7,28 +7,28 @@
 </head><body><center>
 <?php include 'menu.php' ?>
 <h2>Bases — Normes de la lliga</h2>
-<div style=max-width:65% align=left>
+<div style=min-width:65%;max-width:95% align=left>
 <p>
-	El <b>Totoptero Team 61</b> presenta la <b>Lliga Osonenca de Modern 2015</b>: 
+	El <b>Totoptero Team 61</b> presenta la <b>Lliga de Modern</b>: 
 	<br>
 	<ul>
 		<li><b>Informació general</b>:
 			<ul>
+				<li>L'entrada està oberta a tothom
 				<li>El format és <a href="http://magic.wizards.com/en/gameinfo/gameplay/formats/modern">Modern</a>.
-				<li>Ubicació: C/Arquebisbe Alemany 24-26. Vic. (Billars Vic)
+				<li>Local: C/Arquebisbe Alemany 24-26. Vic. (Billars Vic)
 				<li>Quan: Penúltim o últim diumenge de cada mes.
 				<li>Inscripcions: 9:00h — 10:00h.
 				<li>Inici del torneig: 10:00h 
 				<li>Preu: 7€. 5€ van pels premis del mateix dia, i 2€ s'acumulen pels premis de la final.
-				<li>L'entrada està oberta a tothom
-				<li>Es faran uns 5 – 6 esdeveniments, més un altre addicional que serà la gran final. 
-				<li>És obligat portar la llista de la baralla jugada (nom, nom de la baralla, cartes de la baralla d’inici i de banqueta).
+				<li>Es faran uns 5 – 6 esdeveniments, més una final. 
+				<li>És obligatori portar la llista de la baralla jugada (nom jugador, nom de la baralla, cartes de la baralla d’inici i de banqueta).
 			</ul>
 			<hr>
 		<br>
 		<li><b>Rondes</b>:
 			<ul>
-				<li>Cada torneig consistirà en rondes de suís + top8.
+				<li>Cada torneig consistirà de dues parts: suís i top 8.
 				<li>Suís: es faran 4, 5 ò 6 rondes de suís amb una duració de 45 minuts cadascuna. 
 				El número de rondes es farà segons el nombre de participants.
 				<li>Quan s’acabi el temps de ronda, es deixarà als jugadors 5 torns més per acabar la partida. 
@@ -39,7 +39,7 @@
 		<li><b>Puntuació</b>:
 			<ul>
 				<li>Durant les rondes del suís, el guanyador rebrà 3 punts (el millor de 3 partides). 
-				En cas d’empat cada jugador obtindrà 1 punt, i en cas de derrota el jugador obtindrà 0 punts.
+				Empat: 1 punt, derrota: 0 punts.
 				<li>La puntuació que es rebrà per la lliga serà segons el punts acumulats durant el suís.
 				<li>Puntuació addicional:
 					<ul>
@@ -54,7 +54,7 @@
 		<br>
 		<li><b>Top 8</b>:
 			<ul>
-				<li>Un cop acabades les rondes de suís, els 8 jugadors amb més punts entraran dins del top 8, que es farà per eliminatòries, on no hi haurà límit de temps.
+				<li>Després de les rondes de suís, els 8 jugadors amb més punts entraran dins del top 8, que es farà per eliminatòries, on no hi haurà límit de temps.
 				<li>Els encreuaments es faran de la següent manera:
 					<ul>
 						<li>1r vs 8è
@@ -66,10 +66,10 @@
 			</ul>
 			<hr>
 		<br>
-		<li><b>La gran final</b>:
+		<li><b>La final</b>:
 			<ul>
-				<li>Un cop finalitzats tots els esdeveniments de la lliga, s’agafaran els 16 jugadors amb més puntuació acumulada per jugar la gran final.
-				<li>La gran final consistirà en 5 rondes de suís i top 8. S’aplicaran les mateixes normes explicades anteriorment.
+				<li>Un cop finalitzats tots els esdeveniments de la lliga, els 16 jugadors amb més puntuació estaran classificats per la final.
+				<li>La final consistirà en 5 rondes de suís i top 8. S’aplicaran les mateixes normes explicades anteriorment.
 			</ul>
 			<hr>
 		<br>
@@ -81,10 +81,5 @@
 				<li>3. El jugador que hagi assistit a més torneigs.
 			</ul>
 	</ul>
-
-	Gràcies per la vostra atenció.
-	<br><br>
-	<b>Totoptero Team 61</b>
-	<br><br>
 </p>
 </div>

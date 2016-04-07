@@ -86,33 +86,35 @@
 				document.getElementsByClassName('top')[i].style.backgroundColor='gold'
 		}
 	</script>
+	<style>
+		#taula th,#taula td {border-left:none;border-right:none}
+	</style>
 </head><body onload=init()><center>
 <?php include 'menu.php' ?>
 
 <!-- PROXIM ESDEVENIMENT -->
-<div style="padding:0.8em;background-color:gold">
+<div style="padding:0.5em;background-color:gold">
 	<?php 
-		echo "<b> Pròxim torneig: $nomProximTorneig: </b>";
 		//compta el numero de jugadors apuntats
 		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
-		echo "$dataProximTorneig | ";
-		echo "<a href=assistents.php>Llista inscrits ($assistents)</a>";
+		echo "
+			<b>Pròxim torneig: </b> $dataProximTorneig
+			<button onclick=window.location='assistents.php'>Veure inscrits ($assistents)</button>";
 	?>
 </div> 
 
 <!--MENU ADMIN--> <?php include 'menuAdmin.php' ?>
-<!--LOGO-->
-<h2 onclick="window.location.reload()" style="cursor:pointer">
-	Magic Osona Lliga 2016 — Pàgina Principal
-</h2>
 
-<!--CLASSIFICACIÓ-->
-<div style=margin-bottom:0;padding:0.5em>
-<b> CLASSIFICACIÓ </b> — Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
+<!--LOGO-->
+<div style=margin:0;padding:0.5em>
+	<img onclick="window.location.reload()" style="cursor:pointer;width:140px;" src=img/logo.png>
+	<div style=margin-top:0.5em> 
+		<b>Classificació Lliga 2016</b> | Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
+	</div>
 </div>
 
 <table cellpadding=5 id=taula>
-	<tr><th>Top<th>Jugador
+	<tr><th>#<th>Jugador
 	<?php
 		// Llista d'esdeveniments
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
@@ -156,6 +158,7 @@
 		}
 	?>
 </table>
+
 <script>
 function login()
 {

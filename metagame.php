@@ -87,8 +87,9 @@
 		$res=mysql_query($sql);
 		$row=mysql_fetch_assoc($res);
 		$nom=$row['nom'];
+		$id=$baralla[$i];
 
-		echo "<tr><td>$nom<td>$numero";
+		echo "<tr><td><a href=baralla.php?id=$id>$nom</a><td>$numero";
 	}
 ?>
 </table>

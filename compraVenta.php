@@ -4,15 +4,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 	<link rel=stylesheet href="estils.css">
 	<title>Lliga Osonenca de Modern - Compra Venta</title>
-	<script>
-		function init()
-		{
-			document.getElementById('q').focus()
-		}
-	</script>
 	<style> table{display:inline-block;vertical-align:top} </style>
 </head>
-<body onload=init()><center>
+<body><center>
 <?php include'menu.php'?>
 
 <!--TITOL--><h2 onclick=window.location='compraVenta.php' style="cursor:pointer"> Compra-Venta de Cartes </h2>
@@ -20,7 +14,7 @@
 <table>
 	<tr><th>Jugador<th>Cartes en venda
 	<?php
-		$sql="SELECT * FROM jugadors WHERE mkm!='' ";
+		$sql="SELECT * FROM jugadors WHERE mkm!='' ORDER BY nom ASC";
 		$result=mysql_query($sql) or die('error');
 		while($row=mysql_fetch_assoc($result))
 		{

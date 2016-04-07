@@ -1,0 +1,31 @@
+{
+	main:{
+		'Plains':14,
+		'Ghost Quarter':3,
+		'Emeria, the Sky Ruin':2,
+		'Soul Warden':4,
+		'Soul\'s Attendant':4,
+		'Serra Ascendant':4,
+		'Martyr of Sands':4,
+		'Ajani\'s Pridemate':4,
+		'Ranger of Eos':2,
+		'Felidar Sovereign':1,
+		'Path to Exile':4,
+		'Sundering Growth':1,
+		'Wrath of God':2,
+		'Proclamation of Rebirth':2,
+		'Ghostly Prison':3,
+		'Suppression Field':3,
+		'Spectral Procession':3,
+	},
+	side:{
+		'Honor of the Pure':2,
+		'Celestial Purge':2,
+		'Pithing Needle':2,
+		'Burrenton Forge-Tender':2,
+		'Rest in Peace':2,
+		'Sundering Growth':2,
+		'Hallowed Moonlight':1,
+		'Fiend Hunter':2,
+	}
+}

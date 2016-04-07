@@ -1,0 +1,30 @@
+{
+	main:{
+		"Cavern of Souls":4,
+		"Forest":9,
+		"Gilt-Leaf Palace":4,
+		"Swamp":1,
+		"Collected Company":4,
+		"Lead the Stampede":4,
+		"Craterhoof Behemoth":2,
+		"Dwynen's Elite":4,
+		"Elvish Archdruid":4,
+		"Elvish Mystic":4,
+		"Elvish Visionary":4,
+		"Ezuri, Renegade Leader":2,
+		"Heritage Druid":4,
+		"Llanowar Elves":4,
+		"Nettle Sentinel":4,
+		"Shaman of the Pack":3,
+	},
+	side:{
+		"Chord of Calling":3,
+		"Creeping Corrosion":2,
+		"Melira, Sylvok Outcast":2,
+		"Plummet":2,
+		"Reclamation Sage":1,
+		"The Great Aurora":1,
+		"Kitchen Finks":3,
+		"Viscera Seer":1,
+	}
+}

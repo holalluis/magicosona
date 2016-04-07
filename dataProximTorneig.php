@@ -1,9 +1,5 @@
 <?php
 
-//data: va dins un new Date(string) de javascript
-$dataProximTorneig="April 22, 2016 10:00:00";
-
-//nom proxim torneig
-$nomProximTorneig="Torneig 3";
+$dataProximTorneig="Dg 1 de Maig 2016, 10:00 <b style=color:red> &#9888; PROVISIONAL</b>";
 
 ?>

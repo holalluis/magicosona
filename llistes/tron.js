@@ -1,0 +1,33 @@
+{
+	main:{
+		'Urza\'s Mine':4,
+		'Urza\'s Power Plant':4,
+		'Urza\'s Tower':4,
+		'Forest':3,
+		'Ghost Quarter':2,
+		'Grove of the Burnwillows':3,
+		'Spellskite':1,
+		'Ulamog, the Ceaseless Hunger':2,
+		'Wurmcoil Engine':3,
+		'Explore':1,
+		'Sylvan Scrying':4,
+		'Ancient Stirrings':4,
+		'Pyroclasm':4,
+		'Ugin, the Spirit Dragon':2,
+		'Karn Liberated':4,
+		'Relic of Progenitus':1,
+		'Chromatic Star':3,
+		'Chromatic Sphere':4,
+		'Expedition Map':4,
+		'Oblivion Stone':3,
+	},
+	side:{
+		'Torpor Orb':1,
+		'Pithing Needle':2,
+		'Thragtusk':2,
+		'Nature\'s Claim':2,
+		'Crumble to Dust':2,
+		'Crucible of Worlds':2,
+		'Rending Volley':2,
+	}
+}

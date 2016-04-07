@@ -27,7 +27,7 @@
 	<tr><th>Nom	<td><input name=nom placeholder=Nom required> *
 	<tr><th>Mail	<td><input name=mail placeholder=Mail required> *
 	<tr><th>Missatge<td><textarea rows=4 cols=50 name=missatge required placeholder="Escriu el teu missatge"></textarea> *
-	<tr><th><td align=right><button>Enviar</button>
+	<tr><th><td><button>Enviar</button>
 </table>
 </form>
 (*: camp obligatori)

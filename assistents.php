@@ -79,28 +79,30 @@
 	</script>
 </head>
 <body><center>
+<?php include 'menu.php' ?>
 
-<div style=padding:0.5em>
-	<a href='index.php'>Pàgina principal</a> |
+<h3>
+	Jugadors <?php if($ass=="no") echo "NO" ?> inscrits al pròxim torneig
 	<?php
+		echo " ($n/$total) ";
+
 		if($ass=="si")
-			echo "<a href=assistents.php?ass=no>Llista NO inscrits</a>";
+			echo "<button onclick=window.location='assistents.php?ass=no'>Veure NO inscrits</a>";
 		else
-			echo "<a href=assistents.php?ass=si>Llista inscrits</a>";
+			echo "<button onclick=window.location='assistents.php?ass=si'>Veure inscrits</a>";
 	?>
-</div>
+</h3>
 
-<h2>Jugadors <?php if($ass=="no") echo "NO" ?> inscrits al pròxim torneig</h2>
-<h4>
-	<?php echo $n."/".$total ?> jugadors <?php if($ass=="no") echo "NO" ?> inscrits
+<!--PROXIM ESDEVENIMENT--><div style="padding:0.5em;background-color:gold"> 
+	<?php echo "<b>Pròxim torneig:</b> $dataProximTorneig"; ?> 
 	<br>
-	<b>Inscripcions</b>: Whatsapp (grup "Magic Osona") o <a href=mailto:holalluis@gmail.com>holalluis@gmail.com</a>
-</h4>
+	<b>Inscripcions</b>: Al grup de Whatsapp "Magic Osona Lliga"
+</div> 
 
-<!--PROXIM ESDEVENIMENT--><div style="padding:0.5em;background-color:gold"> <?php echo "<b> Pròxim torneig ($nomProximTorneig):</b> $dataProximTorneig"; ?> </div> 
 <?php include 'menuAdmin.php'?>
 
-<table cellpadding=1 id=taula>
+<!--inscrit-->
+<table cellpadding=1 id=taula style="margin:0.5em 0 0.5em 0">
 	<?php
 		$i=1;
 		while($row=mysql_fetch_assoc($result))

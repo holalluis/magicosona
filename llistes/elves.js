@@ -1,0 +1,30 @@
+{
+	main:{
+		'Forest':16,
+		'Elvish Champion':1,
+		'Ezuri, Renegade Leader':2,
+		'Reclamation Sage':2,
+		'Essence Warden':3,
+		'Bramblewood Paragon':3,
+		'Imperious Perfect':3,
+		'Elvish Mystic':3,
+		'Llanowar Elves':3,
+		'Elvish Archdruid':4,
+		'Arbor Elf':4,
+		'Joraga Warcaller':4,
+		'Coat of Arms':2,
+		'Lead the Stampede':2,
+		'Elvish Promenade':2,
+		'Collected Company':3,
+		'Utopia Sprawl':2,
+	},
+	side:{
+		'Reclamation Sage':2,
+		'Essence Warden':1,
+		'Bramblewood Paragon':1,
+		'Imperious Perfect':1,
+		'Fracturing Gust':2,
+		'Gaea\'s Herald':4,
+		'Avoid Fate':4,
+	}
+}
