@@ -7,7 +7,7 @@
 </head><body><center>
 <?php include 'menu.php' ?>
 
-<h2>Contacte</h2>
+<!--titol--><h2>Contacte</h2>
 
 <?php
 	//ENTRADA
@@ -22,17 +22,17 @@
 	}
 ?>
 
+<!--formulari-->
 <form method=POST>
-<table cellpadding=5>
-	<tr><th>Nom	<td><input name=nom placeholder=Nom required> *
-	<tr><th>Mail	<td><input name=mail placeholder=Mail required> *
-	<tr><th>Missatge<td><textarea rows=4 cols=50 name=missatge required placeholder="Escriu el teu missatge"></textarea> *
-	<tr><th><td><button>Enviar</button>
-</table>
+	<table cellpadding=5>
+		<tr><th>Nom	<td><input name=nom placeholder=Nom required> *
+		<tr><th>Mail	<td><input name=mail placeholder=Mail required> *
+		<tr><th>Missatge<td><textarea rows=4 cols=50 name=missatge required placeholder="Escriu el teu missatge"></textarea> *
+		<tr><th><td><button>Enviar</button>
+		<tr><td colspan=2>(*: camp obligatori)
+	</table>
 </form>
-(*: camp obligatori)
 
-</html>
 <script>
 	//focus a nom
 	document.getElementsByName('nom')[0].focus()
