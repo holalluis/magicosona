@@ -86,9 +86,6 @@
 				document.getElementsByClassName('top')[i].style.backgroundColor='gold'
 		}
 	</script>
-	<style>
-		#taula th,#taula td {border-left:none;border-right:none}
-	</style>
 </head><body onload=init()><center>
 <?php include 'menu.php' ?>
 
@@ -99,6 +96,7 @@
 		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
 		echo "
 			<b>Pròxim torneig: </b> $dataProximTorneig
+			&emsp;
 			<button onclick=window.location='assistents.php'>Veure inscrits ($assistents)</button>";
 	?>
 </div> 

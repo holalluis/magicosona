@@ -2,7 +2,7 @@
 	// MENU ADMINISTRADOR
 	if(isset($_COOKIE['admin']))
 	{
-		echo "<div style='padding:0.5em;background-color:#ccc;margin:1px'>";
+		echo "<div style='padding:0.5em;background-color:#ccc;'>";
 		echo "Menú Admin: ";
 
 		//nou jugador

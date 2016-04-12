@@ -10,9 +10,7 @@
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
 	<link rel=stylesheet type="text/css" href="estils.css" />
-	<style>
-		#taula th,#taula td {border-left:none;border-right:none}
-	</style>
+	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
 	<script>
 		function esborrar()
 		{

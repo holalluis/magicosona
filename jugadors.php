@@ -5,6 +5,7 @@
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
 	<link rel=stylesheet type="text/css" href="estils.css" />
+	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
 	<title>Lliga Osonenca de Modern - Jugadors</title>
 </head>
 <body><center>
@@ -15,7 +16,8 @@
 Jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?>)</a>
 </h2>
 
-<table>
+<!--jugadors-->
+<table id=taula>
 	<tr><th>Nom<th>Punts
 	<?php
 		$sql="SELECT * FROM jugadors ORDER BY nom";

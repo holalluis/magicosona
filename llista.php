@@ -36,6 +36,13 @@
 		{
 			var img=document.querySelector('#carta');
 			img.src="http://gatherer.wizards.com/Handlers/Image.ashx?type=card&name="+nom;
+			img.onclick=function(){window.open('http://magiccards.info/query?q='+nom)}
+
+			//mostra el boto buscar
+			var boto = document.querySelector('#buscar');
+			boto.style.display="block";
+			boto.innerHTML="Veure "+decodeURI(nom)+" en venda";
+			boto.onclick=function(){window.location='buscaCarta.php?carta='+nom}
 		}
 
 		function comptaBaralla(llista)
@@ -64,6 +71,8 @@
 		<a href=esdeveniment.php?id=$resultat->id_esdeveniment>$esdeveniment</a> &rsaquo;
 		$baralla, <a href=jugador.php?id=$resultat->id_jugador>$jugador</a> 
 		<span style=font-size:14px>($punts punts)</span>
+		&emsp;
+		<button onclick=\"window.location='baralla.php?id=$resultat->baralla'\">Veure més baralles $baralla</button>
 	</h3>";
 
 	/* $llista="
@@ -114,9 +123,11 @@
 	</script>
 </div>
 
-<!--carta visible--> <img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="width:200px;margin:0.2em"> </div>
+<!--carta visible--><div class=inline> 
+	<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="width:200px;margin:0.2em"> 
+	<button id=buscar style=display:none;margin:0.5em>Busca</button>
+</div>
 
-<!--veure més baralles--><br><button style="margin:1em" onclick="<?php echo "window.location='baralla.php?id=$resultat->baralla'"?>">Veure més baralles <?php echo $baralla?></button>
 
 <script>
 	for(var nom in llista.main)	

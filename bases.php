@@ -16,7 +16,7 @@
 			<ul>
 				<li>L'entrada està oberta a tothom
 				<li>El format és <a href="http://magic.wizards.com/en/gameinfo/gameplay/formats/modern">Modern</a>.
-				<li>Local: C/Arquebisbe Alemany 24-26. Vic. (Billars Vic)
+				<li>Ubicació: Club Billar Vic, <a href="https://www.google.es/maps/place/Carrer+de+l'Arquebisbe+Alemany,+24,+08500+Vic,+Barcelona/@41.9319626,2.2490315,17z/data=!3m1!4b1!4m2!3m1!1s0x12a5271b7b0f0561:0x9d4451d075aba9b1">C/Arquebisbe Alemany 24-26, Vic</a>
 				<li>Quan: Penúltim o últim diumenge de cada mes.
 				<li>Inscripcions: 9:00h — 10:00h.
 				<li>Inici del torneig: 10:00h 

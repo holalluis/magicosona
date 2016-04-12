@@ -24,6 +24,20 @@
 </head><body><center>
 <?php include 'menu.php' ?>
 <?php
+	//avis de sessio no iniciada
+	if(!isset($_COOKIE['jugador']))
+	{
+		echo "<div style='padding:1em;font-size:11px;background:#395693;color:white'>
+			<form action=controller/login_jugador.php method=get>
+				<input name=id value=$id hidden>
+				<input name=pass type=password placeholder=Contrasenya size=12 maxlength=10> <button>Inicia Sessió</button>
+				Per saber la teva contrasenya contacta en Lluís al Whatsapp
+			</form>
+		</div>";
+	}
+?>
+
+<?php
 	$sql="SELECT * FROM jugadors WHERE id=$id";
 	$res=mysql_query($sql);
 	$row=mysql_fetch_assoc($res);
@@ -39,14 +53,14 @@
 	{ 
 		?>
 			<button style="background-color:#af0;padding:1em"
-				onclick="window.location='album.php?id=<?php echo $id ?>'"
+				onclick="window.open('https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $row['mkm']?>')"
 				>Veure cartes en venda
 			</button>
 		<?php	
 	}
 	else
 	{
-		echo "No té usuari de Magiccardmarket associat";
+		echo "No hi ha usuari de Magiccardmarket associat. Si vols vincular-lo, contacta en Lluís pel Whatsapp";
 	}
 	echo "</div>";
 ?>
@@ -115,20 +129,6 @@
 		echo "<tr><th>TOTAL<td colspan=2 align=center><b>$punts_totals punts</b> ($ratio punts/torneig)";
 	?>
 </table>
-
-<?php
-	//avis de sessio no iniciada
-	if(!isset($_COOKIE['jugador']))
-	{
-		echo "<div style='max-width:50%;font-size:11px;margin-top:1em'>
-			<form action=controller/login_jugador.php method=get>
-				<input name=id value=$id hidden>
-				<input name=pass type=password placeholder=Contrasenya size=12 maxlength=10> <button>Inicia Sessió</button>
-				<br>(Per saber la teva contrasenya contacta en Lluís al Whatsapp)
-			</form>
-		</div>";
-	}
-?>
 
 <?php
 	//Boto esborrar jugador admin

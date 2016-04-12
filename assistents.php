@@ -36,7 +36,10 @@
 		{
 			var num,nom
 			var t = document.getElementById('taula')
+			var torneig = '<?php echo current(mysql_fetch_assoc(mysql_query('SELECT COUNT(*)+1 FROM esdeveniments'))) ?>'
 			var str=""
+			str+="Torneig "+torneig+", <?php echo $dataProximTorneig ?> \r\n";
+			str+="==Inscrits===================\r\n";
 			for(var i=0;i<t.rows.length;i++)
 			{
 				num = t.rows[i].cells[0].textContent
@@ -93,11 +96,7 @@
 	?>
 </h3>
 
-<!--PROXIM ESDEVENIMENT--><div style="padding:0.5em;background-color:gold"> 
-	<?php echo "<b>Pròxim torneig:</b> $dataProximTorneig"; ?> 
-	<br>
-	<b>Inscripcions</b>: Al grup de Whatsapp "Magic Osona Lliga"
-</div> 
+<div> <b>Inscripcions:</b> al grup de Whatsapp "Magic Osona Lliga" </div>
 
 <?php include 'menuAdmin.php'?>
 

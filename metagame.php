@@ -3,6 +3,7 @@
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
 	<link rel=stylesheet type="text/css" href="estils.css" />
+	<style> #metagame th,#metagame td {border-left:none;border-right:none} </style>
 	<title>Lliga Osonenca de Modern - Metagame</title>
 	<script>
 		function ordena(id, columna_a_ordenar)
@@ -60,7 +61,7 @@
 
 <h2>Metagame</h2>
 
-<table id=metagame style="text-align:center">
+<table id=metagame>
 <tr><th>Baralla<th>Aparicions durant la lliga
 <?php
 	//guarda en un array les diferents baralles

@@ -20,18 +20,23 @@
 	}
 ?>
 
-<?php include'header_sessio.php'?>
 <div style=background:#ccc>
 	<table><tr>
 		<?php 
-			creaLink('index.php',		'<img width=15 src=img/home.svg> Pàgina principal');
-			creaLink('bases.php',		'<img width=15 src=img/bases.png> Bases');
-			creaLink('jugadors.php',	'<img width=15 src=img/jugadors.png> Jugadors');
+			creaLink('index.php',		'<img width=10 src=img/home.svg> Principal');
+			creaLink('bases.php',		'<img width=10 src=img/bases.png> Bases');
+			creaLink('torneigs.php',	'<img width=10 src=img/torneigs.png> Torneigs');
+			creaLink('jugadors.php',	'<img width=10 src=img/jugadors.png> Jugadors');
 			//separa si el browser es mobil
 			if(isMobile()) echo "<tr>";
-			creaLink('compraVenta.php',	'<img width=15 src=img/mercadian.png> Compra-Venta');
-			creaLink('metagame.php',	'<img width=15 src=img/metagame.png> Metagame');
-			creaLink('contacte.php',	'<img width=15 src=img/contacte.png> Contacte');
+			creaLink('compraVenta.php',	'<img width=10 src=img/mercadian.png> Mercat');
+			creaLink('metagame.php',	'<img width=10 src=img/metagame.png> Metagame');
+			creaLink('contacte.php',	'<img width=10 src=img/contacte.png> Contacte');
+
+			if(isset($_COOKIE['jugador']) || isset($_COOKIE['admin']))
+				creaLink('controller/logout.php', '<img width=10 src=img/login.png> Surt');
+			else
+				creaLink('login.php',	          '<img width=10 src=img/login.png> Login');
 		?>
 	</table>
 </div>
