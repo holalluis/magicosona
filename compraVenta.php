@@ -3,15 +3,15 @@
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 	<link rel=stylesheet href="estils.css">
+	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
 	<title>Lliga Osonenca de Modern - Compra Venta</title>
 	<style> table{display:inline-block;vertical-align:top} </style>
 </head>
 <body><center>
 <?php include'menu.php'?>
-
 <!--TITOL--><h2 onclick=window.location='compraVenta.php' style="cursor:pointer"> MagicCardMarket </h2>
 
-<h4 style=margin:0.5em>Aquí pots trobar les cartes en venda dels jugadors</h4>
+<!--descr--><h4 style=margin:0.5em>Aquí pots trobar les cartes en venda dels jugadors. Si vols ser visible, només has de dir el teu nom d'usuari de MKM a en Lluís</h4>
 
 <!--busca-->
 <div class=inline style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0.5em">
@@ -21,7 +21,7 @@
 	</form>
 </div>
 
-<table class=inline>
+<table id=taula class=inline>
 	<tr><th>Jugador<th>Cartes en venda
 	<?php
 		$sql="SELECT * FROM jugadors WHERE mkm!='' ORDER BY nom ASC";

@@ -49,14 +49,28 @@
 		table.MKMTable thead{display:none}
 	</style>
 </head><body><center>
+<!--carta gran-->
+<img id=cartaGran style="top:0;left:20%;position:absolute;display:none;width:250px" onclick=this.style.display='none'>
+
 <?php include'menu.php'?>
+
+<script>
+	function show(carta,e)
+	{
+		var img = document.querySelector('#cartaGran')
+		img.style.display='inline';
+		img.src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name="+carta;
+		img.style.left=(e.pageX-125)+"px"
+		img.style.top=Math.max(0,e.pageY-250)+"px"
+	}
+</script>
 
 <h2>Resultats cerca '<?php echo $carta?>' </h2>
 
-<div class=inline style="border:1px solid #ccc;padding:1em;border-radius:1em;margin:0.5em">
+<div class=inline style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0.5em">
 	<form action=buscaCarta.php method=GET>
 		Busca una carta:
-		<input type=search name=carta placeholder="Cryptic Command" size=17 value="<?php echo $carta?>">
+		<input type=search name=carta placeholder="Cryptic Command" value="<?php echo $carta?>">
 	</form>
 </div>
 
@@ -75,7 +89,7 @@
 			$resultats = resultats($carta,$mkm);
 			if($resultats)
 			{
-				echo "<tr><td><a href=jugador.php?id=$id>$nom</a><td>$resultats";
+				echo "<tr><td style=vertical-align:top><a href=jugador.php?id=$id>$nom</a><td>$resultats";
 				echo "<td> <a target=_blank href='https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=$mkm&cardName=$carta'>Vés a MKM</a>";
 				$comptador++;
 			}
@@ -110,8 +124,9 @@
 			fila.deleteCell(1);
 			fila.deleteCell(3);
 			var nomCarta = fila.cells[0].textContent;
-			fila.insertCell(0).innerHTML="<img class=carta src='http://gatherer.wizards.com/handlers/image.ashx?type=card&name="+nomCarta+"'>"
-			var link = fila.cells[1].childNodes[1].childNodes[0].childNodes[0].href="buscaCarta.php?carta="+nomCarta;
+			var encoded = encodeURIComponent(nomCarta).replace(/'/g, "%27");
+			fila.insertCell(0).innerHTML="<img class=carta onclick=\"show('"+encoded+"',event)\" src='http://gatherer.wizards.com/handlers/image.ashx?type=card&name="+encoded+"'>";
+			var link = fila.cells[1].childNodes[1].childNodes[0].childNodes[0].href="buscaCarta.php?carta="+encoded;
 		}
 	}
 </script>

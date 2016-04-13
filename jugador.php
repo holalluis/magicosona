@@ -7,6 +7,7 @@
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
 	<link rel=stylesheet href="estils.css">
+	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
 	<title>Pàgina de perfil</title>
 	<script>
 		function esborrar()
@@ -60,13 +61,13 @@
 	}
 	else
 	{
-		echo "No hi ha usuari de Magiccardmarket associat. Si vols vincular-lo, contacta en Lluís pel Whatsapp";
+		echo "No hi ha usuari de Magiccardmarket associat. Si vols vincular-lo, diga-li el teu nom d'usuari a en Lluís pel Whatsapp";
 	}
 	echo "</div>";
 ?>
 
 <!--PUNTS DEL JUGADOR A CADA TORNEIG-->
-<table cellpadding=5>
+<table id=taula cellpadding=5>
 	<tr><th>Torneig<th>Punts<th>Baralla
 	<?php
 		$punts_totals=0;

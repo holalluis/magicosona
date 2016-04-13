@@ -30,6 +30,13 @@
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 	<link rel=stylesheet href="estils.css">
+	<style>
+		li:hover {
+			transition:all 1s;
+			background:gold;
+			border-radius:0.5em;
+			}
+	</style>
 	<title>Magic Osona - Llista</title>
 	<script>
 		function show(nom)
@@ -41,8 +48,12 @@
 			//mostra el boto buscar
 			var boto = document.querySelector('#buscar');
 			boto.style.display="block";
-			boto.innerHTML="Veure "+decodeURI(nom)+" en venda";
+			boto.innerHTML="Buscant "+decodeURIComponent(nom)+"<br>en venda...";
 			boto.onclick=function(){window.location='buscaCarta.php?carta='+nom}
+			boto.setAttribute('disabled',true)
+
+			//comprova disponibilitat
+			cartaDisponible(nom,'buscar');
 		}
 
 		function comptaBaralla(llista)
@@ -59,6 +70,26 @@
 				}
 			});
 			return recompte;
+		}
+
+		function cartaDisponible(carta,id)
+		{
+			//id: element de destí del resultat
+			var sol = new XMLHttpRequest();
+			sol.open('GET','cartaDisponible.php?carta='+carta,true)
+			sol.onreadystatechange=function() 
+			{
+			    if(sol.readyState==4 && sol.status==200)
+				{
+					var text = sol.responseText!="false" ? "Carta disponible!<br> "+sol.responseText : "Carta no disponible<br>entre els jugadors";
+					console.log(sol.responseText);
+					var boto = document.getElementById(id)
+					boto.innerHTML=text;
+					if(sol.responseText!="false") 
+						boto.removeAttribute('disabled');
+				}
+			};
+			sol.send();
 		}
 
 	</script>
@@ -125,11 +156,11 @@
 
 <!--carta visible--><div class=inline> 
 	<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="width:200px;margin:0.2em"> 
-	<button id=buscar style=display:none;margin:0.5em>Busca</button>
+	<button disabled id=buscar style="max-width:13em;display:none;margin:0.5em">Busca</button>
 </div>
 
-
 <script>
+	//posa el primer element de la llista visible
 	for(var nom in llista.main)	
 	{
 		var encoded = encodeURIComponent(nom).replace(/'/g, "%27");

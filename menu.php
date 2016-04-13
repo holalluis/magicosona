@@ -26,10 +26,10 @@
 			creaLink('index.php',		'<img width=10 src=img/home.svg> Principal');
 			creaLink('bases.php',		'<img width=10 src=img/bases.png> Bases');
 			creaLink('torneigs.php',	'<img width=10 src=img/torneigs.png> Torneigs');
-			creaLink('jugadors.php',	'<img width=10 src=img/jugadors.png> Jugadors');
+			creaLink('compraVenta.php',	'<img width=10 src=img/mercadian.png> Mercat');
 			//separa si el browser es mobil
 			if(isMobile()) echo "<tr>";
-			creaLink('compraVenta.php',	'<img width=10 src=img/mercadian.png> Mercat');
+			creaLink('jugadors.php',	'<img width=10 src=img/jugadors.png> Jugadors');
 			creaLink('metagame.php',	'<img width=10 src=img/metagame.png> Metagame');
 			creaLink('contacte.php',	'<img width=10 src=img/contacte.png> Contacte');
 

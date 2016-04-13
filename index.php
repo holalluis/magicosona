@@ -107,7 +107,7 @@
 <div style=margin:0;padding:0.5em>
 	<img onclick="window.location.reload()" style="cursor:pointer;width:140px;" src=img/logo.png>
 	<div style=margin-top:0.5em> 
-		<b>Classificació Lliga 2016</b> | Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
+		<b>Classificació Lliga</b> &emsp; Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
 	</div>
 </div>
 
