@@ -5,6 +5,7 @@
 	<link rel=stylesheet type="text/css" href="estils.css" />
 	<title>Lliga Osonenca de Modern - Bases</title>
 </head><body><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
 <!--titol--><h2>Contacte</h2>
@@ -23,13 +24,13 @@
 ?>
 
 <!--formulari-->
-<form method=POST>
+<form method=POST style="margin:0 0.5em 0 0.5em">
 	<table cellpadding=5>
 		<tr><th>Nom	<td><input name=nom placeholder=Nom required> *
 		<tr><th>Mail	<td><input name=mail placeholder=Mail required> *
-		<tr><th>Missatge<td><textarea rows=4 cols=50 name=missatge required placeholder="Escriu el teu missatge"></textarea> *
+		<tr><th>Missatge<td><textarea style="width:90%;height:70px" name=missatge required placeholder="Escriu el teu missatge"></textarea> *
 		<tr><th><td><button>Enviar</button>
-		<tr><td colspan=2>(*: camp obligatori)
+		<tr><td colspan=2 style=font-size:11px>(*: camp obligatori)
 	</table>
 </form>
 

@@ -26,17 +26,26 @@
 	</script>
 </head>
 <body onload=init()><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
-<!-- RESULTATS D'ESDEVENIMENTS -->
-<div style="padding:0.5em;background-color:#ccc">
-Torneigs: 
-<?php
-	$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
-	$res=mysql_query($sql);
-	while($roww=mysql_fetch_assoc($res))
-		echo "<a href=esdeveniment.php?id=".$roww['id'].">".$roww['nom']."</a> | ";
-?>
+<!--TOTS ELS ESDEVENIMENTS -->
+<div style="padding:0.5em;background-color:gold;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.1);">
+	<span style=color:#666>Torneigs</span> &emsp;
+	<?php
+		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
+		$res=mysql_query($sql);
+		while($roww=mysql_fetch_assoc($res))
+		{
+			$idd=$roww['id'];
+			$nomm=$roww['nom'];
+			if($nomm==$row['nom'])
+				echo $nomm;
+			else
+				echo "<a href=esdeveniment.php?id=$idd>$nomm</a>";
+			echo "&emsp;";
+		}
+	?>
 </div>
 
 <?php
@@ -46,11 +55,11 @@ Torneigs:
 ?>
 
 <h3>
-<?php echo "Torneig ".$row['nom']." - <span style=color:#666>$nombreAssistents jugadors</span> - ".$row['data'] ?>
+<?php echo "Torneig ".$row['nom']." · <span style=color:#666>$nombreAssistents jugadors</span> · ".$row['data'] ?>
 </h3>
 
-<table cellpadding=3 id=taula>
-	<tr><th>#<th>Jugador<th>Punts<th>Deck
+<table id=taula>
+	<tr><th>#<th>Baralla<th>Jugador<th>Punts
 	<?php
 		$sql="	
 			SELECT 
@@ -78,8 +87,6 @@ Torneigs:
 			$punts=$row['punts'];
 			echo "<tr>";
 			echo "<td class=top>$i";
-			echo "<td><a href=jugador.php?id=$id_jugador>$jugador</a>";
-			echo "<td>$punts";
 			//consulta la baralla jugada (si n'hi ha)
 			echo "<td>";
 			if($id_baralla>0)
@@ -91,6 +98,8 @@ Torneigs:
 				else
 					echo "<a href=llista.php?id=$resultat>$baralla</a>";
 			}
+			echo "<td><a href=jugador.php?id=$id_jugador>$jugador</a>";
+			echo "<td>$punts";
 			$i++;
 		}
 	?>

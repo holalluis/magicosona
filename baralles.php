@@ -19,6 +19,7 @@
 		}
 	</script>
 </head><body onload=init()><center>
+<?php include_once("analytics.php") ?>
 
 <!-- MENU -->
 <div> <a href=index.php>Pàgina principal</a> </div>

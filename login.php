@@ -10,6 +10,7 @@
 	<link rel=stylesheet type="text/css" href="estils.css" />
 	<title>Magic Osona - Login</title>
 </head><body><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
 <div style="margin:0;background-color:#395693;color:white;padding:0.5em">

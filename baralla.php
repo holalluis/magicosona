@@ -15,6 +15,7 @@
 	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
 	<title>Magic Osona - Baralla</title>
 </head><body onload=init()><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
 <h2>Aparicions de <span style=color:#666><?php echo $nomBaralla?></span></h2>

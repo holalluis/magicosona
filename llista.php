@@ -94,6 +94,7 @@
 
 	</script>
 </head><body><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
 <?php
@@ -156,7 +157,7 @@
 
 <!--carta visible--><div class=inline> 
 	<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="width:200px;margin:0.2em"> 
-	<button disabled id=buscar style="max-width:13em;display:none;margin:0.5em">Busca</button>
+	<button disabled id=buscar style="max-width:14em;display:none;margin:0.5em">Busca</button>
 </div>
 
 <script>

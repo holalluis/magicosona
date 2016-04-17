@@ -57,6 +57,7 @@
 		}
 	</script>
 </head><body onload="ordena('metagame',1)"><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
 <h2>Metagame</h2>

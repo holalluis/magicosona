@@ -1,12 +1,13 @@
 *{margin:0}
-.inline{display:inline-block;vertical-align:top}
-table{border-collapse:collapse}
-a:hover {color:#000066;}
-a{color:#3b5998;text-decoration:none;font-weight:bold;}
 body{overflow-y:scroll;font-family:Helvetica;font-size:13px}
 h2,h3{margin:10px}
+a:hover {color:#000066;}
+a{color:#3b5998;text-decoration:none;font-weight:bold;}
+.inline{display:inline-block;vertical-align:top}
+table{border-collapse:collapse}
 td,th{padding:0.5em;background-color:#EDEFF4;border:1px solid #ccc;}
 tr{border-left:1px solid #ccc}
 tr{border-right:1px solid #ccc}
-td.nav:hover {background-color:#adefff;}
+td.nav{cursor:pointer;border-bottom:3px solid transparent}
+td.nav:hover {background-color:#fefefe;border-bottom:3px solid #395693}
 th{background-color:gold;}

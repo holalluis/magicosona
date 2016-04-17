@@ -35,6 +35,7 @@
 	</script>
 </head>
 <body><center>
+<?php include_once("analytics.php") ?>
 <a href=index.php>Pàgina principal</a>
 <h1>Nou Esdeveniment</h1>
 

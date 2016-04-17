@@ -9,6 +9,7 @@
 	<title>Lliga Osonenca de Modern - Jugadors</title>
 </head>
 <body><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
 <!--LOGO-->

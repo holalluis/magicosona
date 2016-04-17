@@ -1,30 +1,14 @@
-<?php 
-	include 'mysql.php'; 
-	include 'dataProximTorneig.php';
-?>
-<!doctype html>
-<html>
-<head>
+<?php include 'mysql.php'; ?>
+<!doctype html> <html> <head>
 	<meta charset=utf-8>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
 	<link rel=stylesheet type="text/css" href="estils.css" />
-	<style>
-		#taula th,#taula td {border-left:none;border-right:none}
-	</style>
+	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
 	<title>Magic Osona - Torneigs</title>
-</head>
-<body><center>
+</head> <body><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
-<!-- PROXIM ESDEVENIMENT -->
-<div style="padding:0.5em;background-color:gold">
-	<?php 
-		//compta el numero de jugadors apuntats
-		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
-		echo "
-			<b>Pròxim torneig: </b> $dataProximTorneig
-			<button onclick=window.location='assistents.php'>Veure inscrits ($assistents)</button>";
-	?>
-</div> 
+<?php include 'proximEsdeveniment.php' ?>
 
 <h2>Torneigs celebrats aquesta temporada</h2>
 
@@ -39,14 +23,12 @@
 			$id=$row['id'];
 			$nom=$row['nom'];
 			$data=$row['data'];
-
 			$jugadors=current(mysql_fetch_assoc(mysql_query("SELECT COUNT(*) FROM resultats WHERE id_esdeveniment=$id")));
-
 			echo "
 				<tr>
 					<td><a href=esdeveniment.php?id=$id>$nom</a>
-					<td>$jugadors
-					<td>$data
+					<td><a href=esdeveniment.php?id=$id>$jugadors</a>
+					<td><a href=esdeveniment.php?id=$id>$data</a>
 			";
 		}
 	?>

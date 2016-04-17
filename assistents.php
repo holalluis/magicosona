@@ -24,6 +24,7 @@
 	}
 	$result=mysql_query($sql) or die('error');
 	$n=mysql_num_rows($result);
+
 ?>
 <!doctype html><html><head>
 	<meta charset=utf-8>
@@ -82,8 +83,10 @@
 	</script>
 </head>
 <body><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
+<!--titol-->
 <h3>
 	Jugadors <?php if($ass=="no") echo "NO" ?> inscrits al pròxim torneig
 	<?php
@@ -96,12 +99,28 @@
 	?>
 </h3>
 
-<div> <b>Inscripcions:</b> al grup de Whatsapp "Magic Osona Lliga" </div>
+
+<?php
+	//veure premis
+	if($ass=="si")
+	{
+		$premi = $n*5;
+		echo "
+			<div style='margin:0.5em;background:orange;padding:0.5em;border-radius:0.5em;text-align:left' class=inline>
+				<span style='font-weight:bold;text-decoration:underline'>Premis calculats amb $n assistents</span>: 
+				<span style=font-size:18px>$premi €</span>.
+				<br>
+				<b>Nota</b>: Els premis es reparteixen entre els 8 primers i varien en funció del nombre d'assistents.
+				<div> <b>Inscripcions:</b> al grup de Whatsapp 'Magic Osona Lliga' </div>
+			</div>
+		";
+	}
+?>
 
 <?php include 'menuAdmin.php'?>
 
 <!--inscrit-->
-<table cellpadding=1 id=taula style="margin:0.5em 0 0.5em 0">
+<table id=taula style="margin:0.5em 0 0.5em 0">
 	<?php
 		$i=1;
 		while($row=mysql_fetch_assoc($result))
@@ -118,7 +137,7 @@
 	?>
 </table>
 
-<!--EXCEL-->
+<!--EXCEL i whatsapp-->
 <div> 
 	<button onclick=excel()>Generar Excel Assistents</button> 
 	<button onclick=llistaWA()>Llista pel Whatsapp</button>

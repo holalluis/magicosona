@@ -23,6 +23,7 @@
 		}
 	</script>
 </head><body><center>
+<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 <?php
 	//avis de sessio no iniciada

@@ -49,6 +49,7 @@
 		table.MKMTable thead{display:none}
 	</style>
 </head><body><center>
+<?php include_once("analytics.php") ?>
 <!--carta gran-->
 <img id=cartaGran style="top:0;left:20%;position:absolute;display:none;width:250px" onclick=this.style.display='none'>
 

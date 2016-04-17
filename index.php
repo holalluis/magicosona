@@ -1,7 +1,6 @@
 <?php
 	// PÀGINA PRINCIPAL
 	include 'mysql.php';
-	include 'dataProximTorneig.php';
 	function comptaPot()
 	{
 		$pot=0; //euros
@@ -86,29 +85,17 @@
 				document.getElementsByClassName('top')[i].style.backgroundColor='gold'
 		}
 	</script>
-</head><body onload=init()><center>
+</head><body onload=init()>
+<?php include_once("analytics.php") ?><center>
+
 <?php include 'menu.php' ?>
-
-<!-- PROXIM ESDEVENIMENT -->
-<div style="padding:0.5em;background-color:gold">
-	<?php 
-		//compta el numero de jugadors apuntats
-		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
-		echo "
-			<b>Pròxim torneig: </b> $dataProximTorneig
-			&emsp;
-			<button onclick=window.location='assistents.php'>Veure inscrits ($assistents)</button>";
-	?>
-</div> 
-
-<!--MENU ADMIN--> <?php include 'menuAdmin.php' ?>
+<?php include 'proximEsdeveniment.php' ?>
+<?php include 'menuAdmin.php' ?>
 
 <!--LOGO-->
-<div style=margin:0;padding:0.5em>
-	<img onclick="window.location.reload()" style="cursor:pointer;width:140px;" src=img/logo.png>
-	<div style=margin-top:0.5em> 
-		<b>Classificació Lliga</b> &emsp; Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
-	</div>
+<h2>Magic Osona — Lliga Modern</h2>
+<div style=margin:0.2em> 
+	<b>Classificació</b> &emsp; Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
 </div>
 
 <table cellpadding=5 id=taula>

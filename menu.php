@@ -11,29 +11,34 @@
 
 	function creaLink($url,$contingut)
 	{
-		echo "<td onclick=window.location='$url' class=nav>";
-		if("/$url"==$_SERVER['PHP_SELF']) 
-			echo "<a href='$url' style='color:black;font-weight:normal;text-decoration:underline'>$contingut</a>";
-		else
-			echo "<a href='$url' style=font-weight:normal>$contingut</a>";
+		//crea color del border bottom
 
+		if("/$url"==$_SERVER['PHP_SELF']) 
+			$borderBottom="style='border-bottom:3px solid #395693'";
+		else
+			$borderBottom="";
+
+		echo "
+			<td onclick=window.location='$url' class=nav $borderBottom>
+				<a href='$url' style=font-weight:normal>$contingut</a>
+			";
 	}
 ?>
 
-<div style=background:#ccc>
+<div style="background:#ccc;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.1);">
 	<table><tr>
 		<?php 
 			creaLink('index.php',		'<img width=10 src=img/home.svg> Principal');
-			creaLink('bases.php',		'<img width=10 src=img/bases.png> Bases');
 			creaLink('torneigs.php',	'<img width=10 src=img/torneigs.png> Torneigs');
 			creaLink('compraVenta.php',	'<img width=10 src=img/mercadian.png> Mercat');
+			creaLink('jugadors.php',	'<img width=10 src=img/jugadors.png> Jugadors');
 			//separa si el browser es mobil
 			if(isMobile()) echo "<tr>";
-			creaLink('jugadors.php',	'<img width=10 src=img/jugadors.png> Jugadors');
 			creaLink('metagame.php',	'<img width=10 src=img/metagame.png> Metagame');
+			creaLink('bases.php',		'<img width=10 src=img/bases.png> Bases');
 			creaLink('contacte.php',	'<img width=10 src=img/contacte.png> Contacte');
 
-			if(isset($_COOKIE['jugador']) || isset($_COOKIE['admin']))
+			if(isset($_COOKIE['jugador'])||isset($_COOKIE['admin']))
 				creaLink('controller/logout.php', '<img width=10 src=img/login.png> Surt');
 			else
 				creaLink('login.php',	          '<img width=10 src=img/login.png> Login');

@@ -8,6 +8,7 @@
 	<style> table{display:inline-block;vertical-align:top} </style>
 </head>
 <body><center>
+<?php include_once("analytics.php") ?>
 <?php include'menu.php'?>
 <!--TITOL--><h2 onclick=window.location='compraVenta.php' style="cursor:pointer"> MagicCardMarket </h2>
 
