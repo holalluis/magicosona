@@ -81,7 +81,7 @@
 			{
 			    if(sol.readyState==4 && sol.status==200)
 				{
-					var text = sol.responseText!="false" ? "Carta disponible!<br> "+sol.responseText : nom+" no disponible entre els jugadors";
+					var text = sol.responseText!="false" ? nom+" disponible!<br> "+sol.responseText : nom+" no disponible entre els jugadors";
 					console.log(sol.responseText);
 					boto.innerHTML=text;
 					if(sol.responseText!="false") 
