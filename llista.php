@@ -27,17 +27,18 @@
 	$llista       = $resultat->llista;
 ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-	<link rel=stylesheet href="estils.css">
-	<style>
-		li:hover {
-			transition:all 1s;
-			background:gold;
-			border-radius:0.5em;
-			}
-	</style>
+	<?php include 'imports.php' ?>
 	<title>Magic Osona - Llista</title>
+	<style>
+		div.carta{
+			padding:0.1em;
+			border-radius:0.5em;
+			transition:all 0.5s;
+		}
+		div.carta:hover {
+			background:gold;
+		}
+	</style>
 	<script>
 		function show(nom)
 		{
@@ -48,12 +49,9 @@
 			//mostra el boto buscar
 			var boto = document.querySelector('#buscar');
 			boto.style.display="block";
-			boto.innerHTML="Buscant "+decodeURIComponent(nom)+"<br>en venda...";
+			boto.innerHTML="Clica sobre el nom per buscar "+decodeURIComponent(nom)+" en venda";
 			boto.onclick=function(){window.location='buscaCarta.php?carta='+nom}
 			boto.setAttribute('disabled',true)
-
-			//comprova disponibilitat
-			cartaDisponible(nom,'buscar');
 		}
 
 		function comptaBaralla(llista)
@@ -72,18 +70,19 @@
 			return recompte;
 		}
 
-		function cartaDisponible(carta,id)
+		function cartaDisponible(carta)
 		{
-			//id: element de destí del resultat
+			var nom = decodeURIComponent(carta);
+			var boto = document.getElementById('buscar')
+			boto.innerHTML="Buscant "+nom+" en venda...";
 			var sol = new XMLHttpRequest();
 			sol.open('GET','cartaDisponible.php?carta='+carta,true)
 			sol.onreadystatechange=function() 
 			{
 			    if(sol.readyState==4 && sol.status==200)
 				{
-					var text = sol.responseText!="false" ? "Carta disponible!<br> "+sol.responseText : "Carta no disponible<br>entre els jugadors";
+					var text = sol.responseText!="false" ? "Carta disponible!<br> "+sol.responseText : nom+" no disponible entre els jugadors";
 					console.log(sol.responseText);
-					var boto = document.getElementById(id)
 					boto.innerHTML=text;
 					if(sol.responseText!="false") 
 						boto.removeAttribute('disabled');
@@ -91,7 +90,6 @@
 			};
 			sol.send();
 		}
-
 	</script>
 </head><body><center>
 <?php include_once("analytics.php") ?>
@@ -100,10 +98,10 @@
 <?php
 	echo "
 	<h3>
+		<a href=torneigs.php>Torneigs</a> &rsaquo;
 		<a href=esdeveniment.php?id=$resultat->id_esdeveniment>$esdeveniment</a> &rsaquo;
 		$baralla, <a href=jugador.php?id=$resultat->id_jugador>$jugador</a> 
 		<span style=font-size:14px>($punts punts)</span>
-		&emsp;
 		<button onclick=\"window.location='baralla.php?id=$resultat->baralla'\">Veure més baralles $baralla</button>
 	</h3>";
 
@@ -133,31 +131,31 @@
 ?>
 
 <!--llista-->
-<div style="text-align:left;border:1px solid #eee;padding:0.5em;" class=inline>
+<div style="font-size:12px;text-align:left;border-radius:0.5em;border:1px solid #eee;padding:0.5em;" class=inline>
 	<script>
 		if(llista)
-		["main","side"].forEach(function(part)
 		{
-			document.write("<div class=inline style=max-width:50%><b id="+part+">"+part.toUpperCase()+"</b><ul>");
-			for(var nom in llista[part])
+			["main","side"].forEach(function(part)
 			{
-				var encoded = encodeURIComponent(nom).replace(/'/g, "%27");
-				document.write("<li> <a href=#carta onclick=\"show('"+encoded+"');\" >"+llista[part][nom]+" "+nom+"</a>");
-			}
-			document.write("</div>");
-		});
-
-		//recompta el nombre de cartes
-		var recompte = comptaBaralla(llista);
-
-		document.querySelector('#main').innerHTML += " ("+recompte.main+")";
-		document.querySelector('#side').innerHTML += " ("+recompte.side+")";
+				document.write("<div class=inline style='max-width:50%'><b id="+part+">"+part.toUpperCase()+"</b>");
+				for(var nom in llista[part])
+				{
+					var encoded = encodeURIComponent(nom).replace(/'/g, "%27");
+					document.write("<div class=carta style=margin-left:3px>"+llista[part][nom]+" <a href=#carta onclick=\"cartaDisponible('"+encoded+"')\" onmouseover=\"show('"+encoded+"');\" >"+nom+"</a></div>");
+				}
+				document.write("</div>");
+			});
+			//recompta el nombre de cartes
+			var recompte = comptaBaralla(llista);
+			document.querySelector('#main').innerHTML += " ("+recompte.main+")";
+			document.querySelector('#side').innerHTML += " ("+recompte.side+")";
+		}
 	</script>
 </div>
 
 <!--carta visible--><div class=inline> 
-	<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="width:200px;margin:0.2em"> 
-	<button disabled id=buscar style="max-width:14em;display:none;margin:0.5em">Busca</button>
+	<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="width:95%;margin:0.5em"> 
+	<button disabled id=buscar style="max-width:14em;display:none;margin:0.2em">Busca</button>
 </div>
 
 <script>

@@ -1,13 +1,41 @@
 *{margin:0}
-body{overflow-y:scroll;font-family:Helvetica;font-size:13px}
-h2,h3{margin:10px}
-a:hover {color:#000066;}
-a{color:#3b5998;text-decoration:none;font-weight:bold;}
+body{
+	overflow-y:scroll;
+	font-family:'Helvetica Neue','Liberation Sans',sans-serif;
+}
+
+/* for mobile */
+@media only screen and (max-width:640px) { body { font-size:2.6vw; } }
+
+button:hover {background:#eee}
+button{
+	border-radius:0.3em;
+	background:#fafafa;
+	border:1px solid #ccc;
+}
+
+h2,h3,h4{margin:10px;font-weight:normal}
+
+a:hover {color:#000066;text-decoration:underline}
+a{color:#3b5998;text-decoration:none;font-weight:normal;}
+
 .inline{display:inline-block;vertical-align:top}
+
 table{border-collapse:collapse}
-td,th{padding:0.5em;background-color:#EDEFF4;border:1px solid #ccc;}
 tr{border-left:1px solid #ccc}
 tr{border-right:1px solid #ccc}
+tr:nth-child(even) {background:#eee}
+
+th{
+	background-color:gold;
+	font-weight:normal;
+}
+td,th{
+	padding:0.4em;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #ccc;
+}
+
+td.nav{border:1px solid #ccc}
 td.nav{cursor:pointer;border-bottom:3px solid transparent}
-td.nav:hover {background-color:#fefefe;border-bottom:3px solid #395693}
-th{background-color:gold;}
+td.nav:hover {background-color:#fefefe;}

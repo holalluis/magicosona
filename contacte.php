@@ -1,8 +1,6 @@
 <?php include 'mysql.php' ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
+	<?php include 'imports.php' ?>
 	<title>Lliga Osonenca de Modern - Bases</title>
 </head><body><center>
 <?php include_once("analytics.php") ?>
@@ -30,8 +28,8 @@
 		<tr><th>Mail	<td><input name=mail placeholder=Mail required> *
 		<tr><th>Missatge<td><textarea style="width:90%;height:70px" name=missatge required placeholder="Escriu el teu missatge"></textarea> *
 		<tr><th><td><button>Enviar</button>
-		<tr><td colspan=2 style=font-size:11px>(*: camp obligatori)
 	</table>
+	<span style=font-size:11px>(*: camp obligatori)</span>
 </form>
 
 <script>

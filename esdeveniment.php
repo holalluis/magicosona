@@ -7,10 +7,8 @@
 	$row=mysql_fetch_assoc($res);
 ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
-	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
+	<?php include 'imports.php' ?>
+	<title>Torneig</title>
 	<script>
 		function esborrar()
 		{
@@ -21,7 +19,17 @@
 		{
 			//ressalta el top8
 			var tops=document.querySelectorAll('td.top');
-			for(var i=0; i<8; tops[i++].style.backgroundColor='gold'){}
+			for(var i=0; i<8; i++)
+			{
+				try
+				{
+					tops[i].style.backgroundColor='gold';
+				}
+				catch(e)
+				{
+					break;
+				}
+			}
 		}
 	</script>
 </head>
@@ -30,7 +38,7 @@
 <?php include 'menu.php' ?>
 
 <!--TOTS ELS ESDEVENIMENTS -->
-<div style="padding:0.5em;background-color:gold;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.1);">
+<div style="padding:0.5em;background-color:gold;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);">
 	<span style=color:#666>Torneigs</span> &emsp;
 	<?php
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
@@ -55,10 +63,10 @@
 ?>
 
 <h3>
-<?php echo "Torneig ".$row['nom']." · <span style=color:#666>$nombreAssistents jugadors</span> · ".$row['data'] ?>
+<?php echo "<a href=torneigs.php>Torneigs</a> &rsaquo; ".$row['nom']." · <span style=color:#666>$nombreAssistents jugadors</span> · ".$row['data'] ?>
 </h3>
 
-<table id=taula>
+<table>
 	<tr><th>#<th>Baralla<th>Jugador<th>Punts
 	<?php
 		$sql="	
@@ -85,10 +93,11 @@
 			$id_jugador=$row['id_jugador'];
 			$id_baralla=$row['id_baralla'];
 			$punts=$row['punts'];
-			echo "<tr>";
-			echo "<td class=top>$i";
-			//consulta la baralla jugada (si n'hi ha)
-			echo "<td>";
+			echo "<tr> 
+					<td class=top>$i
+					<td>
+			";
+
 			if($id_baralla>0)
 			{
 				$roww=mysql_fetch_assoc(mysql_query("SELECT nom FROM baralles WHERE id=$id_baralla"));
@@ -98,8 +107,11 @@
 				else
 					echo "<a href=llista.php?id=$resultat>$baralla</a>";
 			}
+			else echo "N/A";
+
 			echo "<td><a href=jugador.php?id=$id_jugador>$jugador</a>";
 			echo "<td>$punts";
+
 			$i++;
 		}
 	?>

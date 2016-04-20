@@ -1,10 +1,8 @@
 <?php include 'mysql.php' ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
-	<style> #metagame th,#metagame td {border-left:none;border-right:none} </style>
+	<?php include 'imports.php' ?>
 	<title>Lliga Osonenca de Modern - Metagame</title>
+	<style> #metagame th,#metagame td {border-left:none;border-right:none} </style>
 	<script>
 		function ordena(id, columna_a_ordenar)
 		{
@@ -60,10 +58,10 @@
 <?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
-<h2>Metagame</h2>
+<h2><a href=torneigs.php>Torneigs</a> &rsaquo; Metagame</h2>
 
 <table id=metagame>
-<tr><th>Baralla<th>Aparicions durant la lliga
+<tr><th>Baralla<th>Aparicions a la lliga
 <?php
 	//guarda en un array les diferents baralles
 	$sql="SELECT DISTINCT baralla FROM resultats ORDER BY baralla";
@@ -91,7 +89,9 @@
 		$nom=$row['nom'];
 		$id=$baralla[$i];
 
-		echo "<tr><td><a href=baralla.php?id=$id>$nom</a><td>$numero";
+		echo "<tr>
+			<td><a href=baralla.php?id=$id>$nom</a>
+			<td style='text-align:center'>$numero";
 	}
 ?>
 </table>

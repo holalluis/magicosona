@@ -1,19 +1,19 @@
 <?php include 'mysql.php'; ?>
-<!doctype html> <html> <head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
-	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
+<!doctype html><html><head>
+	<?php include 'imports.php' ?>
 	<title>Magic Osona - Torneigs</title>
 </head> <body><center>
 <?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
-<?php include 'proximEsdeveniment.php' ?>
 
 <h2>Torneigs celebrats aquesta temporada</h2>
 
+<div class=inline style=padding:2em>
+	<button style=font-size:16px;padding:0.5em onclick="window.location='metagame.php'">Veure metagame</button>
+</div>
+
 <!--Torneigs-->
-<table style="margin:0.5em 0 0.5em 0" id=taula>
+<table class=inline style="margin:0.5em 0 0.5em 0">
 	<tr><th>Torneig<th>Jugadors<th>Data
 	<?php
 		$sql="SELECT * FROM esdeveniments ORDER BY data DESC";

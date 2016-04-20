@@ -1,11 +1,6 @@
 <?php include 'mysql.php'; ?>
-<!doctype html>
-<html>
-<head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
-	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
+<!doctype html> <html> <head>
+	<?php include 'imports.php' ?>
 	<title>Lliga Osonenca de Modern - Jugadors</title>
 </head>
 <body><center>
@@ -14,11 +9,11 @@
 
 <!--LOGO-->
 <h2 onclick="window.location.reload()" style="cursor:pointer">
-Jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?>)</a>
+Tots els jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?>)</a>
 </h2>
 
 <!--jugadors-->
-<table id=taula>
+<table> 
 	<tr><th>Nom<th>Punts
 	<?php
 		$sql="SELECT * FROM jugadors ORDER BY nom";
@@ -34,7 +29,9 @@ Jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?
 			$punts=0;
 			while($roww=mysql_fetch_assoc($ress))
 				$punts+=$roww['punts'];
-			echo "<td align=center>$punts";
+
+			$color = $punts==0 ? "#ccc" : "";
+			echo "<td style='text-align:right;color:$color'>$punts";
 		}
 	?>
 </table>

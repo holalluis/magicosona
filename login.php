@@ -2,12 +2,8 @@
 	include 'mysql.php'; 
 	include 'dataProximTorneig.php';
 ?>
-<!doctype html>
-<html>
-<head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
+<!doctype html><html><head>
+	<?php include 'imports.php' ?>
 	<title>Magic Osona - Login</title>
 </head><body><center>
 <?php include_once("analytics.php") ?>
@@ -40,3 +36,12 @@
 	}
 ?>
 </div>
+
+<script>
+function login()
+{
+	var p=prompt('Contrasenya?')
+	if(p) window.location='controller/login.php?pass='+p
+}
+</script>
+<br><a href=# onclick=login()>Admin</a>

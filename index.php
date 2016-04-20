@@ -16,9 +16,7 @@
 	}
 ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-	<link rel=stylesheet href="estils.css">
+	<?php include 'imports.php' ?>
 	<title>Magic Osona - Pàgina Principal</title>
 	<script>
 		function nouAssistent()
@@ -94,12 +92,13 @@
 
 <!--LOGO-->
 <h2>Magic Osona — Lliga Modern</h2>
-<div style=margin:0.2em> 
-	<b>Classificació</b> &emsp; Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
+<div style=margin:0.5em> 
+	Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
 </div>
 
+<!--classificació general-->
 <table cellpadding=5 id=taula>
-	<tr><th>#<th>Jugador
+	<tr><th title="Posició">#<th>Classificació
 	<?php
 		// Llista d'esdeveniments
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
@@ -144,11 +143,4 @@
 	?>
 </table>
 
-<script>
-function login()
-{
-	var p=prompt('Contrasenya?')
-	if(p) window.location='controller/login.php?pass='+p
-}
-</script>
-<br><br><a href=# onclick=login()>Admin</a>
+<?php include 'footer.php' ?>

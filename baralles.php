@@ -3,9 +3,7 @@
 	include 'mysql.php';
 ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
+	<?php include 'imports.php' ?>
 	<title>Lliga Osonenca de Modern 2015 - Baralles</title>
 	<script>
 		function esborra(id)
@@ -47,7 +45,7 @@
 
 <!-- Baralles -->
 <div>
-<table cellpadding=5 id=taula>
+<table cellpadding=5>
 	<tr><th>Nº<th>Baralla<th>Esborra<th>Canvia nom
 	<?php
 		// Llista de baralles

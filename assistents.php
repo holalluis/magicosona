@@ -24,12 +24,9 @@
 	}
 	$result=mysql_query($sql) or die('error');
 	$n=mysql_num_rows($result);
-
 ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet href="estils.css">
+	<?php include 'imports.php' ?>
 	<title>Assistents Pròxim Torneig</title>
 	<script>
 		function llistaWA()
@@ -81,45 +78,33 @@
 			a.click();
 		}
 	</script>
-</head>
-<body><center>
-<?php include_once("analytics.php") ?>
-<?php include 'menu.php' ?>
+</head><body><center>
+<?php include_once("analytics.php")?>
+<?php include 'menu.php'?>
 
-<!--titol-->
-<h3>
-	Jugadors <?php if($ass=="no") echo "NO" ?> inscrits al pròxim torneig
-	<?php
-		echo " ($n/$total) ";
-
-		if($ass=="si")
-			echo "<button onclick=window.location='assistents.php?ass=no'>Veure NO inscrits</a>";
-		else
-			echo "<button onclick=window.location='assistents.php?ass=si'>Veure inscrits</a>";
-	?>
-</h3>
-
+<!--titol--> <h3><a href=index.php>Inici</a> &rsaquo; Pròxim torneig: <?php echo $dataProximTorneig?> </h3>
 
 <?php
 	//veure premis
 	if($ass=="si")
 	{
 		$premi = $n*5;
-		echo "
-			<div style='margin:0.5em;background:orange;padding:0.5em;border-radius:0.5em;text-align:left' class=inline>
-				<span style='font-weight:bold;text-decoration:underline'>Premis calculats amb $n assistents</span>: 
-				<span style=font-size:18px>$premi €</span>.
+		?>
+			<div style='margin:0.3em;background:orange;padding:0.5em;text-align:left;border-radius:0.5em;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);' class=inline>
+				<span style='font-weight:bold'>Premis:</span>
+				<span style=font-size:18px><?php echo $premi?> €</span> (calculat amb <?php echo $n ?> assistents)
 				<br>
-				<b>Nota</b>: Els premis es reparteixen entre els 8 primers i varien en funció del nombre d'assistents.
+				<b>Nota</b>: Els premis es repartiran entre els 8 primers i varien en funció del nombre d'assistents.
 				<div> <b>Inscripcions:</b> al grup de Whatsapp 'Magic Osona Lliga' </div>
 			</div>
-		";
+		<?php
 	}
 ?>
 
 <?php include 'menuAdmin.php'?>
 
 <!--inscrit-->
+<div style=margin:0.5em> <?php if($ass=="no") echo "No inscrits"; else echo "Llista inscrits" ?> </div>
 <table id=taula style="margin:0.5em 0 0.5em 0">
 	<?php
 		$i=1;
@@ -140,5 +125,13 @@
 <!--EXCEL i whatsapp-->
 <div> 
 	<button onclick=excel()>Generar Excel Assistents</button> 
+	<br>
 	<button onclick=llistaWA()>Llista pel Whatsapp</button>
+	<br>
+	<?php
+		if($ass=="si")
+			echo "<button onclick=window.location='assistents.php?ass=no'>Veure NO inscrits</a>";
+		else
+			echo "<button onclick=window.location='assistents.php?ass=si'>Veure inscrits</a>";
+	?>
 </div>

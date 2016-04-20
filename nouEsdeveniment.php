@@ -1,22 +1,10 @@
 <?php 
 	include 'mysql.php';
 ?>
-<!doctype html>
-<html>
-<head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel="stylesheet" href="js/jquery-ui.css" />
-	<link rel=stylesheet type="text/css" href="estils.css" />
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="js/jquery-ui.js"></script>
+<!doctype html><html><head>
+	<?php include 'imports.php' ?>
 	<title>Lliga Osonenca de Modern</title>
 	<script>
-		$(function(){
-			$("#datepicker").datepicker({ 
-				dateFormat: "yy-mm-dd" 
-			});
-		});
 		function desactivaCheckboxs(el)
 		{
 			//coleccio d'elements checkboxp pel primer del suis
@@ -42,7 +30,7 @@
 <form action="controller/nouEsdeveniment.php" method=get>
 	<table cellpadding=5>
 		<tr><td>Nom<td><input required autocomplete=off name=nom placeholder="Nom Esdeveniment">
-		<tr><td>Data<td><input id=datepicker required autocomplete=off name=data placeholder="Data">
+		<tr><td>Data<td><input type=date required autocomplete=off name=data placeholder="Data">
 	</table>
 
 	<br>

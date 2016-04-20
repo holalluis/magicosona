@@ -9,10 +9,7 @@
 	$nomBaralla = current(mysql_fetch_assoc(mysql_query("SELECT nom FROM baralles WHERE id=$id")));
 ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-	<link rel=stylesheet href="estils.css">
-	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
+	<?php include 'imports.php' ?>
 	<title>Magic Osona - Baralla</title>
 </head><body onload=init()><center>
 <?php include_once("analytics.php") ?>
@@ -21,7 +18,7 @@
 <h2>Aparicions de <span style=color:#666><?php echo $nomBaralla?></span></h2>
 
 <!--baralles del mateix tipus-->
-<table cellpadding=5 id=taula style=max-width:100%>
+<table cellpadding=5 style=max-width:100%>
 	<tr><th>Llista<th>Jugador<th>Torneig<th>Punts
 	<?php
 		// Llista d'esdeveniments

@@ -39,14 +39,14 @@
 	}
 ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-	<link rel=stylesheet href="estils.css">
+	<?php include 'imports.php' ?>
 	<title>Magic Osona - Busca Carta</title>
 	<style>
 		img.carta{width:50px;}
 		table.MKMTable tfoot{display:none}
 		table.MKMTable thead{display:none}
+		table.MKMTable tr{background:inherit;border:none}
+		table.MKMTable td{border:none}
 	</style>
 </head><body><center>
 <?php include_once("analytics.php") ?>
@@ -66,7 +66,7 @@
 	}
 </script>
 
-<h2>Resultats cerca '<?php echo $carta?>' </h2>
+<h2><a href=compraVenta.php>Mercat</a> &rsaquo; Resultats cerca '<?php echo $carta?>' </h2>
 
 <div class=inline style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0.5em">
 	<form action=buscaCarta.php method=GET>
@@ -76,8 +76,8 @@
 </div>
 
 <!--Resultats-->
-<table>
-	<tr><th>Venedor<th>Articles<th>Link
+<table style=margin:1em>
+	<tr><th>Venedor<th>Articles
 	<?php
 		$sql="SELECT * FROM jugadors WHERE mkm!=''";
 		$res=mysql_query($sql) or die('error');
@@ -90,8 +90,7 @@
 			$resultats = resultats($carta,$mkm);
 			if($resultats)
 			{
-				echo "<tr><td style=vertical-align:top><a href=jugador.php?id=$id>$nom</a><td>$resultats";
-				echo "<td> <a target=_blank href='https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=$mkm&cardName=$carta'>Vés a MKM</a>";
+				echo "<tr mkm=$mkm><td><a href=jugador.php?id=$id>$nom</a><td>$resultats";
 				$comptador++;
 			}
 		}
@@ -127,7 +126,13 @@
 			var nomCarta = fila.cells[0].textContent;
 			var encoded = encodeURIComponent(nomCarta).replace(/'/g, "%27");
 			fila.insertCell(0).innerHTML="<img class=carta onclick=\"show('"+encoded+"',event)\" src='http://gatherer.wizards.com/handlers/image.ashx?type=card&name="+encoded+"'>";
-			var link = fila.cells[1].childNodes[1].childNodes[0].childNodes[0].href="buscaCarta.php?carta="+encoded;
+			
+			var mkm = fila.parentNode.parentNode.parentNode.parentNode.getAttribute('mkm');
+			var href='https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser='+mkm+'&cardName='+encoded
+			var link = fila.cells[1].childNodes[1].childNodes[0].childNodes[0]
+			link.href=href;
+			link.target="_blank";
+			fila.cells[3].innerHTML+="x";
 		}
 	}
 </script>

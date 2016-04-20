@@ -25,23 +25,20 @@
 	}
 ?>
 
-<div style="background:#ccc;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.1);">
+<div style="background:#eee;border-bottom:1px solid #ccc;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);">
 	<table><tr>
 		<?php 
-			creaLink('index.php',		'<img width=10 src=img/home.svg> Principal');
-			creaLink('torneigs.php',	'<img width=10 src=img/torneigs.png> Torneigs');
-			creaLink('compraVenta.php',	'<img width=10 src=img/mercadian.png> Mercat');
-			creaLink('jugadors.php',	'<img width=10 src=img/jugadors.png> Jugadors');
-			//separa si el browser es mobil
-			if(isMobile()) echo "<tr>";
-			creaLink('metagame.php',	'<img width=10 src=img/metagame.png> Metagame');
-			creaLink('bases.php',		'<img width=10 src=img/bases.png> Bases');
-			creaLink('contacte.php',	'<img width=10 src=img/contacte.png> Contacte');
+			creaLink('index.php',		'Inici');
+			creaLink('bases.php',		'Bases');
+			creaLink('torneigs.php',	'Torneigs');
+			creaLink('compraVenta.php',	'Mercat');
+			creaLink('jugadors.php',	'Jugadors');
+			creaLink('contacte.php',	'Contacte');
 
 			if(isset($_COOKIE['jugador'])||isset($_COOKIE['admin']))
-				creaLink('controller/logout.php', '<img width=10 src=img/login.png> Surt');
+				creaLink('controller/logout.php', 'Surt');
 			else
-				creaLink('login.php',	          '<img width=10 src=img/login.png> Login');
+				creaLink('login.php',	          'Login');
 		?>
 	</table>
 </div>

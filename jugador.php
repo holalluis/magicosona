@@ -1,13 +1,9 @@
 <?php
 	include 'mysql.php';
-
 	$id=$_GET['id'];
 ?>
 <!doctype html><html><head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-	<link rel=stylesheet href="estils.css">
-	<style> #taula th,#taula td {border-left:none;border-right:none} </style>
+	<?php include 'imports.php' ?>
 	<title>Pàgina de perfil</title>
 	<script>
 		function esborrar()
@@ -33,7 +29,7 @@
 			<form action=controller/login_jugador.php method=get>
 				<input name=id value=$id hidden>
 				<input name=pass type=password placeholder=Contrasenya size=12 maxlength=10> <button>Inicia Sessió</button>
-				Per saber la teva contrasenya contacta en Lluís al Whatsapp
+				<a href=# style=color:white onclick=\"alert('Per saber la teva contrasenya contacta en Lluís al Whatsapp')\">No sé la contrasenya</a>
 			</form>
 		</div>";
 	}
@@ -46,29 +42,35 @@
 ?>
 
 <!--TITOL-->
-<h2><?php echo $row['nom'] ?></h2>
+<h2><a href=jugadors.php>Jugadors</a> &rsaquo; <?php echo $row['nom'] ?></h2>
 
 <!--LLISTA DE CARTES EN VENTA-->
-<?php
-	echo "<div style=margin:1em>";
-	if($row['mkm']!="")
-	{ 
-		?>
-			<button style="background-color:#af0;padding:1em"
-				onclick="window.open('https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $row['mkm']?>')"
-				>Veure cartes en venda
-			</button>
-		<?php	
-	}
-	else
-	{
-		echo "No hi ha usuari de Magiccardmarket associat. Si vols vincular-lo, diga-li el teu nom d'usuari a en Lluís pel Whatsapp";
-	}
-	echo "</div>";
-?>
+<div style=margin:1em class=inline>
+	<?php
+		if($row['mkm']!="")
+		{ 
+			?>
+				<button style="background-color:#af0;padding:1em"
+					onclick="window.open('https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $row['mkm']?>')"
+					>Veure cartes en venda
+				</button>
+			<?php	
+		}
+		else
+		{
+			?><div style=text-align:left>
+				No hi ha usuari de Magiccardmarket associat.
+				<br>
+				Si vols vincular-lo, diga-li el teu nom d'usuari
+				<br> 
+				a en Lluís pel Whatsapp
+			</div><?php
+		}
+	?>
+</div>
 
 <!--PUNTS DEL JUGADOR A CADA TORNEIG-->
-<table id=taula cellpadding=5>
+<table class=inline>
 	<tr><th>Torneig<th>Punts<th>Baralla
 	<?php
 		$punts_totals=0;
