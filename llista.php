@@ -34,24 +34,39 @@
 			padding:0.1em;
 			border-radius:0.5em;
 			transition:all 0.5s;
+			margin-left:3px;
 		}
 		div.carta:hover {
 			background:gold;
 		}
+		button#buscar
+		{
+			max-width:14em;
+			margin:0.2em
+			text-align:left;
+		}
 	</style>
 	<script>
+
+		var permis_per_canviar_boto_buscar = true;
+
 		function show(nom)
 		{
 			var img=document.querySelector('#carta');
 			img.src="http://gatherer.wizards.com/Handlers/Image.ashx?type=card&name="+nom;
 			img.onclick=function(){window.open('http://magiccards.info/query?q='+nom)}
 
-			//mostra el boto buscar
-			var boto = document.querySelector('#buscar');
-			boto.style.display="block";
-			boto.innerHTML="Clica sobre el nom per buscar "+decodeURIComponent(nom)+" en venda";
-			boto.onclick=function(){window.location='buscaCarta.php?carta='+nom}
-			boto.setAttribute('disabled',true)
+			//boto buscar
+			if(permis_per_canviar_boto_buscar)
+			{
+				var boto = document.querySelector('#buscar');
+				//mostra'l
+				boto.style.display="block";
+				boto.innerHTML="Clica sobre el nom per buscar "+decodeURIComponent(nom)+" en venda";
+				boto.onclick=function(){window.location='buscaCarta.php?carta='+nom}
+				//sempre estara desactivat a menys que la funcio cartaDisponible ho modifiqui
+				boto.setAttribute('disabled',true)
+			}
 		}
 
 		function comptaBaralla(llista)
@@ -70,8 +85,12 @@
 			return recompte;
 		}
 
+		//busca al mkm si està disponible la carta
 		function cartaDisponible(carta)
 		{
+			//primer de tot desactiva que es pugui canviar el text, sino, queda malament si durant el proces l'usuari passa el mouse sobre altres cartes
+			permis_per_canviar_boto_buscar=false;
+
 			var nom = decodeURIComponent(carta);
 			var boto = document.getElementById('buscar')
 			boto.innerHTML="Buscant "+nom+" en venda...";
@@ -87,6 +106,8 @@
 					if(sol.responseText!="false") 
 						boto.removeAttribute('disabled');
 				}
+				//reestableix el permís per modificar el boto
+				permis_per_canviar_boto_buscar=true;
 			};
 			sol.send();
 		}
@@ -105,25 +126,11 @@
 		<button onclick=\"window.location='baralla.php?id=$resultat->baralla'\">Veure més baralles $baralla</button>
 	</h3>";
 
-	/* $llista="
-		{
-			main:{
-				'Mountain':20,
-				'Lightning Bolt':4,
-				'Goblin Guide':4,
-				'Jace, Vryn\'s Prodigy':1,
-				},
-			side:{
-				'Blood Moon':2,
-			},
-		} ";
-	*/
-
-	//comprova
+	//comprova llista buida
 	if($llista=="") 
 	{
-		$llista='false';
 		echo("<h2>Llista no disponible</h2>");
+		$llista='false'; //per passar a javascript
 	}
 
 	//passa la llista a javascript
@@ -141,7 +148,8 @@
 				for(var nom in llista[part])
 				{
 					var encoded = encodeURIComponent(nom).replace(/'/g, "%27");
-					document.write("<div class=carta style=margin-left:3px>"+llista[part][nom]+" <a href=#carta onclick=\"cartaDisponible('"+encoded+"')\" onmouseover=\"show('"+encoded+"');\" >"+nom+"</a></div>");
+					document.write("<div class=carta>"+llista[part][nom]+
+						" <a href=#carta onclick=\"cartaDisponible('"+encoded+"')\" onmouseover=\"show('"+encoded+"');\" >"+nom+"</a></div>");
 				}
 				document.write("</div>");
 			});
@@ -155,7 +163,7 @@
 
 <!--carta visible--><div class=inline> 
 	<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="width:95%;margin:0.5em"> 
-	<button disabled id=buscar style="max-width:14em;display:none;margin:0.2em">Busca</button>
+	<button disabled id=buscar style="display:none;">Busca</button>
 </div>
 
 <script>

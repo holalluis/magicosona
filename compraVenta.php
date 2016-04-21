@@ -16,14 +16,7 @@
 	Si vols ser visible, només has de dir el teu nom d'usuari de MKM a en Lluís.
 </div>
 
-<!--busca-->
-<div class=inline style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0.5em">
-	<form action=buscaCarta.php method=GET>
-		Busca una carta:
-		<input name=carta type=search placeholder="Cryptic Command">
-	</form>
-</div>
-
+<!--jugadors-->
 <table class=inline>
 	<tr><th>Jugador<th>Cartes en venda
 	<?php
@@ -36,8 +29,28 @@
 			$mkm=$row['mkm'];
 			echo "<tr>
 				<td> <a href=jugador.php?id=$id>$nom</a>
-				<td> <a target=_blank href='https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=$mkm'>Cartes disponibles</a>
+				<td> <a target=_blank href='https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=$mkm'>Veure MKM</a>
 			";
 		}
 	?>
 </table>
+
+<!--part dreta-->
+<div class=inline>
+	<!--busca-->
+	<div style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0.5em">
+		<form action=buscaCarta.php method=GET>
+			Busca una carta:
+			<input name=carta type=search placeholder="Cryptic Command">
+		</form>
+	</div>
+
+	<div id=filtres style="text-align:left;border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0.5em">
+		<style>#filtres button{margin:0.5em}</style>
+		<div>Explora cartes de tots els jugadors:</div>
+		<!--veure mítiques--> <div><button onclick="window.location='buscaCarta.php?carta=&rarity=17'">Veure mítiques</button></div>
+		<!--veure rares-->    <div><button onclick="window.location='buscaCarta.php?carta=&rarity=18'">Veure rares</button></div>
+		<!--veure timeshift--><div><button onclick="window.location='buscaCarta.php?carta=&rarity=20'">Veure time shifted</button></div>
+		<!--veure tokens-->   <div><button onclick="window.location='buscaCarta.php?carta=&rarity=24'">Veure tokens</button></div>
+	</div>
+</div>

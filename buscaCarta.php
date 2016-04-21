@@ -1,9 +1,20 @@
 <?php
-	//Busca una carta dins el mkm
-	$carta = isset($_GET['carta']) ? $_GET['carta'] : false;
-	if($carta==false)die('Carta no especificada');
-
 	include 'mysql.php';
+
+	//Busca una carta dins el mkm
+	$carta = isset($_GET['carta']) ? $_GET['carta'] : "";
+	//if($carta=="")die('Carta no especificada');
+
+	/**rarity**/
+	$rarity = isset($_GET['rarity']) ? $_GET['rarity'] : "";
+	/* 
+		17: mitica
+		18: rara
+		20: time shifted
+		21: uncommon
+		22: common
+		24: token
+	*/
 
 	function curl($url)
 	{
@@ -27,10 +38,10 @@
 		curl_close($ch);
 		return $result;
 	}
-	function resultats($carta,$usuari)
+	function resultats($carta,$usuari,$rarity)
 	{
 		$carta=urlencode($carta);
-		$result=curl("https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=$usuari&editMode=&cardName=$carta&idExpansion=&idRarity=&idLanguage=&condition_uneq=&condition=&isFoil=0&isSigned=0&isPlayset=0&isAltered=0&comments=&minPrice=&maxPrice=");
+		$result=curl("https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=$usuari&editMode=&cardName=$carta&idExpansion=&idRarity=$rarity&idLanguage=&condition_uneq=&condition=&isFoil=0&isSigned=0&isPlayset=0&isAltered=0&comments=&minPrice=&maxPrice=");
 		$pos_inici = strpos($result,'<table class="MKMTable specimenTable MKMSortable">');
 		$pos_final = strpos($result,'<span class="vAlignMiddle">Put selected in shopping cart: </span>');
 		$llargada = $pos_final-$pos_inici;
@@ -46,7 +57,7 @@
 		table.MKMTable tfoot{display:none}
 		table.MKMTable thead{display:none}
 		table.MKMTable tr{background:inherit;border:none}
-		table.MKMTable td{border:none}
+		table.MKMTable td{padding:0.1em;border:none}
 	</style>
 </head><body><center>
 <?php include_once("analytics.php") ?>
@@ -66,7 +77,22 @@
 	}
 </script>
 
-<h2><a href=compraVenta.php>Mercat</a> &rsaquo; Resultats cerca '<?php echo $carta?>' </h2>
+<h2><a href=compraVenta.php>Mercat</a> &rsaquo; Resultats cerca 
+	<?php 
+		if($carta!="")
+			echo "'$carta'";
+		if($rarity)
+		{
+			switch($rarity)
+			{
+				case "17":$rarity_nom="Mítiques";break;
+				case "18":$rarity_nom="Rares";break;
+				default:$rarity_nom=$rarity;break;
+			}
+			echo "($rarity_nom)";
+		}
+	?>
+</h2>
 
 <div class=inline style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0.5em">
 	<form action=buscaCarta.php method=GET>
@@ -87,10 +113,10 @@
 			$id=$row['id'];
 			$nom=$row['nom'];
 			$mkm=$row['mkm'];
-			$resultats = resultats($carta,$mkm);
+			$resultats = resultats($carta,$mkm,$rarity);
 			if($resultats)
 			{
-				echo "<tr mkm=$mkm><td><a href=jugador.php?id=$id>$nom</a><td>$resultats";
+				echo "<tr mkm=$mkm><td style='vertical-align:top'><a href=jugador.php?id=$id>$nom</a><td>$resultats";
 				$comptador++;
 			}
 		}
