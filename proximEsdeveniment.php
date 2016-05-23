@@ -7,8 +7,8 @@
 		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
 		echo "
 			<b>Pròxim torneig: </b> $dataProximTorneig
-			&emsp;
-			<button onclick=window.location='assistents.php'>Veure $assistents inscrits</button>";
+			—
+			<a href='assistents.php' title='Clica aquí per veure els jugadors inscrits'>$assistents jugadors inscrits</a>";
 	?>
 </div> 
 

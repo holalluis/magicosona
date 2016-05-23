@@ -1,0 +1,31 @@
+{
+	main:{
+		'Relic of Progenitus':2,
+		'Primeval Titan':4,
+		'Sakura-Tribe Elder':4,
+		'Khalni Heart Expedition':4,
+		'Prismatic Omen':2,
+		"Summoner's Pact":2,
+		"Explore":3,
+		"Farseek":3,
+		"Lightning Bolt":1,
+		"Scapeshift":1,
+		"Search for Tomorrow":1,
+		'Cinder Glade':3,
+		'Forest':4,
+		'Mountain':7,
+		'Stomping Ground':1,
+		'Valakut, the Molten Pinnacle':3,
+		'Verdant Catacombs':3,
+		'Wooded Foothills':3,
+	},
+	side:{
+		'Obstinate Baloth':3,
+		"Nature's Claim":2,
+		'Rending Volley':1,
+		'Sudden Shock':3,
+		'Anger of the Gods':3,
+		'Crumble to Dust':1,
+		'Roast':1,
+	}
+}

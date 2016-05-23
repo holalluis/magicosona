@@ -39,35 +39,11 @@
 	$sql="SELECT * FROM jugadors WHERE id=$id";
 	$res=mysql_query($sql);
 	$row=mysql_fetch_assoc($res);
+	$mkm=$row['mkm'];
 ?>
 
 <!--TITOL-->
 <h2><a href=jugadors.php>Jugadors</a> &rsaquo; <?php echo $row['nom'] ?></h2>
-
-<!--LLISTA DE CARTES EN VENTA-->
-<div style=margin:1em class=inline>
-	<?php
-		if($row['mkm']!="")
-		{ 
-			?>
-				<button style="background-color:#af0;padding:1em"
-					onclick="window.open('https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $row['mkm']?>')"
-					>Veure cartes en venda
-				</button>
-			<?php	
-		}
-		else
-		{
-			?><div style=text-align:left>
-				No hi ha usuari de Magiccardmarket associat.
-				<br>
-				Si vols vincular-lo, diga-li el teu nom d'usuari
-				<br> 
-				a en Lluís pel Whatsapp
-			</div><?php
-		}
-	?>
-</div>
 
 <!--PUNTS DEL JUGADOR A CADA TORNEIG-->
 <table class=inline>
@@ -115,7 +91,7 @@
 						$nomBaralla=mysql_fetch_assoc($resss);
 
 						if($roww['llista']=="")
-							echo $nomBaralla['nom'];
+							echo "<a style=color:#aaa title='Llista no disponible' href=llista.php?id=$resultat>".$nomBaralla['nom']."</a>";
 						else
 							echo "<a href=llista.php?id=$resultat>".$nomBaralla['nom']."</a>";
 
@@ -133,6 +109,31 @@
 		echo "<tr><th>TOTAL<td colspan=2 align=center><b>$punts_totals punts</b> ($ratio punts/torneig)";
 	?>
 </table>
+
+<!--LLISTA DE CARTES EN VENTA-->
+<div style=margin:1em class=inline>
+	<?php
+		if($mkm!="")
+		{ 
+			?>
+				<button style="background-color:#af0;padding:1em"
+					onclick="window.open('https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $mkm ?>')"
+					>Veure cartes en venda
+				</button>
+			<?php	
+		}
+		else
+		{
+			?><div style=text-align:left>
+				No hi ha usuari de Magiccardmarket associat.
+				<br>
+				Si vols vincular-lo, diga-li el teu nom d'usuari
+				<br> 
+				a en Lluís pel Whatsapp
+			</div><?php
+		}
+	?>
+</div>
 
 <?php
 	//Boto esborrar jugador admin

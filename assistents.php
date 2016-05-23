@@ -36,14 +36,16 @@
 			var t = document.getElementById('taula')
 			var torneig = '<?php echo current(mysql_fetch_assoc(mysql_query('SELECT COUNT(*)+1 FROM esdeveniments'))) ?>'
 			var str=""
-			str+="Torneig "+torneig+", <?php echo $dataProximTorneig ?> \r\n";
-			str+="==Inscrits===================\r\n";
+			str+="Inscrits al Torneig "+torneig+", <?php echo $dataProximTorneig ?>:\r\n";
+			str+="========================\r\n";
 			for(var i=0;i<t.rows.length;i++)
 			{
 				num = t.rows[i].cells[0].textContent
 				nom = t.rows[i].cells[1].textContent
 				str+=num+" "+nom+"\r\n"
 			}
+			str+="========================\r\n";
+			str+="Queden "+(30-i)+" places. Més info a http://magicosona.com\r\n";
 			prompt("Copia amb ctrl-c",str)
 		}
 		function nouAssistent()

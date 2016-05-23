@@ -103,7 +103,7 @@
 				$roww=mysql_fetch_assoc(mysql_query("SELECT nom FROM baralles WHERE id=$id_baralla"));
 				$baralla=$roww['nom'];
 				if($llista=="")
-					echo "<span onclick=window.location='llista.php?id=$resultat'>$baralla</span>";
+					echo "<span title='Llista no disponible' style=color:#aaa onclick=window.location='llista.php?id=$resultat'>$baralla</span>";
 				else
 					echo "<a href=llista.php?id=$resultat>$baralla</a>";
 			}

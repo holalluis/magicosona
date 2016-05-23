@@ -77,12 +77,12 @@
 		{
 			//ordena la taula de puntuació
 			ordena('taula');
-
-			//posa els 16 primers en color daurat
-			for(var i=0;i<16;i++)
-				document.getElementsByClassName('top')[i].style.backgroundColor='gold'
 		}
 	</script>
+	<style>
+		/*primers 16 files color gold*/
+		#taula tr:nth-child(-n+17) td:first-child {background:gold}
+	</style>
 </head><body onload=init()>
 <?php include_once("analytics.php") ?><center>
 
@@ -120,8 +120,8 @@
 		{
 			//comprova quants punts han fet a cada esdeveniment
 			$total_punts=0;
-			echo "<tr>";
-			echo "	<td class=top align=center>$i
+			echo "<tr>
+				<td align=center>$i
 				<td><a href=jugador.php?id=".$row['id'].">".$row['nom']."</a>";
 			$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 			$ress=mysql_query($sql);

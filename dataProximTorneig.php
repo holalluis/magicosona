@@ -1,3 +1,3 @@
 <?php
-$dataProximTorneig="Dg 1 de Maig 2016, 10:00";
+	$dataProximTorneig="Dg 19 de Juny 2016, 10:00 (DATA PROVISIONAL)";
 ?>

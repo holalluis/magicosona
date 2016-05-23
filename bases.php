@@ -43,13 +43,27 @@
 			<li>Durant les rondes del suís, el guanyador rebrà 3 punts (el millor de 3 partides). 
 			Empat: 1 punt, derrota: 0 punts.
 			<li>La puntuació que es rebrà per la lliga serà segons el punts acumulats durant el suís.
-			<li>Puntuació addicional
+			<li>Puntuació extra:
 				<ul>
-					<li>1r classificat del Suís: 1 punt addicional
-					<li>1r: 6 punts addicionals
-					<li>2n: 3 punts addicionals
-					<li>3r - 4rt: 2 punts addicionals 
-					<li>5è - 8è: 1 Punt addicional
+					<li>El primer classificat del suís rebrà un punt extra, i a més a més, depenent de la posició en el top:<br>
+						<table class=inline>
+							<tr><th>#<th colspan=2>En cas de TOP 8
+							<tr><td>1r:<td>  1 + 1 + 1 + 3<td>= 6 punts
+							<tr><td>2n:<td>  1 + 1 + 1    <td>= 3 punts
+							<tr><td>3r:<td>  1 + 1        <td>= 2 punts
+							<tr><td>4t:<td>  1 + 1        <td>= 2 punts
+							<tr><td>5è:<td>  1						<td>= 1 punt
+							<tr><td>6è:<td>  1						<td>= 1 punt
+							<tr><td>7è:<td>  1						<td>= 1 punt
+							<tr><td>8è:<td>  1						<td>= 1 punt
+						</table>
+						<table class=inline>
+							<tr><th>#<th colspan=2>En cas de TOP 4
+							<tr><td>1r:<td>  1 + 1 + 2  <td>= 4 punts
+							<tr><td>2n:<td>  1 + 1			<td>= 2 punts
+							<tr><td>3r:<td>  1					<td>= 1 punt
+							<tr><td>4t:<td>  1					<td>= 1 punt
+						</table>
 				</ul>
 		</ul>
 		<hr>
