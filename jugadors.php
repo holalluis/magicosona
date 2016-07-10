@@ -14,15 +14,16 @@ Tots els jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM juga
 
 <!--jugadors-->
 <table> 
-	<tr><th>Nom<th>Punts
+	<tr><th><th>Nom<th>Punts
 	<?php
 		$sql="SELECT * FROM jugadors ORDER BY nom";
 		$res=mysql_query($sql);
+		$i=1;
 		while($row=mysql_fetch_assoc($res))
 		{
 			$id=$row['id'];
 			$nom=$row['nom'];
-			echo "<tr><td><a href='jugador.php?id=$id'>$nom";
+			echo "<tr><td>$i<td><a href='jugador.php?id=$id'>$nom";
 			//punts
 			$sql="SELECT punts FROM resultats WHERE id_jugador=$id";
 			$ress=mysql_query($sql) or die('error');
@@ -32,6 +33,8 @@ Tots els jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM juga
 
 			$color = $punts==0 ? "#ccc" : "";
 			echo "<td style='text-align:right;color:$color'>$punts";
+
+			$i++;
 		}
 	?>
 </table>

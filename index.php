@@ -86,12 +86,17 @@
 </head><body onload=init()>
 <?php include_once("analytics.php") ?><center>
 
+<!--menus-->
 <?php include 'menu.php' ?>
-<?php include 'proximEsdeveniment.php' ?>
 <?php include 'menuAdmin.php' ?>
 
 <!--LOGO-->
 <h2>Magic Osona — Lliga Modern</h2>
+
+<!--NEXT-->
+<?php include 'proximEsdeveniment.php' ?>
+
+<!--pot-->
 <div style=margin:0.5em> 
 	Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
 </div>

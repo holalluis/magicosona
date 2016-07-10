@@ -1,0 +1,40 @@
+
+{
+main:{
+	"Chromatic Star":4,
+	"Wurmcoil Engine":3,
+	"Ancient Stirrings":4,
+	"Ugin, the Spirit Dragon":3,
+	"Sylvan Scrying":4,
+	"Chromatic Sphere":4,
+	"Expedition Map":4,
+	"Pyroclasm":4,
+	"Karn Liberated":3,
+	"Emrakul, the Aeons Torn":1,
+	"Conduit of Ruin":1,
+	"Chalice of the Void":1,
+	"Oblivion Stone":2,
+	"Batterskull":1,
+	"Sundering Titan":1,
+	"Ulamog, the Ceaseless Hunger":2,
+
+	"Urza's Mine":4,
+	"Urza's Power Plant":4,
+	"Urza's Tower":4,
+	"Ghost Quarter":1,
+	"Forest":3,
+	"Mountain":1,
+	"Karplusan Forest":1,
+	"Stomping Ground":1,
+},
+side:{
+	"Nature's Claim":4,
+	"Feed the Clan":2,
+	"Crumble to Dust":2,
+	"Chalice of the Void":2,
+	"Relic of Progenitus":2,
+	"Choke":1,
+	"Torpor Orb":2,
+	"Oblivion Stone":1,
+}
+}

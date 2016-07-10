@@ -1,0 +1,32 @@
+{
+	main:{
+		"Craterhoof Behemoth":1,
+		"Dwynen's Elite":4,
+		"Elvish Archdruid":4,
+		"Elvish Mystic":4,
+		"Elvish Visionary":4,
+		"Evolutionary Leap":2,
+		"Ezuri, Renegade Leader":2,
+		"Heritage Druid":4,
+		"Lead the Stampede":3,
+		"Llanowar Elves":4,
+		"Nettle Sentinel":4,
+		"Regal Force":1,
+		"Summoner's Pact":4,
+		"Sylvan Messenger":2,
+		"Nykthos, Shrine to Nyx":2,
+		"Cavern of Souls":1,
+		"Forest":14,
+	},
+	side:{
+		"Spellskite":2,
+		"Relic of Progenitus":2,
+		"Choke":2,
+		"Krosan Grip":1,
+		"Summoning Trap":2,
+		"Beast Within":2,
+		"Chameleon Colossus":1,
+		"Pithing Needle":1,
+		"Soul Warden":2,
+	}
+}

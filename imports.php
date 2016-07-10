@@ -5,3 +5,4 @@
 <link rel="apple-touch-icon" href="img/touch.png">
 <link rel=stylesheet type="text/css" href="estils.css">
 <?php include 'timeAgo.php' ?>
+<?php include_once("analytics.php") ?>

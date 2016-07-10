@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
-if($_SERVER['SERVER_NAME']=='localhost')
+if(in_array($_SERVER['SERVER_NAME'],array('localhost','192.168.1.133'),true))
 {
 	mysql_connect("localhost","root","");
 	mysql_select_db("magicosona");

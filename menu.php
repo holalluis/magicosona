@@ -25,13 +25,35 @@
 	}
 ?>
 
+<?php
+	if(isset($_COOKIE['jugador']))
+	{
+		?>
+			<div id=holaJugador> Hola
+				<?php
+					$cookie_jugador=$_COOKIE['jugador'];
+					$nom = current(mysql_fetch_assoc(mysql_query("SELECT nom FROM jugadors WHERE id=$cookie_jugador")));
+					echo "<a href=jugador.php?id=$cookie_jugador>$nom</a>";
+				?>!
+			</div>
+			<style>
+				#holaJugador
+				{
+					background:gold;
+					padding:0.3em;
+				}
+			</style>
+		<?php
+	}
+?>
+
 <div style="background:#eee;border-bottom:1px solid #ccc;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);">
 	<table><tr>
 		<?php 
 			creaLink('index.php',		'Inici');
 			creaLink('bases.php',		'Bases');
 			creaLink('torneigs.php',	'Torneigs');
-			creaLink('compraVenta.php',	'Mercat');
+			creaLink('compraVenta.php',	'Market');
 			creaLink('jugadors.php',	'Jugadors');
 			creaLink('contacte.php',	'Contacte');
 

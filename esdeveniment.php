@@ -39,7 +39,6 @@
 
 <!--TOTS ELS ESDEVENIMENTS -->
 <div style="padding:0.5em;background-color:gold;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);">
-	<span style=color:#666>Torneigs</span> &emsp;
 	<?php
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 		$res=mysql_query($sql);
@@ -63,7 +62,7 @@
 ?>
 
 <h3>
-<?php echo "<a href=torneigs.php>Torneigs</a> &rsaquo; ".$row['nom']." · <span style=color:#666>$nombreAssistents jugadors</span> · ".$row['data'] ?>
+<?php echo $row['nom']." · <span style=color:#666>$nombreAssistents jugadors</span> · ".$row['data'] ?>
 </h3>
 
 <table>

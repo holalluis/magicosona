@@ -14,7 +14,8 @@ button{
 	border:1px solid #ccc;
 }
 
-h2,h3,h4{margin:10px;font-weight:normal}
+h2,h3,h4{padding:10px 0 10px 0;font-weight:normal;}
+h2,h3{border-bottom:1px solid #ccc}
 
 a:hover {color:#000066;text-decoration:underline}
 a{color:#3b5998;text-decoration:none;font-weight:normal;}
@@ -36,6 +37,32 @@ td,th{
 	border-top:1px solid #ccc;
 }
 
-td.nav{border:1px solid #ccc}
+/**NAVBAR**/
+td.nav a {text-decoration:none}
+td.nav{border:1px solid #ccc;border-top:none}
 td.nav{cursor:pointer;border-bottom:3px solid transparent}
-td.nav:hover {background-color:#fefefe;}
+@media only screen and (max-width:640px) { 
+	td.nav{font-size:12px}
+}
+td.nav:hover {background-color:#fefefe;border-bottom-color:#395693}
+
+/**POPUPS**/
+div.popup
+{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+	border:1px solid #ccc;
+	background:gold;
+	box-shadow: 0 1px 2px rgba(0,0,0,.1);
+	padding:1em;
+	border:10px solid rgba(5, 5, 5, .5);
+	background-clip: padding-box;
+}
+
+div.popup textarea {
+	display:block;
+	width:300px;
+	height:100px;
+}

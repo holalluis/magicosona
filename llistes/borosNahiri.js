@@ -1,0 +1,42 @@
+{
+	main:{
+		"Wall of Omens":4,
+		"Restoration Angel":4,
+		"Kiki-Jiki, Mirror Breaker":1,
+		"Emrakul, the Aeons Torn":1,
+
+		"Lightning Bolt":4,
+		"Path to Exile":4,
+		"Magma Jet":2,
+		"Lightning Helix":3,
+		"Timely Reinforcements":1,
+		"Anger of the Gods":2,
+		"Blood Moon":3,
+		"Wrath of God":1,
+		"Nahiri, the Harbinger":4,
+		"Batterskull":1,
+
+		"Ghost Quarter":1,
+		"Mountain":1,
+		"Tectonic Edge":1,
+		"Clifftop Retreat":2,
+		"Sacred Foundry":2,
+		"Battlefield Forge":2,
+		"Flooded Strand":3,
+		"Temple of Triumph":3,
+		"Arid Mesa":4,
+		"Plains":5,
+	},
+	side:{
+		"Relic of Progenitus":2,
+		"Wear // Tear":2,
+		"Celestial Purge":1,
+		"Spellskite":1,
+		"Stony Silence":2,
+		"Kor Firewalker":3,
+		"Molten Rain":1,
+		"Ajani Vengeant":1,
+		"Day of Judgement":1,
+		"Batterskull":1,
+	}
+}

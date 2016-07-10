@@ -53,7 +53,7 @@
 	<?php include 'imports.php' ?>
 	<title>Magic Osona - Busca Carta</title>
 	<style>
-		img.carta{width:50px;}
+		img.carta{width:50px;cursor:zoom-in}
 		table.MKMTable tfoot{display:none}
 		table.MKMTable thead{display:none}
 		table.MKMTable tr{background:inherit;border:none}
@@ -77,7 +77,7 @@
 	}
 </script>
 
-<h2><a href=compraVenta.php>Mercat</a> &rsaquo; Resultats cerca 
+<h2>Resultats cerca 
 	<?php 
 		if($carta!="")
 			echo "'$carta'";

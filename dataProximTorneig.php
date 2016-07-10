@@ -1,3 +1,6 @@
 <?php
-	$dataProximTorneig="Dg 19 de Juny 2016, 10:00 (DATA PROVISIONAL)";
+	$proxim="2016-07-31";
+	$proximUnix=strtotime($proxim);
+	$dataProximTorneig=date("d/m/Y",$proximUnix)." (data confirmada)";
+	$falten=floor(($proximUnix-time())/86400);
 ?>

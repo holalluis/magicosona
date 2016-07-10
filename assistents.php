@@ -45,7 +45,7 @@
 				str+=num+" "+nom+"\r\n"
 			}
 			str+="========================\r\n";
-			str+="Queden "+(30-i)+" places. Més info a http://magicosona.com\r\n";
+			str+="Queden "+(30-i)+" places. Falten <?php echo $falten?> dies! magicosona.com\r\n";
 			prompt("Copia amb ctrl-c",str)
 		}
 		function nouAssistent()
@@ -84,7 +84,9 @@
 <?php include_once("analytics.php")?>
 <?php include 'menu.php'?>
 
-<!--titol--> <h3><a href=index.php>Inici</a> &rsaquo; Pròxim torneig: <?php echo $dataProximTorneig?> </h3>
+<!--titol--> <h3>Pròxim torneig: <?php echo $dataProximTorneig?> </h3>
+
+<img src=img/proxim.jpg style=width:80%>
 
 <?php
 	//veure premis
@@ -92,7 +94,7 @@
 	{
 		$premi = $n*5;
 		?>
-			<div style='margin:0.3em;background:orange;padding:0.5em;text-align:left;border-radius:0.5em;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);' class=inline>
+			<div style='display:none;margin:0.3em;background:orange;padding:0.5em;text-align:left;border-radius:0.5em;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);' class=inline>
 				<span style='font-weight:bold'>Premis:</span>
 				<span style=font-size:18px><?php echo $premi?> €</span> (calculat amb <?php echo $n ?> assistents)
 				<br>
@@ -105,8 +107,11 @@
 
 <?php include 'menuAdmin.php'?>
 
+<!--com inscriure's-->
+<h3 style=background:gold>Per inscriure't <a href=login.php>inicia sessió</a> amb el teu perfil.<br>Si no tens perfil contacta amb nosaltres</h3>
+
 <!--inscrit-->
-<div style=margin:0.5em> <?php if($ass=="no") echo "No inscrits"; else echo "Llista inscrits" ?> </div>
+<div style=margin:0.5em> <?php if($ass=="no") echo "No inscrits"; else echo "Inscrits" ?> </div>
 <table id=taula style="margin:0.5em 0 0.5em 0">
 	<?php
 		$i=1;
@@ -125,15 +130,19 @@
 </table>
 
 <!--EXCEL i whatsapp-->
-<div> 
-	<button onclick=excel()>Generar Excel Assistents</button> 
-	<br>
-	<button onclick=llistaWA()>Llista pel Whatsapp</button>
-	<br>
-	<?php
-		if($ass=="si")
-			echo "<button onclick=window.location='assistents.php?ass=no'>Veure NO inscrits</a>";
-		else
-			echo "<button onclick=window.location='assistents.php?ass=si'>Veure inscrits</a>";
-	?>
-</div>
+<?php if(isset($_COOKIE['admin']))
+	{ ?>
+		<div> 
+			<button onclick=excel()>Generar Excel Assistents</button> 
+			<br>
+			<button onclick=llistaWA()>Llista pel Whatsapp</button>
+			<br>
+			<?php
+				if($ass=="si")
+					echo "<button onclick=window.location='assistents.php?ass=no'>Veure NO inscrits</a>";
+				else
+					echo "<button onclick=window.location='assistents.php?ass=si'>Veure inscrits</a>";
+			?>
+		</div>
+	<?php }
+?>
