@@ -14,27 +14,27 @@
 		//crea color del border bottom
 
 		if("/$url"==$_SERVER['PHP_SELF']) 
-			$borderBottom="style='border-bottom:3px solid #395693'";
+			$borderBottom="style='border-bottom-color:#395693'";
 		else
 			$borderBottom="";
 
 		echo "
-			<td onclick=window.location='$url' class=nav $borderBottom>
+			<td class=nav onclick=window.location='$url' $borderBottom>
 				<a href='$url' style=font-weight:normal>$contingut</a>
 			";
 	}
 ?>
 
 <?php
+	//Hola jugador
 	if(isset($_COOKIE['jugador']))
-	{
-		?>
+	{ ?>
 			<div id=holaJugador> Hola
 				<?php
 					$cookie_jugador=$_COOKIE['jugador'];
 					$nom = current(mysql_fetch_assoc(mysql_query("SELECT nom FROM jugadors WHERE id=$cookie_jugador")));
-					echo "<a href=jugador.php?id=$cookie_jugador>$nom</a>";
-				?>!
+					echo "<a href=jugador.php?id=$cookie_jugador>$nom! &#128100;</a>";
+				?>
 			</div>
 			<style>
 				#holaJugador
@@ -43,11 +43,10 @@
 					padding:0.3em;
 				}
 			</style>
-		<?php
-	}
+	<?php }
 ?>
 
-<div style="background:#eee;border-bottom:1px solid #ccc;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);">
+<div style="background:#eee;box-shadow: 0 1px 2px rgba(0,0,0,0.2);">
 	<table><tr>
 		<?php 
 			creaLink('index.php',		'Inici');
@@ -64,3 +63,4 @@
 		?>
 	</table>
 </div>
+<?php include 'menuAdmin.php'?>

@@ -1,0 +1,30 @@
+{
+	main:{
+		'Thought Scour':4,
+		'Sleight of Hand':4,
+		"Manamorphose":4,
+		'Serum Visions':4,
+		'Gitaxian Probe':4,
+		'Pyromancer Ascension':4,
+		"Harness the Storm":2,
+		"Noxious Revival":2,
+		"Goblin Electromancer":4,
+		"Past in Flames":2,
+		"Desperate Ritual":4,
+		"Pyretic Ritual":4,
+		"Grapeshot":2,
+		"Flooded Strand":3,
+		'Scalding Tarn':4,
+		'Island':3,
+		'Mountain':1,
+		"Shivan Reef":3,
+		"Steam Vents":2,
+	},
+	side:{
+		'Blood Moon':3,
+		"Echoing Truth":2,
+		'Lightning Bolt':4,
+		"Empty the Warrens":4,
+		"Young Pyromancer":2,
+	}
+}

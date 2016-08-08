@@ -3,7 +3,6 @@
 	<title>Nou Jugador</title>
 </head>
 <body onload=document.getElementsByName('nom')[0].focus()><center>
-<?php include_once("analytics.php") ?>
 <a href=index.php>Pàgina principal</a>
 <h1>Inserta nou jugador</h1>
 

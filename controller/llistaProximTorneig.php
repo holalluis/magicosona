@@ -5,18 +5,35 @@ per fer en ajax:
 inputs: id jugador, camp a canviar, nou valor
 */
 
-//comprova cookies
-if(!isset($_COOKIE['jugador'])) die('sessio no iniciada');
-
 //connecta
 include '../mysql.php';
 
-//entada
-$id     = $_COOKIE['jugador'];
+//entrada
+$id     = mysql_real_escape_string($_POST['id']);
 $llista = mysql_real_escape_string($_POST['llista']);
 
+//comprova admin
+if(!isset($_COOKIE['admin']))
+{
+	//si admin no, comprova jugador
+	if(!isset($_COOKIE['jugador']))
+	{
+		die('sessio no iniciada');
+	}
+	else
+	{
+		//comprova si el jugador és el correcte
+		if($id != $_COOKIE['jugador'])
+		{
+			die('jugador incorrecte');
+		}
+	}
+}
+
+//si som aquí és que som admin o jugador
+
 //ordre
-$sql="UPDATE assistentsProximTorneig SET llista='$llista' WHERE id_jugador=$id";
+$sql="UPDATE assistentsProximTorneig SET llista='$llista' WHERE id_jugador='$id'";
 mysql_query($sql) or die('error');
 
 echo "Llista pujada correctament";

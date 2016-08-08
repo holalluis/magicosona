@@ -58,12 +58,17 @@
 	$row=mysql_fetch_assoc($res);
 	$nom=$row['nom'];
 	$mkm=$row['mkm'];
-	$dci=$row['dci'];
+	$dci=$row['dci'] ? $row['dci'] : "";
 ?>
+
+<div>
+	<a href=jugador.php?id=<?php echo $id?>>&larr; Enrere</a>
+</div>
 
 <!--FORMULARI-->
 <table id=dades>
 	<style>
+		#dades {margin-top:0.5em}
 		#dades td, #dades th{
 			padding:1em;
 		}
@@ -75,7 +80,7 @@
 			<button onclick=actualitza('nom',document.querySelector('#nouNom').value,this)>Guarda</button>
 	<tr>
 		<th>DCI
-		<td><input id=nouDci value="<?php echo $dci?>">
+		<td><input id=nouDci value="<?php echo $dci?>" placeholder="nº DCI">
 		<button onclick=actualitza('dci',document.querySelector('#nouDci').value,this)>Guarda</button>
 	<tr>
 		<th>MKM id number

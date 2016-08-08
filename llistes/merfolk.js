@@ -1,0 +1,33 @@
+{
+	main:{
+		"Harbinger of the Tides":3 ,
+		"Lord of Atlantis":4 ,
+		"Master of the Pearl Trident":4 ,
+		"Master of Waves":3 ,
+		"Tidebinder Mage ":2 ,
+		"Silvergill Adept":4 ,
+		"Vapor Snag":2,
+		"Aether Vial":4 ,
+		"Merrow Reejerey":4 ,
+		"Kira, Great Glass-Spinner":1 ,
+		"Cursecatcher":4 ,
+		"Spreading Seas":4 ,
+		"Mutavault":4 ,
+		"Cavern of Souls":2 ,
+		"Faerie Conclave":3,
+		"Oboro, Palace in the Clouds":1 ,
+		"Phantasmal Image":2,
+		"Island":9,
+	},
+	side:{
+		"Sea's Claim":2,
+		"Echoing Truth":1,
+		"Hurkyl's Recall ":3 ,
+		"Unified Will":1 ,
+		"Spell Pierce":1 ,
+		"Dispel":1 ,
+		"Negate":1 ,
+		"Dismember":2 ,
+		"Relic of Progenitus":3 ,
+	}
+}

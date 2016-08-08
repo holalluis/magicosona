@@ -1,7 +1,7 @@
 <?php
 
 //comprova admin
-if(!isset($_COOKIE['admin'])) die('sessio no iniciada');
+if(!isset($_COOKIE['admin'])) die('sessio admin no iniciada');
 
 include '../mysql.php';
 

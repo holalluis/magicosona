@@ -1,0 +1,32 @@
+{
+	main:{
+		"Island":3,
+		"Plains":3,
+		"Hallowed Fountain":2,
+		"Faerie Conclave":2,
+		"Flooded Strand":4,
+		"Inkmoth Nexus":4,
+		"Mutavault":4,
+		"Celestial Colonnade":1,
+		"Emrakul, the Aeons Torn":1,
+		"Elesh Norn, Grand Cenobite":1,
+		"Dispel":2,
+		"Supreme Verdict":2,
+		"Proteus Staff":2,
+		"Spell Pierce":3,
+		"Spell Snare":3,
+		"Ghostly Prison":4,
+		"Beckon Apparition":4,
+		"Polymorph":4,
+		"Talisman of Progress":4,
+		"Thirst for Knowledge":4,
+		"Timely Reinforcements":4,
+	},
+	side:{
+		"Leyline of Sanctity":4,
+		"Angel's Grace":4,
+		"Pithing Needlee":3,
+		"Terastodon":3,
+		"Iona, Shield of Emeria":1,
+	}
+}

@@ -12,13 +12,12 @@
 	<?php include 'imports.php' ?>
 	<title>Magic Osona - Baralla</title>
 </head><body onload=init()><center>
-<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
 <h2>Aparicions de <span style=color:#666><?php echo $nomBaralla?></span></h2>
 
 <!--baralles del mateix tipus-->
-<table cellpadding=5 style=max-width:100%>
+<table cellpadding=5 style="max-width:100%;margin-top:0.5em">
 	<tr><th>Llista<th>Jugador<th>Torneig<th>Punts
 	<?php
 		// Llista d'esdeveniments

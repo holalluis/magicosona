@@ -29,12 +29,11 @@
 	<?php include 'imports.php' ?>
 	<title>Assistents Pròxim Torneig</title>
 	<script>
-		function llistaWA()
+		function llistaWA() //pel whatsapp
 		//confirm per fer copiar pegar
 		{
-			var num,nom
-			var t = document.getElementById('taula')
-			var torneig = '<?php echo current(mysql_fetch_assoc(mysql_query('SELECT COUNT(*)+1 FROM esdeveniments'))) ?>'
+			var t=document.getElementById('taula')
+			var num,nom,torneig='<?php echo current(mysql_fetch_assoc(mysql_query('SELECT COUNT(*)+1 FROM esdeveniments'))) ?>'
 			var str=""
 			str+="Inscrits al Torneig "+torneig+", <?php echo $dataProximTorneig ?>:\r\n";
 			str+="========================\r\n";
@@ -42,7 +41,7 @@
 			{
 				num = t.rows[i].cells[0].textContent
 				nom = t.rows[i].cells[1].textContent
-				str+=num+" "+nom+"\r\n"
+				str+=num+" "+nom+"\n"
 			}
 			str+="========================\r\n";
 			str+="Queden "+(30-i)+" places. Falten <?php echo $falten?> dies! magicosona.com\r\n";
@@ -81,15 +80,10 @@
 		}
 	</script>
 </head><body><center>
-<?php include_once("analytics.php")?>
 <?php include 'menu.php'?>
-
 <!--titol--> <h3>Pròxim torneig: <?php echo $dataProximTorneig?> </h3>
 
-<img src=img/proxim.jpg style=width:80%>
-
-<?php
-	//veure premis
+<?php //veure premis
 	if($ass=="si")
 	{
 		$premi = $n*5;
@@ -105,38 +99,50 @@
 	}
 ?>
 
-<?php include 'menuAdmin.php'?>
-
 <!--com inscriure's-->
-<h3 style=background:gold>Per inscriure't <a href=login.php>inicia sessió</a> amb el teu perfil.<br>Si no tens perfil contacta amb nosaltres</h3>
+<h4 style=background:gold>Per inscriure't <a href=login.php>inicia sessió</a> amb el teu perfil.<br>Si no tens perfil <a href=contacte.php>contacta amb nosaltres</a>.</h4>
 
-<!--inscrit-->
-<div style=margin:0.5em> <?php if($ass=="no") echo "No inscrits"; else echo "Inscrits" ?> </div>
-<table id=taula style="margin:0.5em 0 0.5em 0">
-	<?php
-		$i=1;
-		while($row=mysql_fetch_assoc($result))
-		{
-			$nom=$row['nom'];
-			$id=$row['id'];
-			echo "<tr><td>$i<td><a href=jugador.php?id=$id>$nom</a>";
+<?php
+	if(file_exists('img/proxim.jpg'))
+	{ 
+		?>
+		<!--imatge simon--><img src="img/proxim.jpg" alt="imatge proxim torneig" style=max-width:69%> 
+		<?php
+	}
+?>
 
-			if($ass=="si" && isset($_COOKIE['admin']))
-				echo "<td><button onclick=eliminaAssistent($id)>Elimina</button>";
+<!--inscrits-->
+<div style=margin:0.5em class=inline><?php if($ass=="no") echo "No inscrits"; else echo "Inscrits" ?>
+	<table id=taula style="margin:0.5em 0">
+		<?php
+			$i=1;
+			while($row=mysql_fetch_assoc($result))
+			{
+				$nom=$row['nom'];
+				$id=$row['id'];
+				$llista=$row['llista'] ? "<span title='Llista oculta' style=cursor:help>Llista enviada</span>" : "<span style=color:#999>Falta llista</dci>";
+				$dci=$row['dci'] ? $row['dci'] : "<span style=color:#999>Falta DCI</dci>";
 
-			$i++;
-		}
-	?>
-</table>
+				//han d'estar juntes pel tema whatsap les línies (numero i nom)
+				echo "<tr>
+					<td>$i<td><a href=jugador.php?id=$id>$nom</a><td>$dci
+					<td>$llista";
+
+				if($ass=="si" && isset($_COOKIE['admin']))
+					echo "<td><button onclick=eliminaAssistent($id)>Elimina</button>";
+
+				$i++;
+			}
+		?>
+	</table>
+</div>
 
 <!--EXCEL i whatsapp-->
 <?php if(isset($_COOKIE['admin']))
 	{ ?>
-		<div> 
-			<button onclick=excel()>Generar Excel Assistents</button> 
-			<br>
-			<button onclick=llistaWA()>Llista pel Whatsapp</button>
-			<br>
+		<div style="margin:1em 0"> 
+			<button onclick=excel()>Generar Excel Assistents</button> &emsp;
+			<button onclick=llistaWA()>Llista pel Whatsapp</button> &emsp;
 			<?php
 				if($ass=="si")
 					echo "<button onclick=window.location='assistents.php?ass=no'>Veure NO inscrits</a>";

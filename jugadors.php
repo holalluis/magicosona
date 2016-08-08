@@ -4,17 +4,15 @@
 	<title>Lliga Osonenca de Modern - Jugadors</title>
 </head>
 <body><center>
-<?php include_once("analytics.php") ?>
 <?php include 'menu.php' ?>
 
 <!--LOGO-->
-<h2 onclick="window.location.reload()" style="cursor:pointer">
+<h2>
 Tots els jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?>)</a>
 </h2>
 
 <!--jugadors-->
-<table> 
-	<tr><th><th>Nom<th>Punts
+<table style=margin-top:0.5em> 
 	<?php
 		$sql="SELECT * FROM jugadors ORDER BY nom";
 		$res=mysql_query($sql);
@@ -23,17 +21,10 @@ Tots els jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM juga
 		{
 			$id=$row['id'];
 			$nom=$row['nom'];
-			echo "<tr><td>$i<td><a href='jugador.php?id=$id'>$nom";
-			//punts
-			$sql="SELECT punts FROM resultats WHERE id_jugador=$id";
-			$ress=mysql_query($sql) or die('error');
-			$punts=0;
-			while($roww=mysql_fetch_assoc($ress))
-				$punts+=$roww['punts'];
+			$dci=$row['dci'] ? $row['dci'] : "";
 
-			$color = $punts==0 ? "#ccc" : "";
-			echo "<td style='text-align:right;color:$color'>$punts";
-
+			echo "<tr>
+				<td>$i<td><a href='jugador.php?id=$id'>$nom<td>$dci";
 			$i++;
 		}
 	?>

@@ -25,124 +25,95 @@
 			var id_jugador = document.getElementById('id_assistent').value;
 			window.location='nouAssistent.php?id_jugador='+id_jugador
 		}
-		function ordena(id)
-		//ordenar la taula per punts
-		{
-			//t.rows[i].cells[j] == TAULA
-			var i,j,t = document.getElementById(id)
-			var files = t.rows.length-1
-			var columnes=t.rows[0].cells.length-1
-			//declarar array a ordenar i array a ordenat per despres comparar-los
-			var ordenar = new Array(files)
-			var ordenat = new Array(files)
-			//contingut a ordenar
-			for(i=0;i<files;i++)
-			{
-				//ordena per la ultima columna
-				ordenar[i]=t.rows[i+1].cells[columnes].innerHTML
-				ordenat[i]=t.rows[i+1].cells[columnes].innerHTML
-			}
-			//ordena
-			ordenat.sort(function(a,b){return b-a})
-			//array de ordre
-			var ordre=new Array(files)
-			for(i=0;i<files;i++)
-			{
-				for(j=0;j<files;j++)
-				{
-					if(ordenar[j]==ordenat[i])
-						ordre[i]=j
-				}
-				//treu l'index que has trobat
-				ordenar[ordre[i]]=""
-			}
-			// FER UNA COPIA DE TOTES LES FILES 
-			var trs=new Array(files)
-			//copia tots els <tr>
-			for(i=0;i<files;i++)
-				trs[i]=t.rows[i+1].cloneNode(true)
-			//elimina tota la taula
-			for(i=0;i<files;i++)
-				t.deleteRow(-1)
-			//POSA LA TAULA EN ORDRE
-			for(i=0;i<files;i++)
-			{
-				//seteja la primera columna amb el numero correcte
-				trs[ordre[i]].cells[0].innerHTML=i+1
-				t.appendChild(trs[ordre[i]])
-			}
-		}
-		function init()
-		//es crida a body onload
-		{
-			//ordena la taula de puntuació
-			ordena('taula');
-		}
 	</script>
 	<style>
 		/*primers 16 files color gold*/
 		#taula tr:nth-child(-n+17) td:first-child {background:gold}
 	</style>
-</head><body onload=init()>
-<?php include_once("analytics.php") ?><center>
-
-<!--menus-->
-<?php include 'menu.php' ?>
-<?php include 'menuAdmin.php' ?>
-
-<!--LOGO-->
-<h2>Magic Osona — Lliga Modern</h2>
-
-<!--NEXT-->
-<?php include 'proximEsdeveniment.php' ?>
+</head><body><center>
+<!--menus--><?php include'menu.php'?>
+<!--LOGO--><h2>Magic Osona — Lliga Modern</h2>
+<!--NEXT--><?php include 'proximEsdeveniment.php' ?>
 
 <!--pot-->
 <div style=margin:0.5em> 
-	Pot acumulat per la final: <b><?php echo comptaPot() ?> €</b> 
+	Pot acumulat: <b><?php echo comptaPot() ?> €</b> 
 </div>
 
 <!--classificació general-->
 <table cellpadding=5 id=taula>
-	<tr><th title="Posició">#<th>Classificació
+	<style>
+		#taula {
+			max-width:90%;
+			text-align:left;
+		}
+	</style>
+	<tr><th title="Posició">#<th><b>Classificació</b>
 	<?php
 		// Llista d'esdeveniments
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 		$res=mysql_query($sql);
+		$torneigs=[];
 		while($row=mysql_fetch_assoc($res))
 		{
 			$id=$row['id'];
 			$nom=$row['nom'];
 			echo "<th><a href=esdeveniment.php?id=$id>$nom</a>";
+			$torneigs[]=$id;
 		}
 	?>
 	<th>Total
-	<?php
-		// Llista de jugadors amb les seves puntuacions
-		$sql="SELECT * FROM jugadors";
+	<?php 
+		//un sol query sense javascript
+		/**
+			-----------------------------------------
+			nom					   t1   t2   t3     total
+			-----------------------------------------
+			lluis bosch    10   10   10     30
+			lluis bosch    10   10   10     30
+			-----------------------------------------
+			$sql="
+				SELECT 
+					r.id,
+					r.date,
+					GROUP_CONCAT(IF(r.device_id = 1,r.VALUE,NULL)) AS device_id_1,
+					GROUP_CONCAT(IF(r.device_id = 2,r.VALUE,NULL)) AS device_id_2
+				FROM readings r
+					GROUP BY r.DATE
+					ORDER BY r.DATE ASC;
+			";
+		**/
+		foreach($torneigs as $key=>$id)
+		{
+			$group_concats[]="GROUP_CONCAT(IF(r.id_esdeveniment = $id,r.punts,NULL)) AS T".($key+1);
+		}
+		$sql="
+			SELECT 
+				j.nom,
+				j.id,
+				".implode(",",$group_concats).",
+				SUM(r.punts) AS total
+			FROM 
+				resultats r,jugadors j
+			WHERE
+				r.id_jugador=j.id
+			GROUP BY 
+				r.id_jugador
+			ORDER BY 
+			  total DESC
+		";
 		$res=mysql_query($sql);
 		$i=1;
 		while($row=mysql_fetch_assoc($res))
 		{
-			//comprova quants punts han fet a cada esdeveniment
-			$total_punts=0;
-			echo "<tr>
-				<td align=center>$i
-				<td><a href=jugador.php?id=".$row['id'].">".$row['nom']."</a>";
-			$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
-			$ress=mysql_query($sql);
-			while($roww=mysql_fetch_assoc($ress))
+			//número i nom
+			echo "<tr><td>$i<td><a href=jugador.php?id=".$row['id'].">".$row['nom']."</a>";
+			//punts per torneig
+			foreach($torneigs as $key=>$id)
 			{
-				echo "<td align=center>";
-				//per cada esdeveniment troba els resultats de cada jugador
-				$sql="SELECT * FROM resultats WHERE id_jugador=".$row['id']." AND id_esdeveniment=".$roww['id'];
-				$resss=mysql_query($sql);
-				while($rowww=mysql_fetch_assoc($resss))
-				{
-					if($rowww['punts']!=0){ echo $rowww['punts'];}
-					$total_punts+=$rowww['punts'];
-				}
+				echo "<td>".$row["T".($key+1)];
 			}
-			echo "<td style=font-weight:bold align=center>$total_punts";
+			echo "<td><b>".$row['total']."</b>";
 			$i++;
 		}
 	?>
