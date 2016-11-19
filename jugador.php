@@ -2,9 +2,18 @@
 	include 'mysql.php'; 
 	//entrada: id jugador
 	$id=$_GET['id'];
+
+	//get player info
+	$sql="SELECT * FROM jugadors WHERE id=$id";
+	$res=mysql_query($sql);
+	$row=mysql_fetch_assoc($res);
+	$nom=$row['nom'];
+	$mkm=$row['mkm'];
+	$dci=$row['dci'];
+	$pas=$row['pass'];
 ?>
 <!doctype html><html><head><?php include'imports.php'?>
-	<title>Perfil</title>
+	<title><?php echo $nom?></title>
 	<script>
 		function esborrar()
 		{
@@ -100,23 +109,12 @@
 					}
 				</style>
 				<input name=id value="<?php echo $id?>" style=display:none>
-				<input name=pass type=password placeholder=Contrasenya maxlength=10> 
+				<input name=pass type=password placeholder=Contrasenya maxlength=20> 
 				<button>Accedeix</button>
 				<a href=# style="color:white;margin-left:5px" onclick="alert('Per reiniciar la teva contrasenya contacta en Lluís al Whatsapp')">No recordo la contrasenya</a>
 			</form>
 		</div> <?php
 	}
-?>
-
-<?php
-	//get player info
-	$sql="SELECT * FROM jugadors WHERE id=$id";
-	$res=mysql_query($sql);
-	$row=mysql_fetch_assoc($res);
-	$nom=$row['nom'];
-	$mkm=$row['mkm'];
-	$dci=$row['dci'];
-	$pas=$row['pass'];
 ?>
 
 <!--TITOL--><h2><?php echo $nom ?></h2>

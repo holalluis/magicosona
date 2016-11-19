@@ -4,6 +4,14 @@
 ?>
 <!doctype html><html><head><?php include'imports.php'?>
 	<title>Login</title>
+	<script>
+		function nouAssistent()
+		//posa un nou jugador a la llista d'assistents al proxim torneig
+		{
+			var id_jugador = document.getElementById('id_assistent').value;
+			window.location='nouAssistent.php?id_jugador='+id_jugador
+		}
+	</script>
 </head><body><center>
 <?php include'menu.php'?>
 

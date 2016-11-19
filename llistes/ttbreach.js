@@ -19,7 +19,6 @@
 		"Valakut, the Molten Pinnacle":3, 
 		"Wooded Foothills":3, 
 		"Worldspine Wurm":1, 
-
 	},
 	side:{
 		"Boil":2, 

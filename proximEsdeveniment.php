@@ -20,7 +20,10 @@
 				Pròxim torneig: $dataProximTorneig
 				($assistents jugadors inscrits)
 			</a>
-			<span id=faltenBlink>Falten $falten dies</span>
 			";
+		if($falten==1)
+			echo " <span id=faltenBlink>FALTA $falten DIA!</span>";
+		else
+			echo " <span id=faltenBlink>Falten $falten dies</span>";
 	?>
 </div> 

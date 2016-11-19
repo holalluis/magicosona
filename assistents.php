@@ -100,19 +100,43 @@
 ?>
 
 <!--com inscriure's-->
-<h4 style=background:gold>Per inscriure't <a href=login.php>inicia sessió</a> amb el teu perfil.<br>Si no tens perfil <a href=contacte.php>contacta amb nosaltres</a>.</h4>
+<h4 style="background:gold;border-bottom:1px solid #ccc">Per inscriure't <a href=login.php>inicia sessió</a> amb el teu perfil.<br>Si no tens perfil <a href=contacte.php>contacta amb nosaltres</a>.</h4>
 
 <?php
 	if(file_exists('img/proxim.jpg'))
 	{ 
 		?>
-		<!--imatge simon--><img src="img/proxim.jpg" alt="imatge proxim torneig" style=max-width:69%> 
+		<!--imatge simon-->
+		<div class=inline style=max-width:68%>
+			<img src="img/proxim.jpg" alt="imatge proxim torneig" style="width:99%;display:inline-block;"> 
+			<?php
+				if(isMobile())
+				{ 
+					?>
+					<br>
+						<a href="whatsapp://send?text=Pròxim torneig Modern Lliga Magic Osona http://magicosona.com/assistents.php" 
+								data-action="share/whatsapp/share" 
+								style="border-radius:0.5em;
+									display:inline-block;
+									border:1px solid #ccc;
+									box-shadow: 0 1px 2px rgba(0,0,0,.1);
+									padding:0.3em;
+									margin-top:1px;
+									font-size:12px;
+									">
+						<img src=img/whatsapp.png style="width:15px;vertical-align:middle">
+						Compartir
+						</a>
+					<?php
+				}
+			?>
+		</div>
 		<?php
 	}
 ?>
 
 <!--inscrits-->
-<div style=margin:0.5em class=inline><?php if($ass=="no") echo "No inscrits"; else echo "Inscrits" ?>
+<div style="margin:0.5em;max-width:30%" class=inline><?php if($ass=="no") echo "No inscrits"; else echo "Inscrits" ?>
 	<table id=taula style="margin:0.5em 0">
 		<?php
 			$i=1;

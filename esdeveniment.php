@@ -51,11 +51,11 @@
 ?>
 
 <h3>
-<?php echo $row['nom']." · <span style=color:#666>$nombreAssistents jugadors</span> · ".date("d/m/Y",strtotime($row['data'])) ?>
+<?php echo "Torneig ".$row['nom']." · <span style=color:#666>$nombreAssistents jugadors</span> · ".date("d/m/Y",strtotime($row['data'])) ?>
 </h3>
 
 <!--resultats-->
-<div class=inline>
+<div class=inline style=max-width:70%>
 	<table id=resultats>
 		<tr><th>#<th>Baralla<th>Jugador<th>Punts
 		<?php
@@ -106,14 +106,30 @@
 	</table>
 </div>
 
-<?php
-	if(file_exists("img/torneigs/$nom.jpg"))
-	{ ?>
-		<button onclick=window.location=('img/torneigs/<?php echo $nom ?>.jpg') style="padding:1em 1em">Veure premis</button>
-		<?php
-	}
-?>
+<!--botons veure-->
+<div class=inline style=text-align:left;max-width:70% id=botons_veure>
+	<style>
+		#botons_veure button {
+			padding:1em 1em;
+			margin-bottom:0.5em;
+			display:block;
+			font-size:2.6vw;
+		}
+	</style>
+	<?php
+		if(file_exists("img/torneigs/elim$nom.png"))
+		{ 
+			echo "<button onclick=window.location=('img/torneigs/elim$nom.png')>Veure eliminatòria TOP 8</button>";
+		}
+		if(file_exists("img/torneigs/$nom.jpg"))
+		{ ?>
+			<button onclick=window.location=('img/torneigs/<?php echo $nom ?>.jpg')>Veure cartell i premis</button>
+			<?php
+		}
+	?>
+</div>
 
+<br>
 <?php
 	if(isset($_COOKIE['admin']))
 		echo "<button onclick=esborrar() style=margin:'2em 0'>Esborrar Esdeveniment</button>";

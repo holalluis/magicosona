@@ -89,7 +89,7 @@
 <?php
 	echo "
 	<h3>
-		<a href=esdeveniment.php?id=$resultat->id_esdeveniment>$esdeveniment</a> &rsaquo;
+		<a href=esdeveniment.php?id=$resultat->id_esdeveniment>Torneig $esdeveniment</a> &rsaquo;
 		$baralla, <a href=jugador.php?id=$resultat->id_jugador>$jugador</a> 
 		<span style=font-size:14px>($punts punts)</span>
 		<button onclick=\"window.location='baralla.php?id=$resultat->baralla'\">Veure més baralles $baralla</button>

@@ -1,6 +1,6 @@
 <?php
-	$proxim="2016-09-04";
+	$proxim="2016-11-20";
 	$proximUnix=strtotime($proxim);
-	$dataProximTorneig=date("d/m/Y",$proximUnix)." (provisional)";
+	$dataProximTorneig=date("d/m/Y",$proximUnix)." (confirmat)";
 	$falten=ceil(($proximUnix-time())/86400);
 ?>
