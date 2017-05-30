@@ -28,18 +28,12 @@ PW.getPoints=function(dci,container) {
 }
 
 //funció a jugadors.php
-PW.getPoints2=function(dci,target) //dci: number. target: html element
-{
+//dci: number. target: html element
+PW.getPoints2=function(dci,target) {
 	var sol=new XMLHttpRequest();
 	sol.open('GET','pwPoints.php?dci='+dci,true);
-	/*
-	sol.timeout=10000;
-	sol.ontimeout=function(){target.innerHTML="<span style=font-size:11px;color:orange>Time out</span>"};
-	*/
-	sol.onreadystatechange=function() 
-	{
-		if(sol.readyState === XMLHttpRequest.DONE && sol.status === 200) 
-		{
+	sol.onreadystatechange=function() {
+		if(sol.readyState === XMLHttpRequest.DONE && sol.status === 200) {
 				var resposta=sol.responseText;
 				try{
 					var json=JSON.parse(resposta);
@@ -47,17 +41,19 @@ PW.getPoints2=function(dci,target) //dci: number. target: html element
 						var lt=json.lt;
 						var se=json.se;
 						var lvl=json.lvl;
-						if(lt=="" || se=="") { return "<span style=color:#ccc;font-size:11px>~DCI no vàlid</span>" }
+						if(lt=="")lt=0;
+						if(se=="")se=0;
+						if(lvl=="")lvl=0;
 						return "<b>Lvl</b>: "+lvl+", <b>Lifetime</b>: "+lt+", <b>Season</b>: "+se;
 					})()
 				}catch(e){
 					target.innerHTML="<span style=color:#ccc;font-size:11px>~DCI no vàlid</span>"
 				}
 		}
-		if(sol.readyState === XMLHttpRequest.DONE && sol.status === 508) //loop detected
-		{
-			target.innerHTML="<span style=color:orange;font-size:11px>Esperant resposta de wizards...</span>"
-			setTimeout(function(){getPoints(dci,target)},10000+Math.random()*5000) //espera entre 10 i 15 segons
+		//loop detected
+		if(sol.readyState === XMLHttpRequest.DONE && sol.status === 508) {
+			target.innerHTML="<span style=color:orange;font-size:11px>Esperant resposta del servidor Wizards...</span>"
+			setTimeout(function(){PW.getPoints2(dci,target)},10000+Math.random()*5000) //espera entre 10 i 15 segons
 		}
 	};
 	sol.send()
