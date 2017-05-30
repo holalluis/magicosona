@@ -55,7 +55,7 @@
 	<a href=compraVenta.php>Market</a>
 	<a href=contacte.php>Contacte</a>
 	<?php
-		if(isset($_COOKIE['jugador'])||isset($_COOKIE['admin'])) 
+		if(isset($_COOKIE['jugador'])) 
 		{ ?>
 			<a href='controller/logout.php'>Surt</a>
 		<?php }

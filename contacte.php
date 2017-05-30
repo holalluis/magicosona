@@ -20,6 +20,12 @@
 	}
 ?>
 
+<div style=padding:0.5em>
+	Pots contactar directament per
+	<a target=_blank href="https://api.whatsapp.com/send?phone=34677626363">Whatsapp</a>
+	o amb el següent formulari:
+</div>
+
 <!--formulari-->
 <form method=POST style="margin:0 0.5em 0 0.5em">
 	<table cellpadding=5 style=margin-top:0.5em>
