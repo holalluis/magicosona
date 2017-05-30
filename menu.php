@@ -29,7 +29,6 @@
 		flex-wrap:wrap;
 		justify-content:center;
 		background:linear-gradient(#eee,#ddd);
-		box-shadow:0 1px 2px rgba(0,0,0,0.2);
 		border-bottom:none;
 	}
 	#navbar a {
