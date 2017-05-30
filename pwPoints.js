@@ -11,6 +11,9 @@ PW.getPoints=function(dci,container) {
 				var resposta=sol.responseText;
 				var json=JSON.parse(resposta);
 				container.innerHTML=(function(){
+
+					if(json.se=="")json.se=0;
+
 					var ul="<b>Punts planeswalker:</b><ul style=list-style:circle>";
 					ul+="<li>Level: "+json.lvl;
 					ul+="<li>Lifetime points: "+json.lt;
