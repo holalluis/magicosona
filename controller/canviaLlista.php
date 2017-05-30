@@ -1,21 +1,30 @@
 <?php
 
+//comprova jugador o admin
+if(isset($_COOKIE['jugador'])==false && isset($_COOKIE['admin'])==false) 
+	die('error: sessió no iniciada');
+
+//connecta't
 include '../mysql.php';
 
-//comprova admin
-if(!isset($_COOKIE['admin'])) die('error: no ets admin');
-
-//id resultat & llista
+//processa id resultat & llista
 $id=$_POST['id'];
 $llista=mysql_real_escape_string($_POST['llista']);
 
-//nou nom de baralla
-$sql="UPDATE resultats SET llista='$llista' WHERE id=$id";
+//si no ets admin...
+if(!isset($_COOKIE['admin'])) {
+	//comprova si la id del resultat coincideix amb la id del jugador cookie
+	$id_jugador=current(mysql_fetch_assoc(mysql_query("SELECT id_jugador FROM resultats WHERE id=$id")));
+	//si el jugador que intenta canviar el resultat no és ell mateix atura't
+	if($_COOKIE['jugador']!=$id_jugador)
+		die("Error. No pots canviar la llista d'un altre jugador!");
+}
 
+//sql
+$sql="UPDATE resultats SET llista='$llista' WHERE id=$id";
 mysql_query($sql) or die('error');
 
-echo "tot ok";
-
-header("Location: ".$_SERVER['HTTP_REFERER']);
+//resultat
+echo "Llista actualitzada correctament";
 
 ?>

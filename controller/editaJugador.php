@@ -1,18 +1,26 @@
 <?php
-
 /*
+edita un camp d'un jugador
 per fer en ajax:
 inputs: id jugador, camp a canviar, nou valor
 */
 
-//comprova cookies
-if(!isset($_COOKIE['jugador'])) die('sessio no iniciada');
+//entrada
+$id=$_GET['id'];
+if($id=="")die('error: id jugador not set');
+
+//si no admin o si !jugador o cookie==id, atura't
+if(!isset($_COOKIE['admin']))
+{
+	if(!isset($_COOKIE['jugador'])) die('no permès');
+
+	if($_COOKIE['jugador']!=$id) die('no permès');
+}
 
 //connecta
 include '../mysql.php';
 
 //entada
-$id       = $_COOKIE['jugador'];
 $camp     = mysql_real_escape_string($_POST['camp']);
 $nouValor = mysql_real_escape_string($_POST['nouValor']);
 

@@ -128,9 +128,9 @@
 	<ul style="text-align:left;padding-left:1em;display:block;">
 		<!--botó modificar dades-->
 		<?php
-			if(isset($_COOKIE['jugador']) && $_COOKIE['jugador']==$id)
+			if((isset($_COOKIE['jugador']) && $_COOKIE['jugador']==$id) or isset($_COOKIE['admin']))
 			{
-				echo "<button onclick=window.location='editaDadesJugador.php' style='padding:1em 0.7em'>&#128221; Modificar dades</button>";
+				echo "<button onclick=window.location='editaDadesJugador.php?id=$id' style='padding:1em 0.7em'>&#128221; Modificar dades</button>";
 			}
 		?>
 
@@ -146,13 +146,13 @@
 					<script src="pwPoints.js"></script>
 					<script>PW.getPoints(<?php echo $dci?>,document.querySelector('#PW'))</script>
 					<style>
-						#PW {
-							padding:0.5em 0;
-						}
+						#PW { padding:0.5em 0; }
 					</style>
 				<?php
 			}
-			else echo "<span style=color:#999>no entrat</span>";
+			else {
+				echo "<span style=color:#999>no entrat</span>";
+			}
 		?>
 
 		<!--LLISTA DE CARTES EN VENTA-->
