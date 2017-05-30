@@ -9,8 +9,5 @@
 </style>
 
 <footer>
-	Magic Osona © 2016 — Tots els drets reservats
-	<div>
-		Lliga agermanada amb <a href=http://magicgirona.es target=_blank>Magic Girona</a>
-	</div>
+	Magic Osona © <?php echo date("Y") ?> — Tots els drets reservats
 </footer>

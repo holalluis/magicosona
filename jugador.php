@@ -81,6 +81,7 @@
 		h4{text-align:left;font-weight:bold}
 		ul{list-style-type:none}
 		.icon-edit:before{content:"\270e";}
+		.jugadors_data{font-size:11px;}
 	</style>
 </head><body><center>
 <?php include'menu.php'?>
@@ -110,14 +111,14 @@
 				</style>
 				<input name=id value="<?php echo $id?>" style=display:none>
 				<input name=pass type=password placeholder=Contrasenya maxlength=20> 
-				<button>Accedeix</button>
+				<button>ok</button>
 				<a href=# style="color:white;margin-left:5px" onclick="alert('Per reiniciar la teva contrasenya contacta en Lluís al Whatsapp')">No recordo la contrasenya</a>
 			</form>
 		</div> <?php
 	}
 ?>
 
-<!--TITOL--><h2><?php echo $nom ?></h2>
+<!--TITOL--><h2><?php echo $row['nom']; ?></h2>
 
 <!--COLUMNA DADES-->
 <div class=inline style="text-align:left;width:49%;">
@@ -131,12 +132,22 @@
 		?>
 
 		<!--DCI-->
-		<li>DCI:  
+		<li><b>DCI</b>:  
 		<?php 
 			if($dci)
 			{ 
 				echo $dci;
-				echo " (<a href='https://www.wizards.com/Magic/PlaneswalkerPoints/$dci' target=_blank>Planeswalker Points</a>)";
+				//echo " (<a href='https://www.wizards.com/Magic/PlaneswalkerPoints/$dci' target=_blank>Planeswalker Points</a>)";
+				?>
+					<div id=PW><i style=color:#666>Carregant Planeswalker Points...</i></div>
+					<script src="pwPoints.js"></script>
+					<script>PW.getPoints(<?php echo $dci?>,document.querySelector('#PW'))</script>
+					<style>
+						#PW {
+							padding:0.5em 0;
+						}
+					</style>
+				<?php
 			}
 			else echo "<span style=color:#999>no entrat</span>";
 		?>
@@ -145,10 +156,10 @@
 		<?php if($mkm)
 			{ 
 				?>
-					<li>Magiccardmarket: <a href='https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $mkm ?>' >Veure</a>
+					<li><b>Magiccardmarket</b>: <a target=_blank href='https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $mkm ?>' >Veure</a>
 				<?php	
 			}
-			else echo "<li><span style=color:#999>Magiccardmarket no vinculat</span>";
+			else echo "<li><b>Magiccardmarket:</b> <span style=color:#999>no vinculat</span>";
 		?>
 
 		<!--ASSISTEIX AL PROXIM TORNEIG-->
@@ -169,7 +180,7 @@
 				if($assisteix)
 				{
 					//si ja ha confirmat, permet enviar la llista
-					$nom = explode(" ",$nom)[0]; //Agafa el primer nom
+					$nom = explode(" ",$row['nom'])[0]; //Agafa el primer nom
 					echo "$nom assistirà al <a href=assistents.php>pròxim torneig ($data)</a>";
 
 					$llista=current(mysql_fetch_assoc(mysql_query("SELECT llista FROM assistentsProximTorneig WHERE id_jugador=$id")));
@@ -264,7 +275,8 @@
 
 				if($punts!=0)
 				{
-					echo "<tr><td><a href=esdeveniment.php?id=$esd>".$row['nom']." · $esd_jugadors jugadors · $data</a>";
+					echo "<tr><td><a href=esdeveniment.php?id=$esd>".$row['nom']." 
+						<span class=jugadors_data>($esd_jugadors jugadors, $data)</span></a>";
 					echo "<td>";
 					if($baralla=='' && ($_COOKIE['jugador']==$id || isset($_COOKIE['admin']) ))
 					{
@@ -305,7 +317,7 @@
 			}
 
 			//si no ha participat, posa "no ha participat"
-			if($participacions==0) echo "<tr><td colspan=3>Encara no ha participat a cap torneig";
+			if($participacions==0) echo "<tr><td colspan=3 style=color:#666>~Encara no ha participat a cap torneig";
 
 			//punts totals i punts per torneig
 			$ratio= $participacions>0 ? round($punts_totals/$participacions,1) : 0;

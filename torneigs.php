@@ -2,21 +2,31 @@
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
 	<title>Magic Osona - Torneigs</title>
+	<style>
+		.jugadors_data{font-size:12px}
+		#torneigs td {
+			padding:0.9em 0.4em
+			
+		}
+	</style>
 </head> <body><center>
 <?php include 'menu.php' ?>
 <h2>Torneigs celebrats aquesta temporada</h2>
+
+<!--NEXT torneig--><?php include 'proximEsdeveniment.php' ?>
 
 <div style=margin-top:0.5em>
 
 <!--Torneigs-->
 <div class=inline style="max-width:70%;">
-	<table>
-		<tr><th>Torneig<th>Jugadors<th>Data
+	<table id=torneigs>
 		<?php
 			$sql="SELECT * FROM esdeveniments ORDER BY data DESC";
 			$res=mysql_query($sql);
-			while($row=mysql_fetch_assoc($res))
-			{
+			if(mysql_num_rows($res)==0) {
+				echo "<tr><td>~0 torneigs celebrats aquesta temporada";
+			}
+			while($row=mysql_fetch_assoc($res)) {
 				$id=$row['id'];
 				$nom=$row['nom'];
 				$data=$row['data'];
@@ -25,9 +35,12 @@
 				$jugadors=current(mysql_fetch_assoc(mysql_query("SELECT COUNT(*) FROM resultats WHERE id_esdeveniment=$id")));
 				echo "
 					<tr>
-						<td><a href=esdeveniment.php?id=$id>$nom</a>
-						<td><a href=esdeveniment.php?id=$id>$jugadors</a>
-						<td><a href=esdeveniment.php?id=$id>$data_for</a> <span style=font-size:12px>($timeAgo)</span>
+						<td>
+							<a href=esdeveniment.php?id=$id>
+							$nom
+							<span class=jugadors_data>($jugadors jugadors, $data_for)</span>
+							</a>
+							<span style=font-size:12px>($timeAgo)</span>
 				";
 			}
 		?>
@@ -41,3 +54,4 @@
 
 </div>
 
+<?php include 'footer.php' ?>

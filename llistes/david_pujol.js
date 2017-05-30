@@ -1,6 +1,4 @@
-{
-	main:{
-		"Dryad Arbor":1, 
+{main:{
 		"Goblin Guide":4, 
 		"Wild Nacatl":4, 
 		"Reckless Bushwhacker":4, 
@@ -20,17 +18,16 @@
 		"Wooded foothills":4, 
 		"Windswept heath":4, 
 		"Mountains":1, 
-		"Forest":1, 
-	},
-	side:{
+		"Forest":2, 
+},side:{
 		"Grim Lavamancer":1, 
 		"Lightning Helix":2, 
 		"Destructive Revelry":2, 
 		"Scavenging Ooze":2, 
-		"Molten Rain":3, 
-		"Ancient Grudge":2, 
+		"Molten Rain":2, 
+		"Ancient Grudge":1, 
 		"Path to exile":1, 
 		"Spellskite":1, 
 		"Phyrexian Unlife":1, 
-	}
-}
+		"Grafdigger's Cage":2, 
+}}

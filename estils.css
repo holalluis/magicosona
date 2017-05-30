@@ -23,6 +23,12 @@ a{color:#3b5998;text-decoration:none;font-weight:normal;}
 
 .inline{display:inline-block;vertical-align:top}
 
+.flex {
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+}
+
 table{
 	border-collapse:collapse;
 	box-shadow: 0 1px 2px rgba(0,0,0,.1);
@@ -42,15 +48,6 @@ td,th{
 }
 td{padding:0.4em 0.4em}
 li{padding:0.4em 0;}
-
-/**NAVBAR**/
-td.nav a {text-decoration:none}
-td.nav{border:1px solid #ccc;border-top:none}
-td.nav{cursor:pointer;border-bottom:1px solid #ddd}
-@media only screen and (max-width:640px) { 
-	td.nav{font-size:12px}
-}
-td.nav:hover {background-color:#fefefe;border-bottom-color:#395693}
 
 /**POPUPS (com el de posar la llista a jugador.php)**/
 div.popup

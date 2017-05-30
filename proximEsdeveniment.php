@@ -17,10 +17,9 @@
 		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
 		echo "
 			<a href=assistents.php>
-				Pròxim torneig: $dataProximTorneig
-				($assistents jugadors inscrits)
-			</a>
-			";
+				<b>Pròxim torneig</b>: 
+				$dataProximTorneig [<b>$assistents</b> jugadors inscrits]
+			</a>";
 		if($falten==1)
 			echo " <span id=faltenBlink>FALTA $falten DIA!</span>";
 		else

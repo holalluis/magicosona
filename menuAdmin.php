@@ -2,43 +2,54 @@
 	// MENU ADMINISTRADOR
 	if(isset($_COOKIE['admin']))
 	{
-		echo "<div style='padding:0.5em;background-color:#abc;'>";
-		echo "Menú Admin: ";
-
-		//nou jugador
-		echo "<a href='nouJugador.php'>Nou jugador</a>";
-		echo " | ";
-
-		//nou esdeveniment
-		echo "<a href='nouEsdeveniment.php'>Nou Esdeveniment</a>";
-		echo " | ";
-
-		//baralles
-		echo " <a href=baralles.php>Baralles</a>";
-		echo " | ";
-
-		//proxim torneig
-		echo "<a href=assistents.php>Pròxim torneig</a>";
-		echo " | ";
-
-		//nou assistent
-		echo "Nou Assistent: ";
-		echo "<select id=id_assistent>";
-		$sql="	SELECT id,nom 
-			FROM jugadors 
-			WHERE NOT EXISTS 
-				(SELECT 1 FROM assistentsProximTorneig WHERE assistentsProximTorneig.id_jugador = jugadors.id) 
-			ORDER BY jugadors.nom";
-		$res=mysql_query($sql);
-		while($rowAdmin=mysql_fetch_assoc($res))
-		{
-			$idAdmin=$rowAdmin['id'];
-			$nomAdmin=$rowAdmin['nom'];
-			echo "<option value=$idAdmin>$nomAdmin</option>";
-		}
-		echo "</select> ";
-		echo "<button onclick=nouAssistent()>Guarda</button>";
-
-		echo "</div>";
+		?>
+		<style>
+			#menuAdmin{
+				display:flex;
+				flex-wrap:wrap;
+				justify-content:center;
+				margin:5px 0;
+			}
+			#menuAdmin .item {
+				display:block;
+				text-decoration:none;
+				border:1px solid #ccc;
+				border-bottom:1px solid #ddd;
+				padding:0.5em;
+				margin-right:-1px;
+			}
+			#menuAdmin a:hover {
+				background-color:#fefefe;
+				border-bottom-color:#395693;
+			}
+		</style>
+		<div id=menuAdmin>
+			<div class=item> Menú Admin </div>
+			<div class=item><a href='nouJugador.php'>Nou jugador</a></div>
+			<div class=item><a href='nouEsdeveniment.php'>Nou Esdeveniment</a></div>
+			<div class=item><a href=baralles.php>Baralles</a></div>
+			<div class=item><a href=assistents.php>Pròxim torneig</a></div>
+			<div class=item>
+				Nou Assistent:
+				<select id=id_assistent>
+					<?php
+						$sql="	SELECT id,nom 
+							FROM jugadors 
+							WHERE NOT EXISTS 
+								(SELECT 1 FROM assistentsProximTorneig WHERE assistentsProximTorneig.id_jugador = jugadors.id) 
+							ORDER BY jugadors.nom";
+						$res=mysql_query($sql);
+						while($rowAdmin=mysql_fetch_assoc($res))
+						{
+							$idAdmin=$rowAdmin['id'];
+							$nomAdmin=$rowAdmin['nom'];
+							echo "<option value=$idAdmin>$nomAdmin</option>";
+						}
+					?>
+				</select>
+				<button onclick=nouAssistent()>Guarda</button>
+			</div>
+		</div>
+		<?php
 	}
 ?>

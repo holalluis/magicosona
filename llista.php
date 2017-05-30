@@ -92,7 +92,6 @@
 		<a href=esdeveniment.php?id=$resultat->id_esdeveniment>Torneig $esdeveniment</a> &rsaquo;
 		$baralla, <a href=jugador.php?id=$resultat->id_jugador>$jugador</a> 
 		<span style=font-size:14px>($punts punts)</span>
-		<button onclick=\"window.location='baralla.php?id=$resultat->baralla'\">Veure més baralles $baralla</button>
 	</h3>";
 
 	//comprova llista buida
@@ -111,7 +110,7 @@
 	{ 
 		?>
 		<!--llista-->
-		<div style="text-align:left;border-radius:0.5em;border:1px solid #ccc;padding:0.5em;" class=inline>
+		<div style="max-width:50%;text-align:left;border-radius:0.5em;border:1px solid #ccc;padding:0.5em;" class=inline>
 			<script>
 				if(llista)
 				{
@@ -134,10 +133,16 @@
 			</script>
 		</div>
 
-		<!--carta visible--><div class=inline style="width:49%;text-align:left"> 
+		<!--carta visible-->
+		<div class=inline style="max-width:40%;text-align:left"> 
 			<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="margin:0 0.5em"> 
-			<br>
-			<!--exporta--><button onclick=exportarTxt(llista) style="margin:1em 1em">Exporta TXT</button>
+			<!--exporta-->
+			<div>
+				<button onclick=exportarTxt(llista) 
+					      style="margin:1em 1em;padding:0.5em 1em">Exporta TXT</button> <br>
+				<button style="margin:0em 1em;padding:0.5em 1em" onclick="window.location='baralla.php?id=<?php echo $resultat->baralla?>'"
+				>Veure més baralles <?php echo $baralla?></button>
+			</div>
 		</div>
 		<script>
 			//posa la primera carta visible
@@ -149,6 +154,16 @@
 					break;
 				}
 			})();
+
+			//preload les imatges al background
+			window.onload=function(){
+				var obj = Object.assign(llista.main,llista.side)
+				for(var nom in obj)	
+				{
+					var encoded=encodeURIComponent(nom).replace(/'/g, "%27");
+					new Image().src="http://gatherer.wizards.com/Handlers/Image.ashx?type=card&name="+encoded
+				}
+			};
 		</script>
 		<?php 
 	}
@@ -161,11 +176,53 @@
 		?>
 		<div style='background:#efefef;padding:1em;'>
 			<h4>Actualitza llista</h4>
-			<form action=controller/canviaLlista.php method=POST>
-				<input name=id value=<?php echo $resultat->id?> type=hidden>
-				<textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista en format JSON"><?php echo $resultat->llista?></textarea>
-				<button type=submit class=inline>Actualitza</button>
-			</form>
+			<div>
+				<textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista aquí"></textarea>
+				<button onclick=processaBaralla() class=inline>Actualitza</button>
+				<script>
+					function processaBaralla(){
+						var str=document.querySelector('textarea[name=llista]').value;
+						var json=JSON.stringify(parserBaralla(str));
+						var sol=new XMLHttpRequest();
+						sol.open('POST','controller/canviaLlista.php',false);
+						sol.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						sol.send("id=<?php echo $resultat->id?>&llista="+encodeURIComponent(json));
+						window.location.reload();
+					}
+					//converteix llista a baralla en format json
+					function parserBaralla(str) {
+						//baralla
+						var json={main:{},side:{}};
+						//separa per linies
+						var linies=str.split('\n');
+						linies.forEach(function(linia){
+							if(linia!=="")
+							{
+								var tokens=linia.split(" ");
+								if(tokens[0]=="SB:")
+								{
+									var qua=parseInt(tokens[1]);
+									var nom=tokens.slice(2).join(" ");
+									json.side[nom]=qua;
+								}
+								else
+								{
+									var qua=parseInt(tokens[0]);
+									var nom=tokens.slice(1).join(" ");
+									json.main[nom]=qua;
+								}
+							}
+						});
+						return json;
+						/*var llista=""+
+							"4 Monastery Swiftspear\n"+
+							"4 Skullcrack\n"+
+							"SB: 2 Wear // Tear\n"+
+							*/
+						//#test:console.log(parserBaralla(llista));
+					}
+				</script>
+			</div>
 		</div>
 		<?php
 	}

@@ -11,11 +11,20 @@
 			var id_jugador = document.getElementById('id_assistent').value;
 			window.location='nouAssistent.php?id_jugador='+id_jugador
 		}
+		function init()
+		{
+			//focus a username
+			var input=document.querySelector('#nom_jugador')
+			if(input)input.focus()
+		}
 	</script>
-</head><body><center>
+</head><body onload=init()><center>
 <?php include'menu.php'?>
 
-<div style="margin:0;background-color:#395693;color:white;padding:3em 0.5em">
+<div id=form style="margin:0;background-color:#395693;color:white;padding:3em 0.5em">
+	<style>
+		#form input {max-width:40%}
+	</style>
 <?php
 	if(isset($_COOKIE['admin']))
 	{ ?>
@@ -33,15 +42,36 @@
 	}
 	else
 	{
-		echo "<i>Inicia la sessió</i>&emsp;";
-		echo " <select onchange=window.location='jugador.php?id='+this.value>";
-		echo "<option>--Selecciona el teu nom--";
+		echo "<i>Escriu el teu nom i contrasenya</i><br><br>";
+		echo "<input id=nom_jugador placeholder=Nom list=jugadors autocomplete=off onclick=this.select()>";
+		echo "<datalist id=jugadors>";
 		$res=mysql_query("SELECT * FROM jugadors ORDER BY nom ASC");
-		while($roww=mysql_fetch_assoc($res)) echo "<option value=".$roww['id'].">".$roww['nom'];
-		echo "</select>";
+		while($roww=mysql_fetch_assoc($res)) echo "<option value='".$roww['nom']."' id_j=".$roww['id'].">".$roww['nom'];
+		echo "</datalist>";
+		echo " <input id=pass type=password maxlength=20 placeholder=Contrasenya onkeydown=buscaEnter(event)>";
+		echo " <button onclick=login_jugador()>ok</button>";
 	}
 ?>
 </div>
+
+<div style="padding:1em;background:gold">
+	Si no tens usuari, <a href=contacte.php>contacta amb nosaltres</a> 
+</div>
+
+<script>
+	function login_jugador()
+	{
+		var nom=document.querySelector('#nom_jugador').value
+		var id=document.querySelector('option[value="'+nom+'"]').getAttribute('id_j')
+		var pass=document.querySelector('#pass').value
+		window.location='controller/login_jugador.php?id='+id+'&pass='+pass
+	}
+	function buscaEnter(event)
+	{
+		var tecla=event.which;
+		if(tecla==13) login_jugador()
+	}
+</script>
 
 <script>
 function login()

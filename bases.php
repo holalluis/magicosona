@@ -23,7 +23,7 @@
 			<li>Cada tercer diumenge de mes (normalment).
 			<li>Inscripcions: per la web, o el mateix dia, de 9:00h a 10:00h.
 			<li>Inici del torneig: 10:00h. 
-			<li>Preu: 7€ (5€ per premis i 2€ s'acumulen per la final). <b>Els preus poden canviar si fem premis especials</b>.
+			<li>Preu inscripció: 12€ (10€ per premis i 2€ acumulats per la final). <b>Els preus poden variar si fem premis especials</b>.
 			<li>Al final de la lliga es farà una final on només podran jugar els 16 primers classificats.
 			<li>A cada torneig s'ha de portar la llista, o enviar-la per la pàgina de perfil (queda oculta a la resta).
 		</ul>

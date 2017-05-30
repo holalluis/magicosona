@@ -40,7 +40,7 @@
 <div class=inline style=width:49%>
 	<!--busca-->
 	<div style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0 0.5em 0 0.5em">
-		<form action=buscaCarta.php method=GET>
+		<form action=buscaCarta.php method=GET style=text-align:left>
 			Busca una carta:
 			<input name=carta type=search placeholder="Cryptic Command" style="width:50%">
 		</form>
@@ -55,3 +55,4 @@
 		<!--veure tokens-->   <div><button onclick="window.location='buscaCarta.php?carta=&rarity=24'">Veure tokens</button></div>
 	</div>
 </div>
+<?php include 'footer.php' ?>

@@ -6,6 +6,7 @@
 	$res=mysql_query($sql);
 	$row=mysql_fetch_assoc($res);
 	$nom=$row['nom'];
+	$nomTorneig=$row['nom'];
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
@@ -37,7 +38,7 @@
 			$idd=$roww['id'];
 			$nomm=$roww['nom'];
 			if($nomm==$row['nom'])
-				echo "<span style='margin:0.5em;padding:0.3em;border:1px solid #ccc;border-radius:1em;background:white;'>$nomm</span>";
+				echo "<span style='margin:0.5em;padding:0.3em;border-radius:0.5em;background:white;'><b>$nomm</b></span>";
 			else
 				echo "<a style='margin:0.5em;padding:0.3em' href=esdeveniment.php?id=$idd>$nomm</a>";
 		}
@@ -107,16 +108,17 @@
 </div>
 
 <!--botons veure-->
-<div class=inline style=text-align:left;max-width:70% id=botons_veure>
+<div class=inline style=text-align:left;max-width:29% id=botons_veure>
 	<style>
 		#botons_veure button {
 			padding:1em 1em;
 			margin-bottom:0.5em;
 			display:block;
-			font-size:2.6vw;
+			font-size:12px;
 		}
 	</style>
 	<?php
+		$nom=$nomTorneig;
 		if(file_exists("img/torneigs/elim$nom.png"))
 		{ 
 			echo "<button onclick=window.location=('img/torneigs/elim$nom.png')>Veure eliminatòria TOP 8</button>";
@@ -135,3 +137,4 @@
 		echo "<button onclick=esborrar() style=margin:'2em 0'>Esborrar Esdeveniment</button>";
 ?>
 
+<?php include 'footer.php' ?>
