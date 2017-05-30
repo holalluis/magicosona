@@ -14,19 +14,19 @@
 <!--TITOL--><h2>MagicCardMarket</h2>
 
 <!--descr-->
-<div style="max-width:70%;margin:1em">
+<div style="margin:1em">
 	Aquí trobaràs les cartes en venda dels jugadors. 
 	<br>
 	Si vols aparèixer aquí posa el teu nº d'usuari de MKM (id de 5 dígits) a la teva pàgina de perfil!
 </div>
 
 <!--columna buscar-->
-<div style=width:49%>
+<div>
 	<!--busca-->
 	<div style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0 0.5em 0 0.5em">
 		<form action=buscaCarta.php method=GET style=text-align:left>
 			Busca una carta:
-			<input name=carta type=search placeholder="Cryptic Command" style="width:50%">
+			<input name=carta type=search placeholder="Cryptic Command">
 		</form>
 	</div>
 
