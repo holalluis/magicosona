@@ -6,8 +6,11 @@
 		.jugadors_data{font-size:12px}
 		#torneigs td {
 			padding:0.9em 0.4em
-			
 		}
+		#navbar [torneigs]{
+			background:#fefefe;
+			border-bottom-color:#395693;
+		} 
 	</style>
 </head> <body><center>
 <?php include 'menu.php' ?>

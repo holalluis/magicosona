@@ -2,6 +2,12 @@
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
 	<title>Lliga Osonenca de Modern - Compra Venta</title>
+	<style>
+		#navbar [compraVenta]{
+			background:#fefefe;
+			border-bottom-color:#395693;
+		} 
+	</style>
 </head>
 <body><center>
 <?php include'menu.php'?>

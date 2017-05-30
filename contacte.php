@@ -2,6 +2,12 @@
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
 	<title>Lliga Osonenca de Modern - Bases</title>
+	<style>
+	#navbar [contacte]{
+		background:#fefefe;
+		border-bottom-color:#395693;
+	} 
+	</style>
 </head><body><center>
 <?php include 'menu.php' ?>
 

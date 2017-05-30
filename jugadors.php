@@ -3,6 +3,12 @@
 	<?php include 'imports.php' ?>
 	<title>Lliga Osonenca de Modern - Jugadors</title>
 	<script src=pwPoints.js></script>
+	<style>
+	#navbar [jugadors]{
+		background:#fefefe;
+		border-bottom-color:#395693;
+	} 
+	</style>
 </head>
 <body><center>
 <?php include 'menu.php' ?>

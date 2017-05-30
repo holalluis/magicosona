@@ -12,6 +12,12 @@
 			if(input)input.focus()
 		}
 	</script>
+	<style>
+		#navbar [login]{
+			background:#fefefe;
+			border-bottom-color:#395693;
+		} 
+	</style>
 </head><body onload=init()><center>
 <?php include'menu.php'?>
 

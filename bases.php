@@ -7,6 +7,10 @@
 		hr{margin-top:0.5em}
 		div > ul > li{border-bottom:1px solid #ccc;margin-bottom:0.5em;padding-bottom:0.5em}
 		table{margin:2px}
+		#navbar [bases]{
+			background:#fefefe;
+			border-bottom-color:#395693;
+		} 
 	</style>
 </head><body><center>
 <?php include'menu.php'?>

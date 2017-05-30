@@ -19,6 +19,10 @@
 	<style>
 		/*primers 16 files color gold*/
 		#taula tr:nth-child(-n+17) td:first-child {background:gold}
+		#navbar [index]{
+			background:#fefefe;
+			border-bottom-color:#395693;
+		} 
 	</style>
 </head><body><center>
 <!--menus--><?php include'menu.php'?>
