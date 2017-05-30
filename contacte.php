@@ -28,7 +28,7 @@
 
 <div style=padding:0.5em>
 	Pots contactar directament per
-	<a target=_blank href="https://api.whatsapp.com/send?phone=34677626363">Whatsapp</a>
+	<a target=_blank style=font-size:23px href="https://api.whatsapp.com/send?phone=34677626363">Whatsapp</a>
 	o amb el següent formulari:
 </div>
 
