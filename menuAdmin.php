@@ -49,6 +49,9 @@
 				</select>
 				<button onclick=nouAssistent()>Guarda</button>
 			</div>
+			<div class=item>
+				<a href=controller/logout_admin.php>Logout admin</a>
+			</div>
 		</div>
 		<?php
 	}

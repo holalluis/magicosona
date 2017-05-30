@@ -1,25 +1,25 @@
 <!--navbar-->
 
+<!--admin-->
 <?php include 'menuAdmin.php'?>
 
 <?php
 	//Hola jugador
 	if(isset($_COOKIE['jugador']))
 	{ ?>
-			<div id=holaJugador> Hola
-				<?php
-					$cookie_jugador=$_COOKIE['jugador'];
-					$nom = current(mysql_fetch_assoc(mysql_query("SELECT nom FROM jugadors WHERE id=$cookie_jugador")));
-					echo "<a href=jugador.php?id=$cookie_jugador>$nom! &#128100;</a>";
-				?>
-			</div>
-			<style>
-				#holaJugador
-				{
-					background:gold;
-					padding:0.3em;
-				}
-			</style>
+		<div id=holaJugador> Hola
+			<?php
+				$cookie_jugador=$_COOKIE['jugador'];
+				$nom = current(mysql_fetch_assoc(mysql_query("SELECT nom FROM jugadors WHERE id=$cookie_jugador")));
+				echo "<a href=jugador.php?id=$cookie_jugador>$nom! &#128100;</a>";
+			?>
+		</div>
+		<style>
+			#holaJugador {
+				background:gold;
+				padding:0.3em;
+			}
+		</style>
 	<?php }
 ?>
 
@@ -65,4 +65,3 @@
 		<?php }
 	?>
 </div>
-
