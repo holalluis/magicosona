@@ -122,7 +122,7 @@
 
 <!--COLUMNA DADES-->
 <div style="text-align:left;width:49%;">
-	<h4>Informació</h4>
+	<h4>Informació sobre el jugador</h4>
 
 	<ul style="text-align:left;padding-left:1em;display:block;">
 		<!--botó modificar dades-->

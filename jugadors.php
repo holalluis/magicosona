@@ -12,11 +12,10 @@
 
 <!--jugadors-->
 <table style=margin-top:0.5em> 
-	<tr><th>A-Z<th>Nom<th>DCI<th>Planeswalker points
+	<tr><th>Nom<th>DCI<th>Planeswalker points
 	<?php
 		$sql="SELECT * FROM jugadors ORDER BY nom";
 		$res=mysql_query($sql);
-		$i=1;
 		$pwPoints=Array();
 
 		while($row=mysql_fetch_assoc($res))
@@ -24,7 +23,7 @@
 			$id=$row['id'];
 			$nom=$row['nom'];
 			$dci=$row['dci'] ? $row['dci'] : "";
-			echo "<tr jugador=$id><td>$i<td><a href='jugador.php?id=$id'>$nom<td>$dci";
+			echo "<tr jugador=$id><td><a href='jugador.php?id=$id'>$nom<td>$dci";
 			if($dci)
 			{
 				$pwPoints[]=[$dci,$id];
@@ -34,7 +33,6 @@
 				</div>";
 			}
 			else echo "<td style=font-size:11px;color:#ccc>~No hi ha DCI";
-			$i++;
 		}
 	?>
 </table>
