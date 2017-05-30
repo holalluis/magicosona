@@ -21,8 +21,10 @@ mysql_query($sql) or die('error');
 echo 'ok';
 
 //notifica per mail
+/*
 $nom=current(mysql_fetch_assoc(mysql_query("SELECT nom FROM jugadors WHERE id=$id_jugador")));
 mail("holalluis@gmail.com","$nom assistirà al pròxim torneig","aaa") or die('error mail');
+*/
 
 header('location: assistents.php');
 
