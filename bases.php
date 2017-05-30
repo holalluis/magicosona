@@ -6,6 +6,7 @@
 		ul{list-style-type:none;padding-left:1em}
 		hr{margin-top:0.5em}
 		div > ul > li{border-bottom:1px solid #ccc;margin-bottom:0.5em;padding-bottom:0.5em}
+		table{margin:2px}
 	</style>
 </head><body><center>
 <?php include'menu.php'?>
@@ -48,24 +49,26 @@
 			<li>Puntuació extra:
 				<ul>
 					<li>Al final del suís, el primer classificat rebrà un punt extra, i a més a més, depenent de la posició:<br>
-						<table>
-							<tr><th>#<th colspan=2>En cas de TOP 8
-							<tr><td>1r:<td>  1 + 1 + 1 + 3<td>= 6 punts
-							<tr><td>2n:<td>  1 + 1 + 1    <td>= 3 punts
-							<tr><td>3r:<td>  1 + 1        <td>= 2 punts
-							<tr><td>4t:<td>  1 + 1        <td>= 2 punts
-							<tr><td>5è:<td>  1						<td>= 1 punt
-							<tr><td>6è:<td>  1						<td>= 1 punt
-							<tr><td>7è:<td>  1						<td>= 1 punt
-							<tr><td>8è:<td>  1						<td>= 1 punt
-						</table>
-						<table>
-							<tr><th>#<th colspan=2>En cas de TOP 4
-							<tr><td>1r:<td>  1 + 1 + 2  <td>= 4 punts
-							<tr><td>2n:<td>  1 + 1			<td>= 2 punts
-							<tr><td>3r:<td>  1					<td>= 1 punt
-							<tr><td>4t:<td>  1					<td>= 1 punt
-						</table>
+						<div class=flex style=justify-content:left>
+							<table>
+								<tr><th>#<th colspan=2>En cas de TOP 8
+								<tr><td>1r:<td>  1 + 1 + 1 + 3<td>= 6 punts
+								<tr><td>2n:<td>  1 + 1 + 1    <td>= 3 punts
+								<tr><td>3r:<td>  1 + 1        <td>= 2 punts
+								<tr><td>4t:<td>  1 + 1        <td>= 2 punts
+								<tr><td>5è:<td>  1						<td>= 1 punt
+								<tr><td>6è:<td>  1						<td>= 1 punt
+								<tr><td>7è:<td>  1						<td>= 1 punt
+								<tr><td>8è:<td>  1						<td>= 1 punt
+							</table>
+							<table>
+								<tr><th>#<th colspan=2>En cas de TOP 4
+								<tr><td>1r:<td>  1 + 1 + 2  <td>= 4 punts
+								<tr><td>2n:<td>  1 + 1			<td>= 2 punts
+								<tr><td>3r:<td>  1					<td>= 1 punt
+								<tr><td>4t:<td>  1					<td>= 1 punt
+							</table>
+						</div>
 						<li>Es farà TOP 4 en cas que hi hagi menys de 17 jugadors al torneig, sinó, es farà TOP 8.
 				</ul>
 		</ul>
