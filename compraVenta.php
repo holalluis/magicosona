@@ -42,7 +42,7 @@
 
 <!--jugadors-->
 <div>
-	<table>
+	<table style=width:100%>
 		<tr><th>Jugador<th>Cartes en venda
 		<?php
 			$sql="SELECT * FROM jugadors WHERE mkm!='' ORDER BY nom ASC";
