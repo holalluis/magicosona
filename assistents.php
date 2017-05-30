@@ -113,10 +113,6 @@
 
 	<!--inscrits-->
 	<div style=max-width:50%;>
-		<div>
-			<?php if($ass=="no") echo "No inscrits"; else echo "Inscrits" ?>
-		</div>
-
 		<!--botons EXCEL i whatsapp-->
 		<?php if(isset($_COOKIE['admin'])) { ?>
 			<div class=flex style=padding:0.5em> 
@@ -132,6 +128,10 @@
 		<?php } ?>
 
 		<table id=taula>
+			<tr><td colspan="<?php if(isset($_COOKIE['admin'])){echo 5;}else{echo 4;}?>" style=text-align:center>Llista 
+				<?php if($ass=="no") echo "No inscrits"; else echo "Inscrits" ?>
+			</tr>
+
 			<?php
 				$i=1;
 				while($row=mysql_fetch_assoc($result))
