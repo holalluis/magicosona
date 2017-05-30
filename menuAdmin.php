@@ -17,6 +17,7 @@
 				border-bottom:1px solid #ddd;
 				padding:0.5em;
 				margin-right:-1px;
+				margin-top:-1px;
 			}
 			#menuAdmin a:hover {
 				background-color:#fefefe;
