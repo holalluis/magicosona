@@ -48,22 +48,19 @@
 	</style>
 
 	<script>
-		function show(nom)
-		{
+		function show(nom) {
 			var img=document.querySelector('#carta');
 			img.src=""
 			img.src="http://gatherer.wizards.com/Handlers/Image.ashx?type=card&name="+nom
 			img.onclick=function(){window.open('http://magiccards.info/query?q='+nom)}
 		}
 
-		function comptaBaralla(llista)
-		{
+		function comptaBaralla(llista) {
 			if(!llista) return false;
 
 			var recompte = { main:0, side:0};
 
-			['main','side'].forEach(function(part)
-			{
+			['main','side'].forEach(function(part) {
 				for(var carta in llista[part])
 				{
 					recompte[part] += llista[part][carta];
@@ -71,16 +68,18 @@
 			});
 			return recompte;
 		}
-		function exportarTxt(llista)
-		{
-			var txt = "";
-			for(var carta in llista.main)
-				txt+=llista.main[carta]+" "+carta+'\r\n';
-			for(var carta in llista.side)
-				txt+="SB: "+llista.side[carta]+" "+carta+'\r\n';
+
+		function exportarTxt(llista) {
+			var txt="";
+
+			for(var carta in llista.main) {txt+=llista.main[carta]+" "+carta+'\r\n';}
+
+			for(var carta in llista.side) {txt+="SB: "+llista.side[carta]+" "+carta+'\r\n';}
+
 			//genera arxiu
 			var arxiu = "data:text/txt;charset=utf-8,"+encodeURI(txt);
-			window.location=arxiu;
+
+			window.open(arxiu);
 		}
 	</script>
 </head><body><center>
@@ -97,7 +96,7 @@
 	//comprova llista buida
 	if($llista=="") 
 	{
-		echo("<h2>Llista no disponible (<a href=contacte.php>envia-la</a>)</h2>");
+		echo("<h2>Llista no disponible (<a href=contacte.php>si la tens, envia-la! moltes gràcies</a>)</h2>");
 		$llista='false'; //per passar a javascript
 	}
 
@@ -105,12 +104,12 @@
 	echo "<script> var llista = $llista </script>";
 ?>
 
+<div id=root class=flex>
 <?php
-	if($llista!='false')
-	{ 
+	if($llista!='false') { 
 		?>
 		<!--llista-->
-		<div style="max-width:50%;text-align:left;border-radius:0.5em;border:1px solid #ccc;padding:0.5em;">
+		<div class=flex style="max-width:50%;text-align:left;border-radius:0.5em;border:1px solid #ccc;padding:0.5em;">
 			<script>
 				if(llista)
 				{
@@ -147,70 +146,74 @@
 		<script>
 			//posa la primera carta visible
 			(function(){
-				for(var nom in llista.main)	
-				{
+				for(var nom in llista.main)	{
 					var encoded=encodeURIComponent(nom).replace(/'/g, "%27");
-					show(encoded)
+					show(encoded);
 					break;
 				}
 			})();
 
-			//preload les imatges al background
+			//preload imatges a background
 			window.onload=function(){
-				var obj = Object.assign(llista.main,llista.side)
-				for(var nom in obj)	
-				{
-					var encoded=encodeURIComponent(nom).replace(/'/g, "%27");
-					new Image().src="http://gatherer.wizards.com/Handlers/Image.ashx?type=card&name="+encoded
-				}
+				[llista.main,llista.side].forEach(obj=>{
+					for(var nom in obj)	{
+						var encoded=encodeURIComponent(nom).replace(/'/g, "%27");
+						new Image().src="http://gatherer.wizards.com/Handlers/Image.ashx?type=card&name="+encoded;
+					}
+				});
 			};
 		</script>
 		<?php 
 	}
 ?>
+</div>
 
 <?php
 	//modificar llista
-	if(isset($_COOKIE['admin']) || $resultat->id_jugador==$_COOKIE['jugador'])
+	if(isset($_COOKIE['admin']) || isset($_COOKIE['jugador']) && $resultat->id_jugador==$_COOKIE['jugador'])
 	{
 		?>
 		<div style='background:#efefef;padding:1em;'>
-			<h4>Actualitza llista</h4>
+			<h4>Envia llista</h4>
 			<div>
-				<textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista aquí"></textarea>
-				<button onclick=processaBaralla()>Actualitza</button>
+<textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista aquí">
+20 Mountain
+40 Lightning Bolt
+SB: 15 Goblin Guide
+</textarea>
+				<div> <button onclick=processaBaralla()>Actualitza</button> </div>
 				<script>
 					function processaBaralla(){
 						var str=document.querySelector('textarea[name=llista]').value;
 						var json=JSON.stringify(parserBaralla(str));
 						var sol=new XMLHttpRequest();
-						sol.open('POST','controller/canviaLlista.php',false);
-						sol.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						sol.open('POST','controller/canviaLlista.php',true);
+						sol.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+						sol.onreadystatechange=function () {
+							if(sol.readyState===XMLHttpRequest.DONE && sol.status===200){
+								alert(sol.responseText);
+								window.location.reload();
+							}
+						};
 						sol.send("id=<?php echo $resultat->id?>&llista="+encodeURIComponent(json));
-						window.location.reload();
 					}
-					//converteix llista a baralla en format json
+					//converteix text a json
 					function parserBaralla(str) {
 						//baralla
 						var json={main:{},side:{}};
 						//separa per linies
-						var linies=str.split('\n');
+						var linies=str.split('\n').filter(function(n){return (n!="" && n!=" " && n!="	")});
 						linies.forEach(function(linia){
-							if(linia!=="")
-							{
-								var tokens=linia.split(" ");
-								if(tokens[0]=="SB:")
-								{
-									var qua=parseInt(tokens[1]);
-									var nom=tokens.slice(2).join(" ");
-									json.side[nom]=qua;
-								}
-								else
-								{
-									var qua=parseInt(tokens[0]);
-									var nom=tokens.slice(1).join(" ");
-									json.main[nom]=qua;
-								}
+							var tokens=linia.split(" ");
+							if(tokens[0]=="SB:") {
+								var qua=parseInt(tokens[1]);
+								var nom=tokens.slice(2).join(" ");
+								json.side[nom]=qua;
+							}
+							else {
+								var qua=parseInt(tokens[0]);
+								var nom=tokens.slice(1).join(" ");
+								json.main[nom]=qua;
 							}
 						});
 						return json;

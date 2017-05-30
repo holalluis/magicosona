@@ -117,11 +117,12 @@
 		</div> <?php
 	}
 ?>
-
 <!--TITOL--><h2><?php echo $row['nom']; ?></h2>
 
+<div id=root class=flex>
+
 <!--COLUMNA DADES-->
-<div style="text-align:left;width:49%;">
+<div style="text-align:left;">
 	<h4>Informació sobre el jugador</h4>
 
 	<ul style="text-align:left;padding-left:1em;display:block;">
@@ -247,7 +248,7 @@
 </div>
 
 <!--COLUMNA TORNEIGS-->
-<div style="width:49%;text-align:left;padding-left:0.4em">
+<div style="text-align:left;padding-left:0.4em">
 	<h4>Historial torneigs</h4>
 	<table style=width:97%>
 		<tr><th>Torneig<th>Baralla<th>Punts
@@ -279,7 +280,7 @@
 					echo "<tr><td><a href=esdeveniment.php?id=$esd>".$row['nom']." 
 						<span class=jugadors_data>($esd_jugadors jugadors, $data)</span></a>";
 					echo "<td>";
-					if($baralla=='' && ($_COOKIE['jugador']==$id || isset($_COOKIE['admin']) ))
+					if($baralla=='' && (isset($_COOKIE['jugador']) && $_COOKIE['jugador']==$id || isset($_COOKIE['admin']) ))
 					{
 						echo "<select id=baralla_".$roww['id']." 
 										onchange=setejaBaralla(".$roww['id'].")>";
@@ -327,12 +328,14 @@
 	</table>
 </div>
 
+</div>
+
 <?php
 	//ADMIN
 	if(isset($_COOKIE['admin']))
 	{
 		?>
-			<fieldset style=max-width:30%;margin-top:1em><legend>Admin</legend>
+			<fieldset style=margin-top:1em><legend>Admin [perill]</legend>
 				<button style='background-color:#f20;padding:1em' onclick=esborrar()>Esborrar Jugador</button>
 				<button onclick="alert('<?php echo $pas ?>')">Pass</button>
 			</fieldset>

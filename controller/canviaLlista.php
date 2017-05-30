@@ -1,11 +1,11 @@
 <?php
 
-//comprova admin
-if(!isset($_COOKIE['admin'])) die('sessio admin no iniciada');
-
 include '../mysql.php';
 
-//id llista
+//comprova admin
+if(!isset($_COOKIE['admin'])) die('error: no ets admin');
+
+//id resultat & llista
 $id=$_POST['id'];
 $llista=mysql_real_escape_string($_POST['llista']);
 
