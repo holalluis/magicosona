@@ -1,13 +1,10 @@
 <?php
-	// MENU ADMINISTRADOR
-	if(isset($_COOKIE['admin']))
-	{
-		?>
+	if(isset($_COOKIE['admin'])) { ?>
 		<style>
 			#menuAdmin{
 				display:flex;
 				flex-wrap:wrap;
-				justify-content:space-between;;
+				justify-content:center;
 				padding:5px;
 				font-size:14px;
 				background:rgb(0,150,136);
@@ -34,12 +31,14 @@
 			}
 		</style>
 		<div id=menuAdmin>
+			<div style=padding:0.5em;color:white>Menú Admin</div>
 			<div class=flex>
-				<div style=padding:0.5em;color:white>Menú Admin</div>
-				<div class=item><a href='nouJugador.php'>Nou jugador</a></div>
-				<div class=item><a href='nouEsdeveniment.php'>Nou Esdeveniment</a></div>
-				<div class=item><a href=baralles.php>Baralles</a></div>
-				<div class=item><a href=assistents.php>Pròxim torneig</a></div>
+				<div class=flex>
+					<div class=item><a href='nouJugador.php'>Nou jugador</a></div>
+					<div class=item><a href='nouEsdeveniment.php'>Nou Esdeveniment</a></div>
+					<div class=item><a href=baralles.php>Baralles</a></div>
+					<div class=item><a href=assistents.php>Pròxim torneig</a></div>
+				</div>
 				<div class=item>
 					Nou Assistent:
 					<select id=id_assistent>
@@ -68,8 +67,8 @@
 		<script>
 			//posa un nou jugador a la llista d'assistents al proxim torneig
 			function nouAssistent() {
-				var id_jugador = document.getElementById('id_assistent').value;
-				window.location='nouAssistent.php?id_jugador='+id_jugador
+				var id_jugador=document.getElementById('id_assistent').value;
+				window.location='nouAssistent.php?id_jugador='+id_jugador;
 			}
 		</script>
 		<?php
