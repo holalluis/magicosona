@@ -56,7 +56,7 @@
 </h3>
 
 <!--resultats-->
-<div class=inline style=max-width:70%>
+<div style=max-width:70%>
 	<table id=resultats>
 		<tr><th>#<th>Baralla<th>Jugador<th>Punts
 		<?php
@@ -108,7 +108,7 @@
 </div>
 
 <!--botons veure-->
-<div class=inline style=text-align:left;max-width:29% id=botons_veure>
+<div style=text-align:left;max-width:29% id=botons_veure>
 	<style>
 		#botons_veure button {
 			padding:1em 1em;

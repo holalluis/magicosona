@@ -110,13 +110,13 @@
 	{ 
 		?>
 		<!--llista-->
-		<div style="max-width:50%;text-align:left;border-radius:0.5em;border:1px solid #ccc;padding:0.5em;" class=inline>
+		<div style="max-width:50%;text-align:left;border-radius:0.5em;border:1px solid #ccc;padding:0.5em;">
 			<script>
 				if(llista)
 				{
 					["main","side"].forEach(function(part)
 					{
-						document.write("<div class=inline style='max-width:50%'><b id="+part+">"+part.toUpperCase()+"</b>");
+						document.write("<div style='max-width:50%'><b id="+part+">"+part.toUpperCase()+"</b>");
 						for(var nom in llista[part])
 						{
 							var encoded = encodeURIComponent(nom).replace(/'/g, "%27");
@@ -134,7 +134,7 @@
 		</div>
 
 		<!--carta visible-->
-		<div class=inline style="max-width:40%;text-align:left"> 
+		<div style="max-width:40%;text-align:left"> 
 			<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="margin:0 0.5em"> 
 			<!--exporta-->
 			<div>
@@ -178,7 +178,7 @@
 			<h4>Actualitza llista</h4>
 			<div>
 				<textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista aquí"></textarea>
-				<button onclick=processaBaralla() class=inline>Actualitza</button>
+				<button onclick=processaBaralla()>Actualitza</button>
 				<script>
 					function processaBaralla(){
 						var str=document.querySelector('textarea[name=llista]').value;

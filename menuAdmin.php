@@ -54,6 +54,13 @@
 				<a href=controller/logout_admin.php>Logout admin</a>
 			</div>
 		</div>
+		<script>
+			//posa un nou jugador a la llista d'assistents al proxim torneig
+			function nouAssistent() {
+				var id_jugador = document.getElementById('id_assistent').value;
+				window.location='nouAssistent.php?id_jugador='+id_jugador
+			}
+		</script>
 		<?php
 	}
 ?>

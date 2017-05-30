@@ -15,14 +15,7 @@
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Magic Osona - Pàgina Principal</title>
-	<script>
-		//posa un nou jugador a la llista d'assistents al proxim torneig
-		function nouAssistent() {
-			var id_jugador = document.getElementById('id_assistent').value;
-			window.location='nouAssistent.php?id_jugador='+id_jugador
-		}
-	</script>
+	<title>Pàgina Principal</title>
 	<style>
 		/*primers 16 files color gold*/
 		#taula tr:nth-child(-n+17) td:first-child {background:gold}

@@ -5,9 +5,10 @@ if(!isset($_COOKIE['admin']))
 
 include '../mysql.php';
 $nom=mysql_real_escape_string($_GET['nom']);
+$dci=mysql_real_escape_string($_GET['dci']);
 
 //nou jugador
-$sql="INSERT INTO jugadors (nom) VALUES ('$nom')";
+$sql="INSERT INTO jugadors (nom,dci) VALUES ('$nom','$dci')";
 mysql_query($sql) or die('error');
 echo 'nou jugador ok';
 
@@ -23,7 +24,6 @@ $p3=$id+1;
 $sql="UPDATE jugadors SET pass='".$p1.$id.$p3."' WHERE id=$id";
 mysql_query($sql) or die('error');
 echo 'nou password ok';
-
-header("Location: ../index.php");
+header("Location: ../jugador.php?id=$id");
 
 ?>

@@ -1,15 +1,12 @@
 var PW = {}
 
 //funció a jugador.php
-PW.getPoints=function(dci,container)
-{
+PW.getPoints=function(dci,container) {
 	var sol=new XMLHttpRequest();
 	sol.open('GET','pwPoints.php?dci='+dci,true);
 	sol.timeout=10000;
-	sol.onreadystatechange = function () 
-	{
-		if(sol.readyState === XMLHttpRequest.DONE && sol.status === 200) 
-		{
+	sol.onreadystatechange = function () {
+		if(sol.readyState === XMLHttpRequest.DONE && sol.status === 200) {
 				//Afegeix la resposta al container element
 				var resposta=sol.responseText;
 				var json=JSON.parse(resposta);
@@ -24,8 +21,7 @@ PW.getPoints=function(dci,container)
 				})();
 		}
 	};
-	sol.ontimeout=function()
-	{
+	sol.ontimeout=function() {
 		container.innerHTML="Punts planeswalker no trobats";
 	};
 	sol.send();

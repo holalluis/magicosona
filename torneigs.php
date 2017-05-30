@@ -15,10 +15,10 @@
 
 <!--NEXT torneig--><?php include 'proximEsdeveniment.php' ?>
 
-<div style=margin-top:0.5em>
+<div class=flex style=margin-top:0.5em>
 
 <!--Torneigs-->
-<div class=inline style="max-width:70%;">
+<div style="max-width:70%;">
 	<table id=torneigs>
 		<?php
 			$sql="SELECT * FROM esdeveniments ORDER BY data DESC";
@@ -48,8 +48,8 @@
 </div>
 
 <!--veure meta-->
-<div class=inline style="max-width:28%;text-align:left;">
-	<button style="padding:1.5em 0.5em" onclick="window.location='metagame.php'">Veure metagame</button>
+<div style="max-width:28%;">
+	<button style="margin-left:3px;padding:1.5em 0.5em" onclick="window.location='metagame.php'">Veure metagame</button>
 </div>
 
 </div>

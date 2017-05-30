@@ -121,14 +121,16 @@
 <!--TITOL--><h2><?php echo $row['nom']; ?></h2>
 
 <!--COLUMNA DADES-->
-<div class=inline style="text-align:left;width:49%;">
+<div style="text-align:left;width:49%;">
 	<h4>Informació</h4>
 
 	<ul style="text-align:left;padding-left:1em;display:block;">
 		<!--botó modificar dades-->
 		<?php
-			if($_COOKIE['jugador']==$id)
+			if(isset($_COOKIE['jugador']) && $_COOKIE['jugador']==$id)
+			{
 				echo "<button onclick=window.location='editaDadesJugador.php' style='padding:1em 0.7em'>&#128221; Modificar dades</button>";
+			}
 		?>
 
 		<!--DCI-->
@@ -186,7 +188,7 @@
 					$llista=current(mysql_fetch_assoc(mysql_query("SELECT llista FROM assistentsProximTorneig WHERE id_jugador=$id")));
 
 					//si el client és jugador id o admin
-					if($id==$_COOKIE['jugador'] || isset($_COOKIE['admin']))
+					if(isset($_COOKIE['jugador']) && $id==$_COOKIE['jugador'] || isset($_COOKIE['admin']))
 					{
 						if($llista=="")
 						{
@@ -200,7 +202,6 @@
 							echo " 
 								<br><div 
 										onclick=mostraMenuLlista() 
-										class=inline
 										style='padding:0.3em;
 												border:1px solid #ccc;
 												margin:0.5em 0;cursor:cell;min-width:49%;
@@ -224,7 +225,7 @@
 				else
 				{
 					echo "<span style=color:#999>No ha confirmat assistència al <a href=assistents.php>pròxim torneig ($data)</a>";	
-					if($id==$_COOKIE['jugador'] || isset($_COOKIE['admin']))
+					if(isset($_COOKIE['jugador']) && $id==$_COOKIE['jugador'] || isset($_COOKIE['admin']))
 					{ ?>
 						<button onclick=emVullApuntar() >Apuntar-me al pròxim torneig!</button>
 						<script>
@@ -246,7 +247,7 @@
 </div>
 
 <!--COLUMNA TORNEIGS-->
-<div class=inline style="width:49%;text-align:left;padding-left:0.4em">
+<div style="width:49%;text-align:left;padding-left:0.4em">
 	<h4>Historial torneigs</h4>
 	<table style=width:97%>
 		<tr><th>Torneig<th>Baralla<th>Punts
@@ -304,7 +305,7 @@
 								echo "<a href=llista.php?id=$resultat>".$nomBaralla['nom']."</a>";
 
 							//boto esborra baralla
-							if($_COOKIE['jugador']==$id || isset($_COOKIE['admin']) )
+							if(isset($_COOKIE['jugador']) && $_COOKIE['jugador']==$id || isset($_COOKIE['admin']) )
 								echo " <button class=icon-edit onclick=window.location='controller/setejaBaralla.php?id=".$roww['id']."&baralla='></button>";
 						}
 						else

@@ -69,7 +69,6 @@
 	function show(carta,e)
 	{
 		var img = document.querySelector('#cartaGran')
-		img.style.display='inline';
 		img.src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name="+carta;
 		img.style.left=(e.pageX-125)+"px"
 		img.style.top=Math.max(0,e.pageY-250)+"px"
@@ -93,7 +92,7 @@
 	?>
 </h2>
 
-<div class=inline style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0.5em">
+<div style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0.5em">
 	<form action=buscaCarta.php method=GET>
 		Busca una carta:
 		<input type=search name=carta placeholder="Cryptic Command" value="<?php echo $carta?>">

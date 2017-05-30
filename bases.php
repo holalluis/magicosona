@@ -1,6 +1,6 @@
-<?php include 'mysql.php'?>
 <!doctype html><html><head>
-	<?php include 'imports.php'?>
+	<?php include'mysql.php'?>
+	<?php include'imports.php'?>
 	<title>Bases</title>
 	<style>
 		ul{list-style-type:none;padding-left:1em}
@@ -8,15 +8,14 @@
 		div > ul > li{border-bottom:1px solid #ccc;margin-bottom:0.5em;padding-bottom:0.5em}
 	</style>
 </head><body><center>
-<?php include 'menu.php' ?>
-
-<h2>Bases — Normes de la lliga</h2>
+<?php include'menu.php'?>
+<h2>Bases / Normes de la lliga</h2>
 
 <div style=text-align:left;margin-top:0.5em>
 <ul>
 	<li><b>Informació general</b>
 		<ul>
-			<li>Benvingut a la Lliga Osonenca de Modern.
+			<li>Benvingut a la Lliga Osonenca de Modern!
 			<li>Si no has jugat mai a Magic, llegeix <a target=_blank href="http://media.wizards.com/2014/docs/SP_M15_QckStrtBklt_LR_Crop.pdf">aquesta guia d'inici</a>.
 			<li>El format que juguem és <a target=_blank href="http://magic.wizards.com/es/gameinfo/gameplay/formats/modern">Modern (mira les normes)</a>.
 			<li>Celebrem els torneigs al Club Billar Vic, <a target=_blank href="https://www.google.es/maps/place/Carrer+de+l'Arquebisbe+Alemany,+24,+08500+Vic,+Barcelona/@41.9319626,2.2490315,17z/data=!3m1!4b1!4m2!3m1!1s0x12a5271b7b0f0561:0x9d4451d075aba9b1">C/Arquebisbe Alemany 24-26, Vic</a>.
@@ -49,7 +48,7 @@
 			<li>Puntuació extra:
 				<ul>
 					<li>Al final del suís, el primer classificat rebrà un punt extra, i a més a més, depenent de la posició:<br>
-						<table class=inline>
+						<table>
 							<tr><th>#<th colspan=2>En cas de TOP 8
 							<tr><td>1r:<td>  1 + 1 + 1 + 3<td>= 6 punts
 							<tr><td>2n:<td>  1 + 1 + 1    <td>= 3 punts
@@ -60,7 +59,7 @@
 							<tr><td>7è:<td>  1						<td>= 1 punt
 							<tr><td>8è:<td>  1						<td>= 1 punt
 						</table>
-						<table class=inline>
+						<table>
 							<tr><th>#<th colspan=2>En cas de TOP 4
 							<tr><td>1r:<td>  1 + 1 + 2  <td>= 4 punts
 							<tr><td>2n:<td>  1 + 1			<td>= 2 punts

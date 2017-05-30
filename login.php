@@ -5,12 +5,6 @@
 <!doctype html><html><head><?php include'imports.php'?>
 	<title>Login</title>
 	<script>
-		function nouAssistent()
-		//posa un nou jugador a la llista d'assistents al proxim torneig
-		{
-			var id_jugador = document.getElementById('id_assistent').value;
-			window.location='nouAssistent.php?id_jugador='+id_jugador
-		}
 		function init()
 		{
 			//focus a username
@@ -43,11 +37,16 @@
 	else
 	{
 		echo "<i>Escriu el teu nom i contrasenya</i><br><br>";
-		echo "<input id=nom_jugador placeholder=Nom list=jugadors autocomplete=off onclick=this.select()>";
-		echo "<datalist id=jugadors>";
-		$res=mysql_query("SELECT * FROM jugadors ORDER BY nom ASC");
-		while($roww=mysql_fetch_assoc($res)) echo "<option value='".$roww['nom']."' id_j=".$roww['id'].">".$roww['nom'];
-		echo "</datalist>";
+		echo "<select id=id_jugador>";
+		$sql="SELECT * FROM jugadors ORDER BY nom ASC";
+		$ress=mysql_query($sql) or die('error');
+		while($roww=mysql_fetch_assoc($ress))
+		{
+			$nom=$roww['nom'];
+			$idd=$roww['id'];
+			echo "<option value=$idd>$nom";
+		}
+		echo "</select>";
 		echo " <input id=pass type=password maxlength=20 placeholder=Contrasenya onkeydown=buscaEnter(event)>";
 		echo " <button onclick=login_jugador()>ok</button>";
 	}
@@ -59,23 +58,19 @@
 </div>
 
 <script>
-	function login_jugador()
-	{
-		var nom=document.querySelector('#nom_jugador').value
-		var id=document.querySelector('option[value="'+nom+'"]').getAttribute('id_j')
-		var pass=document.querySelector('#pass').value
-		window.location='controller/login_jugador.php?id='+id+'&pass='+pass
+	function login_jugador() {
+		var id=document.querySelector('#id_jugador').value;
+		var pass=document.querySelector('#pass').value;
+		window.location='controller/login_jugador.php?id='+id+'&pass='+pass;
 	}
-	function buscaEnter(event)
-	{
+	function buscaEnter(event) {
 		var tecla=event.which;
 		if(tecla==13) login_jugador()
 	}
 </script>
 
 <script>
-function login()
-{
+function login() {
 	var p=prompt('Contrasenya?')
 	if(p) window.location='controller/login.php?pass='+p
 }

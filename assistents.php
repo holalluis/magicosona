@@ -47,11 +47,6 @@
 			str+="Queden "+(30-i)+" places. Falten <?php echo $falten?> dies! magicosona.com\r\n";
 			prompt("Copia amb ctrl-c",str)
 		}
-		function nouAssistent()
-		{
-			var id_jugador = document.getElementById('id_assistent').value;
-			window.location='nouAssistent.php?id_jugador='+id_jugador
-		}
 		function eliminaAssistent(id)
 		{
 			window.location='controller/eliminaAssistent.php?id_jugador='+id
@@ -88,7 +83,7 @@
 	{
 		$premi = $n*5;
 		?>
-			<div style='display:none;margin:0.3em;background:orange;padding:0.5em;text-align:left;border-radius:0.5em;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);' class=inline>
+			<div style='display:none;margin:0.3em;background:orange;padding:0.5em;text-align:left;border-radius:0.5em;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);'>
 				<span style='font-weight:bold'>Premis:</span>
 				<span style=font-size:18px><?php echo $premi?> €</span> (calculat amb <?php echo $n ?> assistents)
 				<br>

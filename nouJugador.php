@@ -7,8 +7,9 @@
 <h1>Inserta nou jugador</h1>
 
 <form action="controller/nouJugador.php" method=get>
-	<table cellpadding=5>
+<table cellpadding=5>
 	<tr><td>Nom<td><input name=nom placeholder=Nom autocomplete=off required>
+	<tr><td>DCI<td><input name=dci placeholder="nº DCI (opcional)" autocomplete=off>
 	<tr><td><td><button type=submit>Guarda</button>
-	</table>
+</table>
 </form>
