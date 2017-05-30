@@ -36,7 +36,7 @@
 	}
 	else
 	{
-		echo "<i>Escriu el teu nom i contrasenya</i><br><br>";
+		echo "<i>Selecciona el teu nom i escriu la contrasenya</i><br><br>";
 		echo "<select id=id_jugador>";
 		$sql="SELECT * FROM jugadors ORDER BY nom ASC";
 		$ress=mysql_query($sql) or die('error');
@@ -49,6 +49,9 @@
 		echo "</select>";
 		echo " <input id=pass type=password maxlength=20 placeholder=Contrasenya onkeydown=buscaEnter(event)>";
 		echo " <button onclick=login_jugador()>ok</button>";
+		echo "<div style=padding-top:1em;font-size:14px>
+			<a href=recuperar.php style='color:white;margin-left:5px'>No recordo la contrasenya</a>
+		</div>";
 	}
 ?>
 </div>

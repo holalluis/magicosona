@@ -112,7 +112,7 @@
 				<input name=id value="<?php echo $id?>" style=display:none>
 				<input name=pass type=password placeholder=Contrasenya maxlength=20> 
 				<button>ok</button>
-				<a href=# style="color:white;margin-left:5px" onclick="alert('Per reiniciar la teva contrasenya contacta en Lluís al Whatsapp')">No recordo la contrasenya</a>
+				<a href=recuperar.php style="color:white;margin-left:5px">No recordo la contrasenya</a>
 			</form>
 		</div> <?php
 	}

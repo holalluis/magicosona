@@ -10,7 +10,7 @@
 				justify-content:space-between;;
 				padding:5px;
 				font-size:14px;
-				background:red;
+				background:rgb(0,150,136);
 			}
 			#menuAdmin a {
 				text-decoration:none;
@@ -35,7 +35,7 @@
 		</style>
 		<div id=menuAdmin>
 			<div class=flex>
-				<div style=padding:0.5em;color:#3b5998> Menú Admin</div>
+				<div style=padding:0.5em;color:white>Menú Admin</div>
 				<div class=item><a href='nouJugador.php'>Nou jugador</a></div>
 				<div class=item><a href='nouEsdeveniment.php'>Nou Esdeveniment</a></div>
 				<div class=item><a href=baralles.php>Baralles</a></div>
