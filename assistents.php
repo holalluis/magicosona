@@ -95,7 +95,7 @@
 ?>
 
 <!--com inscriure's-->
-<h4 style="background:gold;border-bottom:1px solid #ccc">Per inscriure't <a href=login.php>inicia sessió</a> amb el teu perfil.<br>Si no tens perfil <a href=contacte.php>contacta amb nosaltres</a>.</h4>
+<h4 style="background:gold;border-bottom:1px solid #ccc;margin:0;margin-bottom:5px">Per inscriure't <a href=login.php>inicia sessió</a> amb el teu perfil.<br>Si no tens perfil <a href=contacte.php>contacta amb nosaltres</a>.</h4>
 
 
 <div class=flex>
@@ -105,7 +105,7 @@
 		if(file_exists('img/torneigs/proxim.jpg'))
 		{ ?>
 			<div>
-				<img src="img/torneigs/proxim.jpg" alt="imatge proxim torneig" style=max-width:99%;> 
+				<img src="img/torneigs/proxim.jpg" alt="imatge proxim torneig" style=max-width:99%;cursor:pointer; onclick=window.open('img/torneigs/proxim.jpg')> 
 			</div>
 		<?php }
 	?>

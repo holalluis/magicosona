@@ -11,7 +11,7 @@
 <div style="max-width:70%;margin:1em">
 	Aquí trobaràs les cartes en venda dels jugadors. 
 	<br>
-	Si vols aparèixer aquí posa el teu id de MKM a la teva pàgina de perfil!
+	Si vols aparèixer aquí posa el teu nº d'usuari de MKM (id de 5 dígits) a la teva pàgina de perfil!
 </div>
 
 <!--columna buscar-->

@@ -38,7 +38,7 @@
 			text-align:left;
 		}
 	</style>
-	<tr><th title="Posició">#<th><b>Classificació</b>
+	<tr><th title="Posició">#<th><b>Classificació general</b>
 	<?php
 		// Llista d'esdeveniments
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
