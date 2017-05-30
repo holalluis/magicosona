@@ -2,7 +2,7 @@
 <style>
 	footer{
 		color:#666;
-		margin-top:2em;
+		margin:2em 0;
 		font-size:12px;
 	}
 	footer div {margin:2em}
