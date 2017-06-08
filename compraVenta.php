@@ -21,6 +21,8 @@
 </div>
 
 <!--columna buscar-->
+<?php
+/*
 <div>
 	<!--busca-->
 	<div style="border:1px solid #ccc;padding:0.5em;border-radius:1em;margin:0 0.5em 0 0.5em">
@@ -39,10 +41,12 @@
 		<!--veure tokens-->   <div><button onclick="window.location='buscaCarta.php?carta=&rarity=24'">Veure tokens</button></div>
 	</div>
 </div>
+*/
+?>
 
 <!--jugadors-->
 <div>
-	<table style=width:100%>
+	<table style=margin:auto>
 		<tr><th>Jugador<th>Cartes en venda
 		<?php
 			$sql="SELECT * FROM jugadors WHERE mkm!='' ORDER BY nom ASC";

@@ -37,10 +37,10 @@
 			var str=""
 			str+="Inscrits al Torneig "+torneig+", <?php echo $dataProximTorneig ?>:\r\n";
 			str+="========================\r\n";
-			for(var i=0;i<t.rows.length;i++)
+			for(var i=1;i<t.rows.length;i++)//comença per 1 pq hi ha una fila extra a sobre de tot
 			{
-				num = t.rows[i].cells[0].textContent
-				nom = t.rows[i].cells[1].textContent
+				num = t.rows[i].cells[0].textContent;
+				nom = t.rows[i].cells[1].textContent;
 				str+=num+" "+nom+"\n"
 			}
 			str+="========================\r\n";
