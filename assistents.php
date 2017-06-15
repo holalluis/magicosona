@@ -115,7 +115,7 @@
 	<div style=max-width:50%;>
 		<!--botons EXCEL i whatsapp-->
 		<?php if(isset($_COOKIE['admin'])) { ?>
-			<div class=flex style=padding:0.5em> 
+			<div class=flex id=botonera > 
 				<button onclick=excel()>Generar Excel Assistents</button> &emsp;
 				<button onclick=llistaWA()>Llista pel Whatsapp</button> &emsp;
 				<?php
@@ -124,6 +124,14 @@
 					else
 						echo "<button onclick=window.location='assistents.php?ass=si'>Veure inscrits</a>";
 				?>
+				<style>
+					#botonera {
+						padding:0.5em;
+					}
+					#botonera button {
+						padding:1em;
+					}
+				</style>
 			</div>
 		<?php } ?>
 
