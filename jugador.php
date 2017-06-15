@@ -159,7 +159,10 @@
 		<?php if($mkm)
 			{ 
 				?>
-					<li><b>Magiccardmarket</b>: <a target=_blank href='https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $mkm ?>' >Veure</a>
+					<li><b>Magiccardmarket</b>: 
+					<a target=_blank href='https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=<?php echo $mkm ?>'>
+						Veure (id <?php echo $mkm?>)
+					</a>
 				<?php	
 			}
 			else echo "<li><b>Magiccardmarket:</b> <span style=color:#999>no vinculat</span>";
