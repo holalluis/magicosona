@@ -1,5 +1,5 @@
 <?php
-	// PÀGINA PRINCIPAL
+	//PÀGINA PRINCIPAL
 	include 'mysql.php';
 	function comptaPot() {
 		$pot=0; //euros
@@ -49,7 +49,15 @@
 		$res=mysql_query($sql);
 
 		if(mysql_num_rows($res)==0){
-			echo "<tr><td>~<td>0 torneigs celebrats aquesta temporada";
+			echo "<th><b>Total</b>";
+			//mostra tots els jugadors i "0 punts"
+			$sql="SELECT * FROM jugadors ORDER BY nom";
+			$res=mysql_query($sql);
+			while($row=mysql_fetch_assoc($res)) {
+				$id=$row['id'];
+				$nom=$row['nom'];
+				echo "<tr><td>1<td><a href=jugador.php?id=$id>$nom</a><td>0 punts";
+			}
 		}
 		else{
 			$torneigs=[];
