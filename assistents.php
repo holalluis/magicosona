@@ -47,20 +47,18 @@
 			str+="Queden "+(30-i)+" places. Falten <?php echo $falten?> dies! magicosona.com\r\n";
 			prompt("Copia amb ctrl-c",str)
 		}
-		function eliminaAssistent(id)
-		{
+		function eliminaAssistent(id) {
 			window.location='controller/eliminaAssistent.php?id_jugador='+id
 		}
-		function excel()
-		{
+		function excel() {
 			//Agafa la taula id=taula
 			var taula=document.getElementById('taula');
 			//string on escriurem l'arxiu csv
 			var str="Num;Nom;Inscrit;Llista;Menu;Entrepa;Beguda\r\n";
 			//recorre la taula en loop
-			for(var i=0; i<taula.rows.length; i++)
+			for(var i=1; i<taula.rows.length; i++)
 			{
-				str += (i+1) + ";"
+				str += (i) + ";"
 					str += taula.rows[i].cells[1].textContent
 					str += ' \r\n'
 			}
