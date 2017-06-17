@@ -22,7 +22,7 @@
 
 <h2>Planeswalker points (16/06/2017)</h2>
 
-<h5>Pàgina en construcció</h5>
+<h5>[Pàgina en construcció]</h5>
 
 <div>
 	Punts dels jugadors de la lliga ordenats per punts totals (lifetime points) o de temporada (season points).
