@@ -1,5 +1,6 @@
 var Jugadors=[
 	/*{nom,lvl,lifetime,season}*/
+	{nom:"Adrià Martínez",	lvl: 29, lifetime: 821, season: 43},
 	{nom:"Adrià Simon",	lvl: 34, lifetime: 2447, season: 24},
 	{nom:"Adrià Solé",	lvl: 37, lifetime: 4831, season: 88},
 	{nom:"Albert Casulleras",	lvl: 36, lifetime: 3389, season: 11},
@@ -36,8 +37,10 @@ var Jugadors=[
 	{nom:"Guillem Capdevila",	lvl: 7, lifetime: 34, season: 0},
 	{nom:"Hendrys Tobar",	lvl: 24, lifetime: 429, season: 0},
 	{nom:"Ignasi Ríos",	lvl: 14, lifetime: 88, season: 0},
+	{nom:"Iroe Gómez",	lvl: 28, lifetime: 749, season: 26},
 	{nom:"Ivan de Castro",	lvl: 41, lifetime: 10127, season: 12},
 	{nom:"Jaume Palacios",	lvl: 30, lifetime: 973, season: 9},
+	{nom:"Javier Roblas",	lvl: 18, lifetime: 166, season: 7},
 	{nom:"Javier Zurano",	lvl: 31, lifetime: 1171, season: 30},
 	{nom:"Joan Tarrida",	lvl: 27, lifetime: 670, season: 8},
 	{nom:"Jordi Alapont",	lvl: 26, lifetime: 522, season: 0},

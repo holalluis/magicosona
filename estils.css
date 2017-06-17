@@ -5,27 +5,26 @@ body{
 }
 
 /* for mobile */
-@media only screen and (max-width:640px) { body { font-size:2.6vw; } }
+@media only screen and (max-width:640px){body{font-size:2.7vw;}}
+/*
+*/
 
-ul {
+ul{
 	margin:0;
 }
-
 button{
 	border-radius:0.3em;
 	background:#fafafa;
 	border:1px solid #ccc;
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
-button:hover {background:#eee}
-
+button:hover{background:#eee}
 h2,h3,h4{padding:10px 0 10px 0;font-weight:normal;margin-bottom:0}
 h2,h3{border-bottom:1px solid #ccc}
-
-a:hover {color:#000066;text-decoration:underline}
+a:hover{color:#000066;text-decoration:underline}
 a{color:#3b5998;text-decoration:none;font-weight:normal;}
 
-.flex {
+.flex{
 	display:flex;
 	flex-wrap:wrap;
 	justify-content:center;
@@ -34,26 +33,28 @@ a{color:#3b5998;text-decoration:none;font-weight:normal;}
 table{
 	border-collapse:collapse;
 	box-shadow: 0 1px 2px rgba(0,0,0,.1);
-	}
-tr{border-left:1px solid #ccc}
-tr{border-right:1px solid #ccc}
-tr:nth-child(even) {background:#eee}
-
-th{
-	background-color:gold;
-	font-weight:normal;
+}
+tr{
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+tr:nth-child(even){
+	background:#eee;
 }
 td,th{
 	padding:0.4em;
 	border-bottom:1px solid #ccc;
 	border-top:1px solid #ccc;
 }
+th{
+	background-color:gold;
+	font-weight:normal;
+}
 td{padding:0.4em 0.4em}
 li{padding:0.4em 0;}
 
 /**POPUPS (com el de posar la llista a jugador.php)**/
-div.popup
-{
+div.popup{
 	position:absolute;
 	top:0;
 	left:0;
@@ -66,12 +67,12 @@ div.popup
 	background-clip: padding-box;
 }
 
-div.popup textarea {
+div.popup textarea{
 	display:block;
 	width:300px;
 	height:100px;
 }
-
-div.popup button {
+div.popup button{
 	padding:1em 2em;
 }
+
