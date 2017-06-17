@@ -22,6 +22,8 @@
 
 <h2>Planeswalker points (16/06/2017)</h2>
 
+<h5>Pàgina en construcció</h5>
+
 <div>
 	Punts dels jugadors de la lliga ordenats per punts totals (lifetime points) o de temporada (season points).
 </div>
@@ -32,7 +34,7 @@
 	<button onclick=sort('season')>Season points</button>
 </div>
 
-<div id="chart" style=vertical-align:top></div>
+<div id="chart" style=vertical-align:top>Carregant...</div>
 
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="punts.js"></script>
