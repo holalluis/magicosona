@@ -47,7 +47,7 @@
 			sol.onreadystatechange=function() {
 				if(sol.readyState==4 && sol.status==200) alert(sol.responseText)
 			}
-			sol.send("id="+<?php echo $id?>+"&cur="+cur+"&nou="+nou);
+			sol.send("id=<?php echo $id?>&cur="+cur+"&nou="+nou);
 		}
 	</script>
 </head><body><center>
