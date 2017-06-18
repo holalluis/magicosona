@@ -54,7 +54,7 @@
 			{
 				var llista=text.value;
 				var sol=new XMLHttpRequest()
-				sol.open('POST','controller/llistaProximTorneig.php',true)
+				sol.open('POST','controller/llistaProximTorneig',true)
 				sol.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				sol.onreadystatechange=function()
 				{
