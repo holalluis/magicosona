@@ -56,79 +56,81 @@
 </h3>
 
 <!--resultats-->
-<div style=max-width:70%>
-	<table id=resultats>
-		<tr><th>#<th>Baralla<th>Jugador<th>Punts
-		<?php
-			$sql="	
-				SELECT 
-					jugadors.nom AS jugador,
-					jugadors.id AS id_jugador,
-					resultats.baralla AS id_baralla,
-					resultats.punts AS punts,
-					resultats.id AS resultat,
-					resultats.llista AS llista
-				FROM 
-					jugadors,resultats
-				WHERE 
-					resultats.id_esdeveniment=$id AND
-					resultats.id_jugador=jugadors.id
-				ORDER BY punts DESC";
-			$res=mysql_query($sql);
-			$i=1;
-			while($row=mysql_fetch_assoc($res))
-			{
-				$resultat=$row['resultat'];
-				$llista=$row['llista'];
-				$jugador=$row['jugador'];
-				$id_jugador=$row['id_jugador'];
-				$id_baralla=$row['id_baralla'];
-				$punts=$row['punts'];
-				echo "<tr> 
-						<td class=top>$i
-						<td>
-				";
-
-				if($id_baralla>0)
+<div class=flex>
+	<div style=max-width:70%>
+		<table id=resultats>
+			<tr><th>#<th>Baralla<th>Jugador<th>Punts
+			<?php
+				$sql="	
+					SELECT 
+						jugadors.nom AS jugador,
+						jugadors.id AS id_jugador,
+						resultats.baralla AS id_baralla,
+						resultats.punts AS punts,
+						resultats.id AS resultat,
+						resultats.llista AS llista
+					FROM 
+						jugadors,resultats
+					WHERE 
+						resultats.id_esdeveniment=$id AND
+						resultats.id_jugador=jugadors.id
+					ORDER BY punts DESC";
+				$res=mysql_query($sql);
+				$i=1;
+				while($row=mysql_fetch_assoc($res))
 				{
-					$roww=mysql_fetch_assoc(mysql_query("SELECT nom FROM baralles WHERE id=$id_baralla"));
-					$baralla=$roww['nom'];
-					$color_link = ($llista=="") ? "style=color:#aaa" : "";
-					echo "<a href=llista.php?id=$resultat $color_link>$baralla</a>";
+					$resultat=$row['resultat'];
+					$llista=$row['llista'];
+					$jugador=$row['jugador'];
+					$id_jugador=$row['id_jugador'];
+					$id_baralla=$row['id_baralla'];
+					$punts=$row['punts'];
+					echo "<tr> 
+							<td class=top>$i
+							<td>
+					";
+
+					if($id_baralla>0)
+					{
+						$roww=mysql_fetch_assoc(mysql_query("SELECT nom FROM baralles WHERE id=$id_baralla"));
+						$baralla=$roww['nom'];
+						$color_link = ($llista=="") ? "style=color:#aaa" : "";
+						echo "<a href=llista.php?id=$resultat $color_link>$baralla</a>";
+					}
+					else echo "N/A";
+
+					echo "<td><a href=jugador.php?id=$id_jugador>$jugador</a>";
+					echo "<td>$punts";
+
+					$i++;
 				}
-				else echo "N/A";
+			?>
+		</table>
+	</div>
 
-				echo "<td><a href=jugador.php?id=$id_jugador>$jugador</a>";
-				echo "<td>$punts";
-
-				$i++;
+	<!--botons veure-->
+	<div style=text-align:left;margin-left:5px;max-width:29% id=botons_veure>
+		<style>
+			#botons_veure button {
+				padding:1em 1em;
+				margin-bottom:0.5em;
+				display:block;
+				font-size:12px;
+			}
+		</style>
+		<?php
+			$nom=$nomTorneig;
+			if(file_exists("img/torneigs/elim$nom.png"))
+			{ 
+				echo "<button onclick=window.location=('img/torneigs/elim$nom.png')>Veure eliminatòria TOP 8</button>";
+			}
+			if(file_exists("img/torneigs/$nom.jpg"))
+			{ ?>
+				<button onclick="window.location=('img/torneigs/<?php echo $nom ?>.jpg')">Veure cartell i premis</button>
+				<?php
 			}
 		?>
-	</table>
-</div>
-
-<!--botons veure-->
-<div style=text-align:left;max-width:29% id=botons_veure>
-	<style>
-		#botons_veure button {
-			padding:1em 1em;
-			margin-bottom:0.5em;
-			display:block;
-			font-size:12px;
-		}
-	</style>
-	<?php
-		$nom=$nomTorneig;
-		if(file_exists("img/torneigs/elim$nom.png"))
-		{ 
-			echo "<button onclick=window.location=('img/torneigs/elim$nom.png')>Veure eliminatòria TOP 8</button>";
-		}
-		if(file_exists("img/torneigs/$nom.jpg"))
-		{ ?>
-			<button onclick=window.location=('img/torneigs/<?php echo $nom ?>.jpg')>Veure cartell i premis</button>
-			<?php
-		}
-	?>
+	</div>
 </div>
 
 <br>
