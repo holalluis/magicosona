@@ -72,6 +72,3 @@
 	?>
 </table>
 </div>
-
-<!-- FOOTER -->
-<div style=font-size:13px;margin:2px;padding:1em> Organitzat per Totoptero Team. Web creada per Lluís Bosch. Tots els drets reservats.  </div>
