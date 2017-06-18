@@ -6,9 +6,9 @@ inputs: id jugador, current password, nou password
 */
 
 //entrada
-$id  = $_COOKIE['jugador'];
-$cur = mysql_real_escape_string($_POST['cur']);
-$nou = mysql_real_escape_string($_POST['nou']);
+$id =  mysql_real_escape_string($_POST['id']);  //jugador
+$cur = mysql_real_escape_string($_POST['cur']); //pswd actual
+$nou = mysql_real_escape_string($_POST['nou']); //pswd nou
 
 if($id=="")die('error id jugador not set');
 if($cur=="")die('error cur pswd not set');
