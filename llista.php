@@ -79,7 +79,7 @@
 			//genera arxiu
 			var arxiu = "data:text/txt;charset=utf-8,"+encodeURI(txt);
 
-			window.open(arxiu);
+			window.location=arxiu;
 		}
 	</script>
 </head><body><center>
