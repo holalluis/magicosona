@@ -44,7 +44,7 @@
 		div.carta span.nom:hover {
 			color:gold;
 		}
-		h3{margin-bottom:0.5em}
+		h3{margin-bottom:5px}
 	</style>
 
 	<script>
@@ -71,19 +71,21 @@
 
 		function exportarTxt(llista) {
 			var txt="";
-
 			for(var carta in llista.main) {txt+=llista.main[carta]+" "+carta+'\r\n';}
-
 			for(var carta in llista.side) {txt+="SB: "+llista.side[carta]+" "+carta+'\r\n';}
 
 			//genera arxiu
 			var arxiu = "data:text/txt;charset=utf-8,"+encodeURI(txt);
 
-			window.location=arxiu;
+			//crea un link
+			var a=document.createElement('a');
+			a.download='<?php echo $baralla?>.txt';
+			a.href=arxiu;
+			a.click();
 		}
 	</script>
 </head><body><center>
-<?php include 'menu.php' ?>
+<?php include'menu.php'?>
 
 <?php
 	echo "
@@ -134,12 +136,12 @@
 
 		<!--carta visible-->
 		<div style="max-width:40%;text-align:left"> 
-			<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="margin:0 0.5em"> 
+			<img id=carta src="http://gatherer.wizards.com/handlers/image.ashx?type=card&name=no" style="margin:0 5px"> 
 			<!--exporta-->
 			<div>
 				<button onclick=exportarTxt(llista) 
-					      style="margin:1em 1em;padding:0.5em 1em">Exporta TXT</button> <br>
-				<button style="margin:0em 1em;padding:0.5em 1em" onclick="window.location='baralla.php?id=<?php echo $resultat->baralla?>'"
+					      style="margin:5px 5px;padding:0.5em 1em">Exporta .DEC</button> <br>
+				<button style="margin:0em 5px;padding:0.5em 1em" onclick="window.location='baralla.php?id=<?php echo $resultat->baralla?>'"
 				>Veure més baralles <?php echo $baralla?></button>
 			</div>
 		</div>
@@ -167,6 +169,8 @@
 	}
 ?>
 </div>
+
+<div style=margin-top:5px></div>
 
 <?php
 	//modificar llista
