@@ -21,7 +21,7 @@
 
 			//nou ajax
 			var sol=new XMLHttpRequest()
-			sol.open('POST','controller/editaJugador?id=<?php echo $id?>',true)
+			sol.open('POST','controller/editaJugador.php?id=<?php echo $id?>',true)
 			sol.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			sol.onreadystatechange=function() {
 			  if(sol.readyState==4 && sol.status==200) alert(sol.responseText);
@@ -42,7 +42,7 @@
 
 			//nou ajax
 			var sol=new XMLHttpRequest()
-			sol.open('POST','controller/canviaPass',true)
+			sol.open('POST','controller/canviaPass.php',true)
 			sol.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			sol.onreadystatechange=function() {
 				if(sol.readyState==4 && sol.status==200) alert(sol.responseText)

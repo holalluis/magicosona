@@ -187,7 +187,7 @@ SB: 15 Goblin Guide
 						var str=document.querySelector('textarea[name=llista]').value;
 						var json=JSON.stringify(parserBaralla(str));
 						var sol=new XMLHttpRequest();
-						sol.open('POST','controller/canviaLlista',true);
+						sol.open('POST','controller/canviaLlista.php',true);
 						sol.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 						sol.onreadystatechange=function () {
 							if(sol.readyState===XMLHttpRequest.DONE && sol.status===200){
