@@ -94,10 +94,10 @@
 					{
 						$roww=mysql_fetch_assoc(mysql_query("SELECT nom FROM baralles WHERE id=$id_baralla"));
 						$baralla=$roww['nom'];
-						$color_link = ($llista=="") ? "style=color:#888" : "";
+						$color_link = ($llista=="") ? "style=color:#666" : "";
 						echo "<a href=llista.php?id=$resultat $color_link>$baralla</a>";
 					}
-					else echo "<span style=color:#666;font-family:monospace>~no disponible</span>";
+					else echo "<span style=color:#aaa;font-family:monospace>~no disponible</span>";
 
 					echo "<td><a href=jugador.php?id=$id_jugador>$jugador</a>";
 					echo "<td>$punts";

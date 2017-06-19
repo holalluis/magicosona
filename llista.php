@@ -140,9 +140,13 @@
 			<!--exporta-->
 			<div>
 				<button onclick=exportarTxt(llista) 
-					      style="margin:5px 5px;padding:0.5em 1em">Exporta .DEC</button> <br>
-				<button style="margin:0em 5px;padding:0.5em 1em" onclick="window.location='baralla.php?id=<?php echo $resultat->baralla?>'"
-				>Veure més baralles <?php echo $baralla?></button>
+					      style="margin:5px 5px;padding:0.5em 1em">
+								Exporta .DEC
+				</button> <br>
+				<button style="margin:0em 5px;padding:0.5em 1em" 
+								onclick="window.location='baralla.php?id=<?php echo $resultat->baralla?>'">
+								Veure més baralles <?php echo $baralla?>
+				</button>
 			</div>
 		</div>
 		<script>
