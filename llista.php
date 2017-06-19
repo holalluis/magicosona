@@ -79,6 +79,7 @@
 
 			//crea un link
 			var a=document.createElement('a');
+			document.body.appendChild(a);
 			a.download='<?php echo $baralla?>.txt';
 			a.href=arxiu;
 			a.click();
