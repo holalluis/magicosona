@@ -13,10 +13,6 @@ $id  = mysql_real_escape_string($_POST['id']);  //jugador
 $cur = mysql_real_escape_string($_POST['cur']); //pswd actual
 $nou = mysql_real_escape_string($_POST['nou']); //pswd nou
 
-echo $id;
-echo $cur;
-echo $nou;
-
 if($id=="")die("error id jugador not set");
 if($cur=="")die("error cur pswd not set");
 if($nou=="")die("error nou pswd not set");
