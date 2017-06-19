@@ -1,8 +1,8 @@
 <?php
 
-if(in_array($_SERVER['SERVER_NAME'],array('localhost','192.168.1.133'),true))
+if(in_array($_SERVER['SERVER_NAME'],array('localhost'),true))
 {
-	mysql_connect("localhost","root","");
+	mysql_connect("127.0.0.1","root","");
 	mysql_select_db("magicosona");
 }
 else
