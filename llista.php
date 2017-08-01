@@ -189,7 +189,7 @@
 	{
 		?>
 		<div style='background:#efefef;padding:1em;'>
-			<h4>Envia llista</h4>
+			<h4>Envia llista (text en format .dec)</h4>
 			<div>
 <textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista aquí">
 20 Mountain
