@@ -69,10 +69,16 @@
 			return recompte;
 		}
 
-		function exportarTxt(llista) {
+		function llista2dec(llista){
 			var txt="";
 			for(var carta in llista.main) {txt+=llista.main[carta]+" "+carta+'\r\n';}
 			for(var carta in llista.side) {txt+="SB: "+llista.side[carta]+" "+carta+'\r\n';}
+			return txt;
+		}
+
+		function exportarTxt(llista) {
+
+			var txt=llista2dec(llista);
 
 			//genera arxiu
 			var arxiu = "data:text/txt;charset=utf-8,"+encodeURI(txt);
@@ -190,6 +196,11 @@
 40 Lightning Bolt
 SB: 15 Goblin Guide
 </textarea>
+
+<script>
+	document.querySelector('textarea[name=llista]').value=llista2dec(llista);
+</script>
+
 				<div> <button onclick=processaBaralla()>Actualitza</button> </div>
 				<script>
 					function processaBaralla(){
