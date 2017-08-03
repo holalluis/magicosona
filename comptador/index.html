@@ -1,0 +1,183 @@
+<!doctype html><html><head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>MTG Contador</title>
+	<style>
+		body{
+			font-family:monospace;
+			margin:0;
+		}
+		table{
+			border-collapse:collapse;
+			width:100%;
+		}
+		th{
+			background:white;
+			border:1px solid #ccc;
+			padding:3px;
+		}
+		td{
+			text-align:center;
+			border:1px solid #ccc;
+			padding:1px;
+			background:white;
+		}
+		th:first-child,td:first-child{
+			border-left:none;
+		}
+		th:last-child,td:last-child {
+			border-right:none;
+		}
+		button {
+			display:block;
+			padding:16.18px 10px;
+			width:100%;
+			outline:none;
+			background:linear-gradient(#eee,#f5f5f5);
+			border:none;
+			font-size:14px;
+			font-family:monospace;
+		}
+		button:first-child{
+			border-bottom:1px solid #ccc;
+		}
+		button.source {
+			background:linear-gradient(lightblue,#abc);
+			margin:auto;
+		}
+		#historial {
+			font-size:11px;
+		}
+		#historial th {
+			background:#f1f1f1;
+		}
+		.flex{
+			display:flex;
+			flex-wrap:wrap;
+			justify-content:center;
+		}
+		tr.vides_actuals td {
+			font-size:50px;
+			background:linear-gradient(lightgreen,green);
+		}
+		#historial td.zero{
+			color:#aaa;
+		}
+	</style>
+	<script>
+		//variables globals
+		var actual_jo
+		var actual_tu
+
+		//funcions
+		function init() {
+			actual_jo=20;
+			actual_tu=20;
+			render_vides();
+			document.querySelector('#indicador_nova_partida').style.display='';
+			var t=document.getElementById('historial');
+			while(t.rows.length>3){t.deleteRow(-1);}
+		}
+
+		function render_vides(){
+			document.querySelector('#actual_jo').innerHTML=actual_jo;
+			document.querySelector('#actual_tu').innerHTML=actual_tu;
+		}
+
+		function jugada(jugador,vides) {
+			var nova_jo=document.querySelector('#nova_jo');
+			var nova_tu=document.querySelector('#nova_tu');
+			if(jugador==0){ 
+				nova_jo.innerHTML=parseInt(nova_jo.innerHTML)+vides
+			}
+			else if(jugador==1){
+				nova_tu.innerHTML=parseInt(nova_tu.innerHTML)+vides
+			}
+		}
+
+		function ok(source) {
+			var nova_jo=parseInt(document.querySelector('#nova_jo').innerHTML)
+			var nova_tu=parseInt(document.querySelector('#nova_tu').innerHTML)
+
+			//si no hi ha canvi, no facis res
+			if(nova_jo==0 && nova_tu==0)return;
+
+			//actualitza vides
+			actual_jo+=nova_jo;
+			actual_tu+=nova_tu;
+
+			render_vides();
+			registra(source);
+		}
+
+		function registra(source){
+			//amaga indicador nova partida al primer registre
+			document.querySelector('#indicador_nova_partida').style.display='none';
+			//jugada
+			var nova_jo=parseInt(document.querySelector('#nova_jo').innerHTML)
+			var nova_tu=parseInt(document.querySelector('#nova_tu').innerHTML)
+			//inserta jugada a la taula historial
+			var t=document.getElementById('historial');
+			var newRow=t.insertRow(-1);
+			newRow.insertCell(-1).innerHTML=nova_jo||"<span style=color:#ccc>=</span>";
+			newRow.insertCell(-1).innerHTML=nova_tu||"<span style=color:#ccc>=</span>";
+			newRow.insertCell(-1).innerHTML=source;
+			//fin
+			document.querySelector('#nova_jo').innerHTML=0;
+			document.querySelector('#nova_tu').innerHTML=0;
+		}
+	</script>
+</head>
+<body onload=init()>
+
+<!--taula vides-->
+<table>
+	<tr>
+		<th style=border-top:none colspan=2>YO
+		<th style=border-top:none colspan=2>TÚ
+	</tr>
+	<tr class=vides_actuals>
+		<td id=actual_jo colspan=2>20<td id=actual_tu colspan=2>20
+	</tr>
+	<tr>
+		<td id=nova_jo colspan=2>0<td id=nova_tu colspan=2>0
+	</tr>
+	<tr>
+		<td colspan=2>
+			<div class=flex>
+				<button onclick=jugada(0,+1)>+1</button>
+				<button onclick=jugada(0,-1)>-1</button>
+			</div>
+		</td>
+		<td colspan=2>
+			<div class=flex>
+				<button onclick=jugada(1,+1)>+1</button>
+				<button onclick=jugada(1,-1)>-1</button>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td><button class=source onclick=ok('Tierra')>Tierra</button>
+		<td><button class=source onclick=ok('Ataque')>Ataque</button>
+		<td><button class=source onclick=ok('Conjuro')>Conjuro</button>
+		<td><button class=source onclick=ok('Otros')>Otros</button>
+	</tr>
+</table>
+
+<!--historial-->
+<table id=historial style=margin-top:10px>
+	<tr><th colspan=3>Historial
+	<tr><th>YO<th>TÚ<th>Fuente
+	<tr id=indicador_nova_partida><td colspan=3 style=color:#aaa>~Vacío
+</table>
+
+<!--nova partida-->
+<div style=margin-top:10px>
+	<button onclick="init()" style="margin:auto;border:1px solid #ccc;width:50%">
+		Nueva partida
+	</button>
+</div>
+
+<center style=margin-top:10px>
+	<a href="../">magicosona.com</a>
+</center>

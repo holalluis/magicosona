@@ -52,7 +52,7 @@
 	<a torneigs    href=torneigs.php>Torneigs</a>
 	<a jugadors    href=jugadors.php>Jugadors</a>
 	<a compraVenta href=compraVenta.php>Market</a>
-	<a contacte    href=contacte.php>Contacte</a>
+	<a comptador   href=comptador>Life count</a>
 	<?php
 		if(isset($_COOKIE['jugador'])) 
 		{ ?>
