@@ -48,11 +48,11 @@
 
 <div id=navbar>
 	<a index       href=index.php>Inici</a>
-	<a bases       href=bases.php>Bases</a>
 	<a torneigs    href=torneigs.php>Torneigs</a>
 	<a jugadors    href=jugadors.php>Jugadors</a>
-	<a compraVenta href=compraVenta.php>Market</a>
 	<a comptador   href=comptador>Life count</a>
+	<a compraVenta href=compraVenta.php>Market</a>
+	<a bases       href=bases.php>Bases</a>
 	<?php
 		if(isset($_COOKIE['jugador'])) 
 		{ ?>
