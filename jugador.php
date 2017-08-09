@@ -26,8 +26,7 @@
 			var url="controller/setejaBaralla.php?id="+id_resultat+"&baralla="+encodeURI(baralla)
 			window.location=url;
 		}
-		function mostraMenuLlista()
-		{
+		function mostraMenuLlista() {
 			//nou popup
 			var div=document.createElement('div');
 			document.body.appendChild(div)

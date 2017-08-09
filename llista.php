@@ -41,6 +41,9 @@
 			cursor:default;
 			color:#212121;
 		}
+		div.carta span.nom {
+			color:#3b5998;
+		}
 		div.carta span.nom:hover {
 			color:gold;
 		}
@@ -118,15 +121,12 @@
 	if($llista!='false') { 
 		?>
 		<!--llista-->
-		<div class=flex style="max-width:50%;text-align:left;border-radius:0.5em;border:1px solid #ccc;padding:0.5em;">
+		<div class=flex style="font-family:monospace;max-width:50%;text-align:left;border-radius:0.5em;border:1px solid #ccc;padding:0.5em;">
 			<script>
-				if(llista)
-				{
-					["main","side"].forEach(function(part)
-					{
+				if(llista) {
+					["main","side"].forEach(function(part) {
 						document.write("<div style='max-width:50%'><b id="+part+">"+part.toUpperCase()+"</b>");
-						for(var nom in llista[part])
-						{
+						for(var nom in llista[part]) {
 							var encoded = encodeURIComponent(nom).replace(/'/g, "%27");
 							document.write("<div class=carta>"+llista[part][nom]+
 								" <span class=nom onmouseover=\"show('"+encoded+"');\" >"+nom+"</span></div>");
@@ -191,16 +191,10 @@
 		<div style='background:#efefef;padding:1em;'>
 			<h4>Envia llista (text en format .dec)</h4>
 			<div>
-<textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista aquí">
-20 Mountain
-40 Lightning Bolt
-SB: 15 Goblin Guide
-</textarea>
-
-<script>
-	document.querySelector('textarea[name=llista]').value=llista2dec(llista);
-</script>
-
+				<textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista aquí"></textarea>
+				<script>
+					document.querySelector('textarea[name=llista]').value=llista2dec(llista);
+				</script>
 				<div> <button onclick=processaBaralla()>Actualitza</button> </div>
 				<script>
 					function processaBaralla(){
