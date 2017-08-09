@@ -2,12 +2,14 @@
 <style>
 	footer{
 		color:#666;
-		margin:2em 0;
+		margin:30px 0;
 		font-size:12px;
 		display:flex;
 		justify-content:center;
+		border-top:1px solid #ccc;
+		background:linear-gradient(#eee,white);
 	}
-	footer div {margin:2em}
+	footer div {margin:1em}
 </style>
 
 <footer>

@@ -124,7 +124,7 @@
 <div style="text-align:left;">
 	<h4>Informació sobre el jugador</h4>
 
-	<ul style="text-align:left;padding-left:1em;display:block;">
+	<ul style="text-align:left;padding-left:0;display:block;">
 		<!--botó modificar dades-->
 		<?php
 			if((isset($_COOKIE['jugador']) && $_COOKIE['jugador']==$id) or isset($_COOKIE['admin']))

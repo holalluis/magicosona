@@ -33,12 +33,11 @@
 	<?php
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
 		$res=mysql_query($sql);
-		while($roww=mysql_fetch_assoc($res))
-		{
+		while($roww=mysql_fetch_assoc($res)) {
 			$idd=$roww['id'];
 			$nomm=$roww['nom'];
 			if($nomm==$row['nom'])
-				echo "<span style='margin:0.5em;padding:0.3em;border-radius:0.5em;background:white;'><b>$nomm</b></span>";
+				echo "<span style='margin:0.5em;padding:0.3em;border-radius:0.5em;background:white;'>$nomm</span>";
 			else
 				echo "<a style='margin:0.5em;padding:0.3em' href=esdeveniment.php?id=$idd>$nomm</a>";
 		}
@@ -57,8 +56,8 @@
 
 <!--resultats-->
 <div class=flex>
-	<div style=max-width:70%>
-		<table id=resultats>
+	<div style=width:70%>
+		<table id=resultats style=width:100%>
 			<tr><th>#<th>Baralla<th>Jugador<th>Punts
 			<?php
 				$sql="	
