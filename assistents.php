@@ -149,7 +149,7 @@
 
 					//han d'estar juntes pel tema whatsap les línies (numero i nom)
 					echo "<tr>
-						<td>$i<td><a href=jugador.php?id=$id>$nom</a><td>$dci
+						<td>$i<td><a href=jugador.php?id=$id>$nom</a><td style=font-size:smaller>$dci
 						<td>$llista";
 
 					if($ass=="si" && isset($_COOKIE['admin']))
