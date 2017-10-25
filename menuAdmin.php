@@ -34,7 +34,7 @@
 			<div style=padding:0.5em;color:white>Menú Admin</div>
 			<div class=flex>
 				<div class=flex>
-					<div class=item><a href='nouJugador.php'>Nou jugador</a></div>
+					<div class=item><a href='nouJugador.php'>Nou Jugador</a></div>
 					<div class=item><a href='nouEsdeveniment.php'>Nou Esdeveniment</a></div>
 					<div class=item><a href=baralles.php>Baralles</a></div>
 					<div class=item><a href=assistents.php>Pròxim torneig</a></div>
