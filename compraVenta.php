@@ -58,7 +58,7 @@
 				$mkm=$row['mkm'];
 				$url_mkm="https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=$mkm";
 				echo "<tr>
-					<td> <a target=_blank href='$url_mkm>$nom</a>
+					<td> <a href='jugador.php?id=$id'>$nom</a>
 					<td> <a target=_blank href='$url_mkm'>Veure MKM (id $mkm)</a>
 				";
 			}
