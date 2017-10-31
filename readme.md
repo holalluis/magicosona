@@ -9,9 +9,7 @@ web lliga magic osona
 
 ## PER FER
 
-* FRONTEND
-- llista.php: textarea enviar llista valor per defecte llista actual format .dec
-
 * BACKEND
 - on delete triggers per jugdors
+- tests
 
