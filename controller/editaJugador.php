@@ -21,8 +21,8 @@ if(!isset($_COOKIE['admin']))
 include '../mysql.php';
 
 //entada
-$camp     = mysqli_real_escape_string($_POST['camp']);
-$nouValor = mysqli_real_escape_string($_POST['nouValor']);
+$camp     = $mysql->real_escape_string($_POST['camp']);
+$nouValor = $mysql->real_escape_string($_POST['nouValor']);
 
 //ordre
 $sql="UPDATE jugadors SET $camp='$nouValor' WHERE id=$id";

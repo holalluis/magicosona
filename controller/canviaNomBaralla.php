@@ -7,7 +7,7 @@ include '../mysql.php';
 
 //id baralla
 $id=$_GET['id'];
-$nouNom=mysqli_real_escape_string($_GET['nom']);
+$nouNom=$mysql->real_escape_string($_GET['nom']);
 
 //nou nom de baralla
 $sql="UPDATE baralles SET nom='$nouNom' WHERE id=$id";

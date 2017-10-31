@@ -4,8 +4,8 @@ if(!isset($_COOKIE['admin']))
 	die('sessio no iniciada');
 
 include '../mysql.php';
-$nom=mysqli_real_escape_string($_GET['nom']);
-$dci=mysqli_real_escape_string($_GET['dci']);
+$nom=$mysql->real_escape_string($_GET['nom']);
+$dci=$mysql->real_escape_string($_GET['dci']);
 
 //nou jugador
 $sql="INSERT INTO jugadors (nom,dci) VALUES ('$nom','$dci')";

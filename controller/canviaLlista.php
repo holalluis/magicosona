@@ -9,7 +9,7 @@ include '../mysql.php';
 
 //processa id resultat & llista
 $id=$_POST['id'];
-$llista=mysqli_real_escape_string($_POST['llista']);
+$llista=$mysql->real_escape_string($_POST['llista']);
 
 //si no ets admin...
 if(!isset($_COOKIE['admin'])) {

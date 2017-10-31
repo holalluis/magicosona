@@ -6,7 +6,7 @@ if(!isset($_COOKIE['admin']))
 include '../mysql.php';
 
 //entrada
-$nom=mysqli_real_escape_string($_GET['nom']);
+$nom=$mysql->real_escape_string($_GET['nom']);
 $data=$_GET['data'];
 
 if($nom=="" or $data=="")

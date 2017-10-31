@@ -9,8 +9,8 @@ inputs: id jugador, camp a canviar, nou valor
 include '../mysql.php';
 
 //entrada
-$id     = mysqli_real_escape_string($_POST['id']);
-$llista = mysqli_real_escape_string($_POST['llista']);
+$id     = $mysql->real_escape_string($_POST['id']);
+$llista = $mysql->real_escape_string($_POST['llista']);
 
 //comprova admin
 if(!isset($_COOKIE['admin']))

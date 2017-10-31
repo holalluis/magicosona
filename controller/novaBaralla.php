@@ -5,7 +5,7 @@ if(!isset($_COOKIE['admin']))
 
 include '../mysql.php';
 
-$nom=mysqli_real_escape_string($_GET['nom']);
+$nom=$mysql->real_escape_string($_GET['nom']);
 
 //nou jugador
 $sql="INSERT INTO baralles (nom) VALUES ('$nom')";
