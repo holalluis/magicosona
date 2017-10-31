@@ -3,11 +3,11 @@
 	include 'mysql.php';
 	function comptaPot() {
 		$pot=0; //euros
-		$res=mysql_query("SELECT * FROM esdeveniments");
+		$res=$mysql->query("SELECT * FROM esdeveniments");
 		while($row=mysql_fetch_assoc($res)) {
 			$id_esdeveniment=$row['id'];
 			$sql="SELECT COUNT(id) FROM resultats WHERE id_esdeveniment=$id_esdeveniment";
-			$participants=current(mysql_fetch_assoc(mysql_query($sql)));
+			$participants=current(mysql_fetch_assoc($mysql->query($sql)));
 			$pot+=2*$participants; //2 euros per participant
 		}
 		return $pot;
@@ -31,7 +31,7 @@
 
 <!--pot-->
 <div style=margin:0.5em> 
-	Pot acumulat (<?php echo current(mysql_fetch_assoc(mysql_query("SELECT COUNT(1) FROM esdeveniments")))?> torneigs): <b><?php echo comptaPot() ?> €</b> 
+	Pot acumulat (<?php echo current(mysql_fetch_assoc($mysql->query("SELECT COUNT(1) FROM esdeveniments")))?> torneigs): <b><?php echo comptaPot() ?> €</b> 
 </div>
 
 <!--classificació general-->
@@ -46,13 +46,13 @@
 	<?php
 		// Llista d'esdeveniments
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
-		$res=mysql_query($sql);
+		$res=$mysql->query($sql);
 
 		if(mysql_num_rows($res)==0){
 			echo "<th><b>Total</b>";
 			//mostra tots els jugadors i "0 punts"
 			$sql="SELECT * FROM jugadors ORDER BY nom";
-			$res=mysql_query($sql);
+			$res=$mysql->query($sql);
 			while($row=mysql_fetch_assoc($res)) {
 				$id=$row['id'];
 				$nom=$row['nom'];
@@ -110,7 +110,7 @@
 				ORDER BY 
 					total DESC
 			";
-			$res=mysql_query($sql);
+			$res=$mysql->query($sql);
 			$i=1;
 			while($row=mysql_fetch_assoc($res)) {
 				//número i nom
