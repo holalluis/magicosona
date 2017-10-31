@@ -7,7 +7,7 @@
 
 	//compta el total de jugadors a la lliga
 	$sql="SELECT 1 FROM jugadors";
-	$result=mysql_query($sql) or die('error');
+	$result=$mysql->query($sql) or die('error');
 	$total=mysql_num_rows($result);
 
 	if($ass=="si")
@@ -22,7 +22,7 @@
 			WHERE NOT EXISTS (SELECT 1 FROM assistentsProximTorneig WHERE assistentsProximTorneig.id_jugador = jugadors.id)
 			ORDER BY nom ASC";
 	}
-	$result=mysql_query($sql) or die('error');
+	$result=$mysql->query($sql) or die('error');
 	$n=mysql_num_rows($result);
 ?>
 <!doctype html><html><head>
@@ -33,7 +33,7 @@
 		//confirm per fer copiar pegar
 		{
 			var t=document.getElementById('taula')
-			var num,nom,torneig='<?php echo current(mysql_fetch_assoc(mysql_query('SELECT COUNT(*)+1 FROM esdeveniments'))) ?>'
+			var num,nom,torneig='<?php echo current(mysql_fetch_assoc($mysql->query('SELECT COUNT(*)+1 FROM esdeveniments'))) ?>'
 			var str=""
 			str+="Inscrits al Torneig "+torneig+", <?php echo $dataProximTorneig ?>:\r\n";
 			str+="========================\r\n";
