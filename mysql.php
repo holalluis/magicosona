@@ -18,4 +18,6 @@ else
 	die(mysqli_error($mysql));
 }
 
+var_dump($mysql);
+
 ?>
