@@ -5,8 +5,8 @@
 
 	//get player info
 	$sql="SELECT * FROM jugadors WHERE id=$id";
-	$res=mysql_query($sql);
-	$row=mysql_fetch_assoc($res);
+	$res=$mysql->query($sql);
+	$row=mysqli_fetch_assoc($res);
 	$nom=$row['nom'];
 	$mkm=$row['mkm'];
 	$dci=$row['dci'];
@@ -180,7 +180,7 @@
 
 			<?php
 				include 'dataProximTorneig.php';
-				$assisteix=mysql_num_rows(mysql_query("SELECT 1 FROM assistentsProximTorneig WHERE id_jugador=$id"));
+				$assisteix=mysqli_num_rows($mysql->query("SELECT 1 FROM assistentsProximTorneig WHERE id_jugador=$id"));
 				$data=date("d/m/Y",$proximUnix);
 				if($assisteix)
 				{
@@ -188,7 +188,7 @@
 					$nom = explode(" ",$row['nom'])[0]; //Agafa el primer nom
 					echo "$nom assistirà al <a href=assistents.php>pròxim torneig ($data)</a>";
 
-					$llista=current(mysql_fetch_assoc(mysql_query("SELECT llista FROM assistentsProximTorneig WHERE id_jugador=$id")));
+					$llista=current(mysqli_fetch_assoc($mysql->query("SELECT llista FROM assistentsProximTorneig WHERE id_jugador=$id")));
 
 					//si el client és jugador id o admin
 					if(isset($_COOKIE['jugador']) && $id==$_COOKIE['jugador'] || isset($_COOKIE['admin']))
@@ -257,17 +257,17 @@
 		<?php
 			$punts_totals=0;
 			$sql="SELECT * FROM esdeveniments ORDER BY data DESC";
-			$res=mysql_query($sql);
+			$res=$mysql->query($sql);
 			$participacions=0;
-			while($row=mysql_fetch_assoc($res))
+			while($row=mysqli_fetch_assoc($res))
 			{
 				$esd=$row['id'];
 				$data=date("d/m/Y",strtotime($row['data']));
-				$esd_jugadors = current(mysql_fetch_assoc(mysql_query("SELECT COUNT(*) FROM resultats WHERE id_esdeveniment=$esd")));
+				$esd_jugadors = current(mysqli_fetch_assoc($mysql->query("SELECT COUNT(*) FROM resultats WHERE id_esdeveniment=$esd")));
 
 				$sql="SELECT * FROM resultats WHERE id_esdeveniment=$esd AND id_jugador=$id";
-				$ress=mysql_query($sql) or die('error al query');
-				$roww=mysql_fetch_assoc($ress);
+				$ress=$mysql->query($sql) or die('error al query');
+				$roww=mysqli_fetch_assoc($ress);
 				$resultat=$roww['id'];
 				$punts=$roww['punts'];
 
@@ -288,8 +288,8 @@
 										onchange=setejaBaralla(".$roww['id'].")>";
 						echo "	<option>--SELECCIONA--";
 						$sql="SELECT * FROM baralles ORDER BY nom";
-						$resss=mysql_query($sql) or die('error');
-						while($rowww=mysql_fetch_assoc($resss))
+						$resss=$mysql->query($sql) or die('error');
+						while($rowww=mysqli_fetch_assoc($resss))
 						{
 							echo "<option value=".$rowww['id'].">".$rowww['nom'];
 						}
@@ -299,8 +299,8 @@
 					{
 						if($baralla>0)
 						{
-							$resss=mysql_query("SELECT nom FROM baralles WHERE id=$baralla");
-							$nomBaralla=mysql_fetch_assoc($resss);
+							$resss=$mysql->query("SELECT nom FROM baralles WHERE id=$baralla");
+							$nomBaralla=mysqli_fetch_assoc($resss);
 
 							if($roww['llista']=="")
 								echo "<a style=color:#aaa title='Llista no disponible' href=llista.php?id=$resultat>".$nomBaralla['nom']."</a>";

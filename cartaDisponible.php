@@ -40,9 +40,9 @@
 	}
 
 	$sql="SELECT mkm,nom FROM jugadors WHERE mkm!=''";
-	$res=mysql_query($sql) or die('error');
+	$res=$mysql->query($sql) or die('error');
 	$comptador=0;
-	while($row=mysql_fetch_assoc($res))
+	while($row=mysqli_fetch_assoc($res))
 	{
 		$mkm=$row['mkm'];
 		$nom=$row['nom'];

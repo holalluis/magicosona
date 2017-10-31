@@ -16,9 +16,9 @@
 	//ENTRADA
 	/*
 	if(isset($_POST['nom'])) {
-		$nom	    = mysql_real_escape_string($_POST['nom']);
-		$mail	    = mysql_real_escape_string($_POST['mail']);
-		$missatge = mysql_real_escape_string($_POST['missatge']);
+		$nom	    = mysqli_real_escape_string($_POST['nom']);
+		$mail	    = mysqli_real_escape_string($_POST['mail']);
+		$missatge = mysqli_real_escape_string($_POST['missatge']);
 		mail('holalluis@gmail.com','Contacte formulari magicosona',"$nom\n$mail\n\n$missatge") or die('Error. Mail no enviat. Torna-ho a intentar més tard');
 		die('Gràcies per contactar amb nosaltres. Ens posarem en contacte amb tu en el mínim temps possible.');
 	}

@@ -33,8 +33,8 @@
 	else if(isset($_COOKIE['jugador']))
 	{
 		$sql="SELECT nom FROM jugadors WHERE id=".$_COOKIE['jugador'];
-		$ress=mysql_query($sql) or die('error');
-		$roww=mysql_fetch_assoc($ress);
+		$ress=$mysql->query($sql) or die('error');
+		$roww=mysqli_fetch_assoc($ress);
 		$nom=$roww['nom'];
 		echo "Sessió iniciada com a 
 			<a style=color:white href=jugador.php?id=".$_COOKIE['jugador'].">$nom</a>";
@@ -45,8 +45,8 @@
 		echo "<i>Selecciona el teu nom i escriu la contrasenya</i><br><br>";
 		echo "<select id=id_jugador>";
 		$sql="SELECT * FROM jugadors ORDER BY nom ASC";
-		$ress=mysql_query($sql) or die('error');
-		while($roww=mysql_fetch_assoc($ress))
+		$ress=$mysql->query($sql) or die('error');
+		while($roww=mysqli_fetch_assoc($ress))
 		{
 			$nom=$roww['nom'];
 			$idd=$roww['id'];

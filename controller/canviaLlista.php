@@ -9,12 +9,12 @@ include '../mysql.php';
 
 //processa id resultat & llista
 $id=$_POST['id'];
-$llista=mysql_real_escape_string($_POST['llista']);
+$llista=mysqli_real_escape_string($_POST['llista']);
 
 //si no ets admin...
 if(!isset($_COOKIE['admin'])) {
 	//comprova si la id del resultat coincideix amb la id del jugador cookie
-	$id_jugador=current(mysql_fetch_assoc(mysql_query("SELECT id_jugador FROM resultats WHERE id=$id")));
+	$id_jugador=current(mysqli_fetch_assoc($mysql->query("SELECT id_jugador FROM resultats WHERE id=$id")));
 	//si el jugador que intenta canviar el resultat no és ell mateix atura't
 	if($_COOKIE['jugador']!=$id_jugador)
 		die("Error. No pots canviar la llista d'un altre jugador!");
@@ -22,7 +22,7 @@ if(!isset($_COOKIE['admin'])) {
 
 //sql
 $sql="UPDATE resultats SET llista='$llista' WHERE id=$id";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 //resultat
 echo "Llista actualitzada correctament";

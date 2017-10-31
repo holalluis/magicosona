@@ -49,9 +49,9 @@
 	<?php
 		// Llista de baralles
 		$sql="SELECT * FROM baralles ORDER BY nom";
-		$res=mysql_query($sql);
+		$res=$mysql->query($sql);
 		$i=1;
-		while($row=mysql_fetch_assoc($res))
+		while($row=mysqli_fetch_assoc($res))
 		{
 			$id=$row['id'];
 			$nom=$row['nom'];

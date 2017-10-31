@@ -10,7 +10,7 @@
 		<div id=holaJugador> Hola
 			<?php
 				$cookie_jugador=$_COOKIE['jugador'];
-				$nom = current(mysql_fetch_assoc(mysql_query("SELECT nom FROM jugadors WHERE id=$cookie_jugador")));
+				$nom = current(mysqli_fetch_assoc($mysql->query("SELECT nom FROM jugadors WHERE id=$cookie_jugador")));
 				echo "<a href=jugador.php?id=$cookie_jugador>$nom! &#128100;</a>";
 			?>
 		</div>

@@ -6,7 +6,7 @@ if(!isset($_COOKIE['admin']))
 include '../mysql.php';
 
 //entrada
-$nom=mysql_real_escape_string($_GET['nom']);
+$nom=mysqli_real_escape_string($_GET['nom']);
 $data=$_GET['data'];
 
 if($nom=="" or $data=="")
@@ -16,18 +16,18 @@ if($nom=="" or $data=="")
 
 //crea un nou esdeveniment
 $sql="INSERT INTO esdeveniments (nom,data) VALUES ('$nom','$data')";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 //troba la id del nou esdeveniment i guarda-la a la variable $esd
 $sql="SELECT MAX(id) FROM esdeveniments";
-$res=mysql_query($sql);
-$row=mysql_fetch_array($res);
+$res=$mysql->query($sql);
+$row=mysqli_fetch_array($res);
 $esd=$row['MAX(id)'];
 
 //agafa els punts de tots els jugadors i inserta'ls a resultats
 $sql="SELECT * FROM jugadors";
-$res=mysql_query($sql);
-while($row=mysql_fetch_array($res))
+$res=$mysql->query($sql);
+while($row=mysqli_fetch_array($res))
 {
 	//bucle per introduir resultats
 	$id=$row['id'];
@@ -51,7 +51,7 @@ while($row=mysql_fetch_array($res))
 	if($punts>0)
 	{
 		$sql="INSERT INTO resultats (id_jugador,id_esdeveniment,punts) VALUES ('$id','$esd','$punts')";
-		mysql_query($sql) or die('error');
+		$mysql->query($sql) or die('error');
 	}
 }
 

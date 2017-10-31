@@ -21,12 +21,12 @@ if(!isset($_COOKIE['admin']))
 include '../mysql.php';
 
 //entada
-$camp     = mysql_real_escape_string($_POST['camp']);
-$nouValor = mysql_real_escape_string($_POST['nouValor']);
+$camp     = mysqli_real_escape_string($_POST['camp']);
+$nouValor = mysqli_real_escape_string($_POST['nouValor']);
 
 //ordre
 $sql="UPDATE jugadors SET $camp='$nouValor' WHERE id=$id";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 //aquest text va a un alert del view 
 echo "$camp actualitzat correctament a '$nouValor'";

@@ -24,8 +24,8 @@
 			ORDER BY 
 				aparicions DESC
 		";
-		$res=mysql_query($sql);
-		while($row=mysql_fetch_assoc($res))
+		$res=$mysql->query($sql);
+		while($row=mysqli_fetch_assoc($res))
 		{
 			$id  = $row['baralla'];
 			$aps = $row['aparicions'];

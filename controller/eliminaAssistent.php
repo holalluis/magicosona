@@ -13,7 +13,7 @@ $id_jugador=$_GET['id_jugador'];
 //elimina assistent
 $sql="DELETE FROM assistentsProximTorneig WHERE id_jugador=$id_jugador";
 
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 echo 'ok';
 

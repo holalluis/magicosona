@@ -14,7 +14,7 @@
 	</style>
 	<?php 
 		//compta el numero de jugadors apuntats
-		$assistents=mysql_num_rows(mysql_query("SELECT * FROM assistentsProximTorneig"));
+		$assistents=mysqli_num_rows($mysql->query("SELECT * FROM assistentsProximTorneig"));
 		echo "
 			<a href=assistents.php>
 				<b>Pròxim torneig</b>: 

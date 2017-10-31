@@ -11,7 +11,7 @@ $id=$_GET['id'];		// id resultat
 $baralla=$_GET['baralla'];	// id baralla
 
 $sql="UPDATE resultats SET baralla='$baralla' WHERE id=$id";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 //ves enrere
 header("Location: ".$_SERVER['HTTP_REFERER']);

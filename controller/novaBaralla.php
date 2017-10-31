@@ -5,11 +5,11 @@ if(!isset($_COOKIE['admin']))
 
 include '../mysql.php';
 
-$nom=mysql_real_escape_string($_GET['nom']);
+$nom=mysqli_real_escape_string($_GET['nom']);
 
 //nou jugador
 $sql="INSERT INTO baralles (nom) VALUES ('$nom')";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 echo 'nova baralla ok';
 

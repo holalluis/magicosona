@@ -12,7 +12,7 @@
 	if(!$resultat->id)die('id not set');
 
 	//camps del resultat id
-	$row=mysql_fetch_assoc(mysql_query("SELECT * FROM resultats WHERE id=$resultat->id"));
+	$row=mysqli_fetch_assoc($mysql->query("SELECT * FROM resultats WHERE id=$resultat->id"));
 	$resultat->id_jugador      = $row['id_jugador'];
 	$resultat->id_esdeveniment = $row['id_esdeveniment'];
 	$resultat->punts           = $row['punts'];
@@ -20,10 +20,10 @@
 	$resultat->llista          = $row['llista'];
 
 	//obtenir noms de les coses
-	$jugador      = current(mysql_fetch_assoc(mysql_query("SELECT nom FROM jugadors WHERE id=$resultat->id_jugador")));
-	$esdeveniment = current(mysql_fetch_assoc(mysql_query("SELECT nom FROM esdeveniments WHERE id=$resultat->id_esdeveniment")));
+	$jugador      = current(mysqli_fetch_assoc($mysql->query("SELECT nom FROM jugadors WHERE id=$resultat->id_jugador")));
+	$esdeveniment = current(mysqli_fetch_assoc($mysql->query("SELECT nom FROM esdeveniments WHERE id=$resultat->id_esdeveniment")));
 	$punts        = $resultat->punts;
-	$baralla      = current(mysql_fetch_assoc(mysql_query("SELECT nom FROM baralles WHERE id=$resultat->baralla")));
+	$baralla      = current(mysqli_fetch_assoc($mysql->query("SELECT nom FROM baralles WHERE id=$resultat->baralla")));
 	$llista       = $resultat->llista;
 ?>
 <!doctype html><html><head>

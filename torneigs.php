@@ -25,17 +25,17 @@
 	<table id=torneigs>
 		<?php
 			$sql="SELECT * FROM esdeveniments ORDER BY data DESC";
-			$res=mysql_query($sql);
-			if(mysql_num_rows($res)==0) {
+			$res=$mysql->query($sql);
+			if(mysqli_num_rows($res)==0) {
 				echo "<tr><td>~0 torneigs celebrats aquesta temporada";
 			}
-			while($row=mysql_fetch_assoc($res)) {
+			while($row=mysqli_fetch_assoc($res)) {
 				$id=$row['id'];
 				$nom=$row['nom'];
 				$data=$row['data'];
 				$timeAgo=timeAgo($data);
 				$data_for=date("d/m/Y",strtotime($data));
-				$jugadors=current(mysql_fetch_assoc(mysql_query("SELECT COUNT(*) FROM resultats WHERE id_esdeveniment=$id")));
+				$jugadors=current(mysqli_fetch_assoc($mysql->query("SELECT COUNT(*) FROM resultats WHERE id_esdeveniment=$id")));
 				echo "
 					<tr>
 						<td>

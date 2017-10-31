@@ -58,8 +58,8 @@
 <?php
 	//GET JUGADOR
 	$sql="SELECT * FROM jugadors WHERE id=$id";
-	$res=mysql_query($sql);
-	$row=mysql_fetch_assoc($res);
+	$res=$mysql->query($sql);
+	$row=mysqli_fetch_assoc($res);
 	$nom=$row['nom'];
 	$mkm=$row['mkm'];
 	$dci=$row['dci'] ? $row['dci'] : "";

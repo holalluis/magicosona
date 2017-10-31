@@ -7,12 +7,12 @@ include '../mysql.php';
 
 //id baralla
 $id=$_GET['id'];
-$nouNom=mysql_real_escape_string($_GET['nom']);
+$nouNom=mysqli_real_escape_string($_GET['nom']);
 
 //nou nom de baralla
 $sql="UPDATE baralles SET nom='$nouNom' WHERE id=$id";
 
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 echo "tot ok";
 

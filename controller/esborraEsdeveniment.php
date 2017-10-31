@@ -9,11 +9,11 @@ $id=$_GET['id'];
 
 //esborra resultats
 $sql="DELETE FROM resultats WHERE id_esdeveniment=$id";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 //esborra esdeveniment
 $sql="DELETE FROM esdeveniments WHERE id=$id";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 echo "Esdeveniment esborrat correctament";
 

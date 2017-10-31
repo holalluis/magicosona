@@ -6,7 +6,7 @@
 
 	if(!$id) die('baralla no triada');
 
-	$nomBaralla = current(mysql_fetch_assoc($mysql->query("SELECT nom FROM baralles WHERE id=$id")));
+	$nomBaralla = current(mysqli_fetch_assoc($mysql->query("SELECT nom FROM baralles WHERE id=$id")));
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
@@ -33,7 +33,7 @@
 				id_esdeveniment DESC,
 				punts DESC";
 		$res=$mysql->query($sql);
-		while($row=mysql_fetch_assoc($res))
+		while($row=mysqli_fetch_assoc($res))
 		{
 			$resultat = new stdClass;
 			$resultat->id=$row['resultat'];

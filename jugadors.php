@@ -14,7 +14,7 @@
 <?php include 'menu.php' ?>
 
 <!--LOGO-->
-<h2> Tots els jugadors A-Z (<?php echo mysql_num_rows(mysql_query("SELECT 1 FROM jugadors")) ?>)</a> </h2>
+<h2> Tots els jugadors A-Z (<?php echo mysqli_num_rows($mysql->query("SELECT 1 FROM jugadors")) ?>)</a> </h2>
 
 <h2><a href=puntsPW/punts.php>Veure Gràfic de barres</a></h2>
 
@@ -23,10 +23,10 @@
 	<tr><th>Nom<th>DCI<th>Planeswalker points
 	<?php
 		$sql="SELECT * FROM jugadors ORDER BY nom";
-		$res=mysql_query($sql);
+		$res=$mysql->query($sql);
 		$pwPoints=Array();
 
-		while($row=mysql_fetch_assoc($res))
+		while($row=mysqli_fetch_assoc($res))
 		{
 			$id=$row['id'];
 			$nom=$row['nom'];

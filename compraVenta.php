@@ -50,8 +50,8 @@
 		<tr><th>Jugador<th>Cartes en venda
 		<?php
 			$sql="SELECT * FROM jugadors WHERE mkm!='' ORDER BY nom ASC";
-			$result=mysql_query($sql) or die('error');
-			while($row=mysql_fetch_assoc($result))
+			$result=$mysql->query($sql) or die('error');
+			while($row=mysqli_fetch_assoc($result))
 			{
 				$nom=$row['nom'];
 				$id=$row['id'];

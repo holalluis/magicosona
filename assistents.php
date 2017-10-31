@@ -8,7 +8,7 @@
 	//compta el total de jugadors a la lliga
 	$sql="SELECT 1 FROM jugadors";
 	$result=$mysql->query($sql) or die('error');
-	$total=mysql_num_rows($result);
+	$total=mysqli_num_rows($result);
 
 	if($ass=="si")
 	{
@@ -23,7 +23,7 @@
 			ORDER BY nom ASC";
 	}
 	$result=$mysql->query($sql) or die('error');
-	$n=mysql_num_rows($result);
+	$n=mysqli_num_rows($result);
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
@@ -33,7 +33,7 @@
 		//confirm per fer copiar pegar
 		{
 			var t=document.getElementById('taula')
-			var num,nom,torneig='<?php echo current(mysql_fetch_assoc($mysql->query('SELECT COUNT(*)+1 FROM esdeveniments'))) ?>'
+			var num,nom,torneig='<?php echo current(mysqli_fetch_assoc($mysql->query('SELECT COUNT(*)+1 FROM esdeveniments'))) ?>'
 			var str=""
 			str+="Inscrits al Torneig "+torneig+", <?php echo $dataProximTorneig ?>:\r\n";
 			str+="========================\r\n";
@@ -140,7 +140,7 @@
 
 			<?php
 				$i=1;
-				while($row=mysql_fetch_assoc($result))
+				while($row=mysqli_fetch_assoc($result))
 				{
 					$nom=$row['nom'];
 					$id=$row['id'];

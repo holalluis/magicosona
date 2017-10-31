@@ -9,8 +9,8 @@ inputs: id jugador, camp a canviar, nou valor
 include '../mysql.php';
 
 //entrada
-$id     = mysql_real_escape_string($_POST['id']);
-$llista = mysql_real_escape_string($_POST['llista']);
+$id     = mysqli_real_escape_string($_POST['id']);
+$llista = mysqli_real_escape_string($_POST['llista']);
 
 //comprova admin
 if(!isset($_COOKIE['admin']))
@@ -34,7 +34,7 @@ if(!isset($_COOKIE['admin']))
 
 //ordre
 $sql="UPDATE assistentsProximTorneig SET llista='$llista' WHERE id_jugador='$id'";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 echo "Llista pujada correctament";
 

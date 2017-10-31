@@ -8,8 +8,8 @@
 
 	//busca el password de veritat	
 	$sql="SELECT pass FROM jugadors WHERE id=$id";
-	$res=mysql_query($sql) or die('error');
-	$row=mysql_fetch_array($res);
+	$res=$mysql->query($sql) or die('error');
+	$row=mysqli_fetch_array($res);
 	$pass=$row['pass'];
 
 	if($pass==$password_provat)

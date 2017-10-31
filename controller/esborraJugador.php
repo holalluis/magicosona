@@ -10,15 +10,15 @@ $id =$_GET['id'];
 
 //esborra jugador
 $sql="DELETE FROM jugadors WHERE id=$id";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 //esborra resultats
 $sql="DELETE FROM resultats WHERE id_jugador=$id";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 //esborra si esta a la llista d'assistents
 $sql="DELETE FROM assistentsProximTorneig WHERE id_jugador=$id";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 echo "Jugador esborrat correctament";
 header("Location: ../index.php");

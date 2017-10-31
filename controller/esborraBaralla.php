@@ -10,7 +10,7 @@ $id=$_GET['id'];
 
 //esborra esdeveniment
 $sql="DELETE FROM baralles WHERE id=$id";
-mysql_query($sql) or die('error');
+$mysql->query($sql) or die('error');
 
 echo "Baralla esborrada correctament";
 

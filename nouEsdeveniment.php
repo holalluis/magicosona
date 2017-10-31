@@ -38,8 +38,8 @@
 		<tr><th>Jugador<th>Punts Suís<th>Posició Torneig<th>Primer del suís
 		<?php
 			$sql="SELECT * FROM assistentsProximTorneig,jugadors WHERE jugadors.id=assistentsProximTorneig.id_jugador ORDER BY nom ";	
-			$res=mysql_query($sql);
-			while($row=mysql_fetch_assoc($res))
+			$res=$mysql->query($sql);
+			while($row=mysqli_fetch_assoc($res))
 			{
 				echo "<tr>";
 				echo "<td>".$row['nom'];

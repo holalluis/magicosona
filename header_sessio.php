@@ -7,8 +7,8 @@
 	else if(isset($_COOKIE['jugador']))
 	{
 		$sql="SELECT nom FROM jugadors WHERE id=".$_COOKIE['jugador'];
-		$ress=mysql_query($sql) or die('error');
-		$roww=mysql_fetch_assoc($ress);
+		$ress=$mysql->query($sql) or die('error');
+		$roww=mysqli_fetch_assoc($ress);
 		$nom=$roww['nom'];
 		echo "Sessió iniciada com a 
 			<a style=color:white href=jugador.php?id=".$_COOKIE['jugador'].">$nom</a>";
@@ -19,8 +19,8 @@
 		echo "<i>Sessió no iniciada </i>";
 		echo " <select onchange=window.location='jugador.php?id='+this.value>";
 		echo "<option>--SELECCIONA--";
-		$res=mysql_query("SELECT * FROM jugadors ORDER BY nom ASC");
-		while($roww=mysql_fetch_assoc($res)) echo "<option value=".$roww['id'].">".$roww['nom'];
+		$res=$mysql->query("SELECT * FROM jugadors ORDER BY nom ASC");
+		while($roww=mysqli_fetch_assoc($res)) echo "<option value=".$roww['id'].">".$roww['nom'];
 		echo "</select>";
 	}
 ?>

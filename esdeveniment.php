@@ -3,8 +3,8 @@
 	$id=$_GET['id'];
 	include 'mysql.php';
 	$sql="SELECT * FROM esdeveniments WHERE id=$id";
-	$res=mysql_query($sql);
-	$row=mysql_fetch_assoc($res);
+	$res=$mysql->query($sql);
+	$row=mysqli_fetch_assoc($res);
 	$nom=$row['nom'];
 	$nomTorneig=$row['nom'];
 ?>
@@ -32,8 +32,8 @@
 <div style="padding:0.5em;background-color:gold;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);">
 	<?php
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
-		$res=mysql_query($sql);
-		while($roww=mysql_fetch_assoc($res)) {
+		$res=$mysql->query($sql);
+		while($roww=mysqli_fetch_assoc($res)) {
 			$idd=$roww['id'];
 			$nomm=$roww['nom'];
 			if($nomm==$row['nom'])
@@ -46,8 +46,8 @@
 
 <?php
 	//calcula el nombre de persones del torneig
-	$res=mysql_query("SELECT 1 FROM resultats WHERE id_esdeveniment=$id AND punts>0");
-	$nombreAssistents=mysql_num_rows($res);
+	$res=$mysql->query("SELECT 1 FROM resultats WHERE id_esdeveniment=$id AND punts>0");
+	$nombreAssistents=mysqli_num_rows($res);
 ?>
 
 <h3>
@@ -74,9 +74,9 @@
 						resultats.id_esdeveniment=$id AND
 						resultats.id_jugador=jugadors.id
 					ORDER BY punts DESC";
-				$res=mysql_query($sql);
+				$res=$mysql->query($sql);
 				$i=1;
-				while($row=mysql_fetch_assoc($res))
+				while($row=mysqli_fetch_assoc($res))
 				{
 					$resultat=$row['resultat'];
 					$llista=$row['llista'];
@@ -91,7 +91,7 @@
 
 					if($id_baralla>0)
 					{
-						$roww=mysql_fetch_assoc(mysql_query("SELECT nom FROM baralles WHERE id=$id_baralla"));
+						$roww=mysqli_fetch_assoc($mysql->query("SELECT nom FROM baralles WHERE id=$id_baralla"));
 						$baralla=$roww['nom'];
 						$color_link = ($llista=="") ? "style=color:#666" : "";
 						echo "<a href=llista.php?id=$resultat $color_link>$baralla</a>";

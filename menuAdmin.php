@@ -48,8 +48,8 @@
 								WHERE NOT EXISTS 
 									(SELECT 1 FROM assistentsProximTorneig WHERE assistentsProximTorneig.id_jugador = jugadors.id) 
 								ORDER BY jugadors.nom";
-							$res=mysql_query($sql);
-							while($rowAdmin=mysql_fetch_assoc($res))
+							$res=$mysql->query($sql);
+							while($rowAdmin=mysqli_fetch_assoc($res))
 							{
 								$idAdmin=$rowAdmin['id'];
 								$nomAdmin=$rowAdmin['nom'];
