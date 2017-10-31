@@ -1,7 +1,8 @@
 <?php
 	//PÀGINA PRINCIPAL
-	include 'mysql.php';
+	include'mysql.php';
 	function comptaPot() {
+		global $mysql;
 		$pot=0; //euros
 		$res=$mysql->query("SELECT * FROM esdeveniments");
 		while($row=mysqli_fetch_assoc($res)) {
