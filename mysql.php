@@ -1,7 +1,10 @@
 <?php
 
-echo $_SERVER['SERVER_NAME'];
-echo "<p>estic configurant la web, vaig tenir problemes amb el hosting anterior i ara n'he contractat un de nou. gràcies. <br>lluís</p>";
+echo "<p>estic reconfigurant la web, vaig tenir problemes i he intentat reflotar-la amb petits invents però he decidit contractar un nou hosting per fer-ho bé. 
+gràcies per la paciència, estarà llesta aviat. 
+<br>lluís</p>
+<hr>
+";
 
 error_reporting(E_ALL);
 
@@ -18,6 +21,7 @@ else
 	die(mysqli_error($mysql));
 }
 
-var_dump($mysql);
+//debugging
+//var_dump($mysql);
 
 ?>
