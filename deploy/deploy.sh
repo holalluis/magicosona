@@ -1,2 +1,5 @@
 
-ssh pi@192.168.1.132 'cd /var/www/html/magicosona;sudo git pull'
+
+ssh root@164.132.111.240 'cd /var/www/html/magicosona;sudo git pull'
+
+

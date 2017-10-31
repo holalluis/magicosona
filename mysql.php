@@ -1,14 +1,22 @@
 <?php
 
+echo $_SERVER['SERVER_NAME'];
+echo "<p>estic configurant la web, vaig tenir problemes amb el hosting anterior i ara n'he contractat un de nou. gràcies. <br>lluís</p>";
+
+
 if(in_array($_SERVER['SERVER_NAME'],array('localhost'),true))
 {
-	mysql_connect("127.0.0.1","root","");
-	mysql_select_db("magicosona");
+	$mysql=mysqli_connect("127.0.0.1","root","","magicosona") 
+	or 
+	die(mysqli_error($mysql));
 }
 else
 {
-	mysql_connect("127.0.0.1","root","raspberry");
-	mysql_select_db("Magicosona");
+	$mysql=mysqli_connect("127.0.0.1","root","Bol729sh","magicosona") 
+	or 
+	die(mysqli_error($mysql));
 }
+
+echo "funciona fins aqui";
 
 ?>
