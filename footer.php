@@ -9,7 +9,7 @@
 		border-top:1px solid #ccc;
 		background:linear-gradient(#eee,white);
 	}
-	footer div {margin:1em}
+	footer div {margin:1em 0.6em}
 </style>
 
 <footer>

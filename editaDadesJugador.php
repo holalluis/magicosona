@@ -17,7 +17,10 @@
 	<script>
 		function actualitza(camp,nouValor,btn) {
 			//si nouValor val "0" ò "": you can't get any more pretty than this :)
-			if(['0',''].indexOf(nouValor)+1){alert("Valor no vàlid");return}
+			if(nouValor=='' && camp=='nom'){
+				alert('El nom no pot estar en blanc');
+				return
+			}
 
 			//nou ajax
 			var sol=new XMLHttpRequest()
@@ -90,16 +93,23 @@
 		<td><input id=nouDci value="<?php echo $dci?>" placeholder="nº DCI" autocomplete=off>
 		<button onclick=actualitza('dci',document.querySelector('#nouDci').value,this)>Guarda</button>
 	<tr>
-		<th>MKM id number
-		<td><input id=nouMkm value="<?php echo $mkm?>" autocomplete=off>
+		<th>
+			MKM id number <br>
+			<small>
+				número de 5-7 xifres
+				<br>(<b>no</b> el nom d'usuari)
+				<br><a href=explicaMKM.php>Explicació</a>
+			</small>
+		</th>
+		<td><input id=nouMkm type=number value="<?php echo $mkm?>" autocomplete=off>
 		<button onclick=actualitza('mkm',document.querySelector('#nouMkm').value,this)>Guarda</button>
 	<tr>
 		<th>Modificar Password
 			<td>
-				<input id=curPass type=password placeholder="Actual" autocomplete=off>
+				<input id=curPass type=password placeholder="Actual" autocomplete=off style=border-bottom:none>
 				<br>
-				<input id=nouPass type=password placeholder="Nou" autocomplete=off>
+				<input id=nouPass type=password placeholder="Nou" autocomplete=off style=border-bottom:none>
 				<br>
-				<input id=repPass type=password placeholder="Repeteix nou" autocomplete=off>
+				<input id=repPass type=password placeholder="Repeteix nou" autocomplete=off style=border-bottom:1px>
 		<button onclick=nouPass(this)>Guarda</button>
 </table>
