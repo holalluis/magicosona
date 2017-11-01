@@ -19,8 +19,7 @@
 			<a href=assistents.php>
 				<b>Pròxim torneig</b>: $dataProximTorneig 
 				<small>($assistents jugadors inscrits)</small>
-			</a>
-		";
+			</a>";
 		if($falten==1){
 			echo " <span id=faltenBlink>FALTA $falten DIA!</span>";
 		}else{
