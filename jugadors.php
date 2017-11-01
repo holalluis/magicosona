@@ -16,8 +16,6 @@
 <!--LOGO-->
 <h2> Tots els jugadors A-Z (<?php echo mysqli_num_rows($mysql->query("SELECT 1 FROM jugadors")) ?>)</a> </h2>
 
-<h2><a href=puntsPW/punts.php>Veure Gràfic de barres</a></h2>
-
 <!--jugadors-->
 <table style=margin-top:0.5em> 
 	<tr><th>Nom<th>DCI<th>Planeswalker points

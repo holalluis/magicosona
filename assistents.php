@@ -93,7 +93,14 @@
 ?>
 
 <!--com inscriure's-->
-<h4 style="background:gold;border-bottom:1px solid #ccc;margin:0;margin-bottom:5px">Per inscriure't <a href=login.php>inicia sessió</a> amb el teu perfil.<br>Si no tens perfil <a href=contacte.php>contacta amb nosaltres</a>.</h4>
+<h4 style="background:gold;border-bottom:1px solid #ccc;margin:0;margin-bottom:5px">
+	<p>
+		Per inscriure't <a href=login.php>inicia sessió</a>
+	</p>
+	<p>
+		Si no tens perfil <a href=contacte.php>contacta amb nosaltres</a>
+	</p>
+</h4>
 
 
 <div class=flex>

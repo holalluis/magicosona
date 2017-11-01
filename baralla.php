@@ -47,7 +47,7 @@
 			echo " <tr>";
 
 			if($resultat->llista=="")
-				echo "<td>$nomBaralla";
+				echo "<td style=color:#aaa title='llista no disponible'>$nomBaralla";
 			else
 				echo "<td><a href=llista.php?id=$resultat->id>$nomBaralla</a>";
 

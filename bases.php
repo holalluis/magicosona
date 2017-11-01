@@ -14,7 +14,7 @@
 	</style>
 </head><body><center>
 <?php include'menu.php'?>
-<h2>Bases / Normes de la lliga</h2>
+<h2>Bases de la lliga</h2>
 
 <div style=text-align:left;margin-top:0.5em>
 <ul>
@@ -34,8 +34,7 @@
 	<li><b>Rondes</b>
 		<ul>
 			<li>Cada torneig consistirà de dues parts: <b>suís</b> i <b>top</b>.
-			<li>Suís: 
-			Seguirem la recomanació oficial de la DCI, amb el següent nombre de rondes:
+			<li>Suís: seguirem la recomanació oficial de la DCI, amb el següent nombre de rondes:
 			<table>
 				<tr><th>Jugadors<th>Nombre de rondes
 				<tr><td>17-32<td>5 rondes de suís
@@ -55,7 +54,7 @@
 					<li>Al final del suís, el primer classificat rebrà un punt extra, i a més a més, depenent de la posició:<br>
 						<div class=flex style=justify-content:left>
 							<table>
-								<tr><th>#<th colspan=2>En cas de TOP 8
+								<tr><th><th colspan=2>En cas de TOP 8
 								<tr><td>1r:<td>  1 + 1 + 1 + 3<td>= 6 punts
 								<tr><td>2n:<td>  1 + 1 + 1    <td>= 3 punts
 								<tr><td>3r:<td>  1 + 1        <td>= 2 punts
@@ -66,7 +65,7 @@
 								<tr><td>8è:<td>  1						<td>= 1 punt
 							</table>
 							<table>
-								<tr><th>#<th colspan=2>En cas de TOP 4
+								<tr><th><th colspan=2>En cas de TOP 4
 								<tr><td>1r:<td>  1 + 1 + 2  <td>= 4 punts
 								<tr><td>2n:<td>  1 + 1			<td>= 2 punts
 								<tr><td>3r:<td>  1					<td>= 1 punt

@@ -9,7 +9,7 @@
 			font-weight:bold;
 			padding:0.3em;
 			border-radius:0.5em;
-			animation: blink 4s ease 0.5s infinite alternate;
+			animation: blink 3s ease 0.5s infinite alternate;
 		}
 	</style>
 	<?php 
@@ -17,7 +17,7 @@
 		$assistents=mysqli_num_rows($mysql->query("SELECT * FROM assistentsProximTorneig"));
 		echo "
 			<a href=assistents.php>
-				<b>Pròxim torneig</b>: $dataProximTorneig 
+				Pròxim torneig: <b>$dataProximTorneig</b>
 				<small>($assistents jugadors inscrits)</small>
 			</a>";
 		if($falten==1){

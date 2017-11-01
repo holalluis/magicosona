@@ -1,5 +1,4 @@
 <?php
-	//PÀGINA PRINCIPAL
 	include'mysql.php';
 	function comptaPot() {
 		global $mysql;
@@ -18,8 +17,6 @@
 	<?php include 'imports.php' ?>
 	<title>Pàgina Principal</title>
 	<style>
-		/*primers 16 files color gold*/
-		#taula tr:nth-child(-n+17) td:first-child {background:gold}
 		#navbar [index]{
 			background:#fefefe;
 			border-bottom-color:#395693;
@@ -29,21 +26,30 @@
 <!--menus--><?php include'menu.php'?>
 <!--LOGO--><h2>Magic Osona — Lliga Modern</h2>
 <!--NEXT torneig--><?php include 'proximEsdeveniment.php' ?>
-
 <!--pot-->
 <div style=margin:0.5em;font-size:smaller>
-	Pot acumulat (<?php echo current(mysqli_fetch_assoc($mysql->query("SELECT COUNT(1) FROM esdeveniments")))?> torneigs): <b><?php echo comptaPot() ?> €</b> 
+	Pot acumulat (<?php echo current(mysqli_fetch_assoc($mysql->query("SELECT COUNT(1) FROM esdeveniments")))?> torneigs): 
+	<b><?php echo comptaPot() ?> €</b> 
 </div>
 
+<!--fig planeswalker points-->
+<p style=font-size:smaller>
+	<a href=puntsPW/punts.php>
+		Veure gràfic 'Punts Planeswalker jugadors Osona'
+	</a>
+</p>
+
 <!--classificació general-->
-<table cellpadding=5 id=taula>
+<table id=taula>
 	<style>
 		#taula {
 			max-width:90%;
 			text-align:left;
 		}
+		/*primers 16 files color gold*/
+		#taula tr:nth-child(-n+17) td:first-child {background:gold}
 	</style>
-	<tr><th title="Posició">#<th><b>Classificació general</b>
+	<tr><th title="Posició" colspan=2 style=text-align:center><b>Classificació general</b>
 	<?php
 		// Llista d'esdeveniments
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";
@@ -115,17 +121,16 @@
 			$i=1;
 			while($row=mysqli_fetch_assoc($res)) {
 				//número i nom
-				echo "<tr><td>$i<td><a href=jugador.php?id=".$row['id'].">".$row['nom']."</a>";
+				echo "<tr><td><small>$i</small><td><a href=jugador.php?id=".$row['id'].">".$row['nom']."</a>";
 				//punts per torneig
-				foreach($torneigs as $key=>$id)
-				{
-					echo "<td>".$row["T".($key+1)];
+				foreach($torneigs as $key=>$id) {
+					echo "<td><small>".$row["T".($key+1)]."</small>";
 				}
 				echo "<td><b>".$row['total']."</b>";
 				$i++;
 			}
 		}
-		?>
+	?>
 </table>
 
 <?php include 'footer.php' ?>

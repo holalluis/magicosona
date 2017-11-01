@@ -108,7 +108,16 @@
 	//comprova llista buida
 	if($llista=="") 
 	{
-		echo("<h2>Llista no disponible (<a href=contacte.php>si la tens, envia-la! moltes gràcies</a>)</h2>");
+		echo("
+			<h2> Llista no disponible </h2>
+			<p>
+				Si la tens, ens la pots enviar
+				<a href=contacte.php>
+					aquí
+				</a>
+				indicant torneig i jugador
+			</p>
+		");
 		$llista='false'; //per passar a javascript
 	}
 
@@ -189,7 +198,7 @@
 	{
 		?>
 		<div style='background:#efefef;padding:1em;'>
-			<h4>Envia llista (text en format .dec)</h4>
+			<h4>Envia llista (format .dec)</h4>
 			<div>
 				<textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista aquí"></textarea>
 				<script>

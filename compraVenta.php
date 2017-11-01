@@ -17,9 +17,11 @@
 <div style="margin:1em">
 	Aquí trobaràs les cartes en venda dels jugadors. 
 	<br>
-	Si vols aparèixer aquí, 
-	escriu el teu nº d'usuari de MKM <b>(número de 5-7 xifres)</b>
-	a la teva pàgina de perfil
+	<small>
+		Si vols aparèixer aquí, 
+		escriu el teu nº d'usuari de MKM <b>(número de 5-7 xifres)</b>
+		a la teva pàgina de perfil
+	</small>
 </div>
 
 <!--columna buscar-->

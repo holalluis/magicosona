@@ -31,7 +31,7 @@
 		}
 	</style>
 </head><body>
-<h3><a href="../jugadors.php">&larr; Enrere</a></h3>
+<h3><a href="../">&larr; Enrere</a></h3>
 
 <div id=root>
 <h2>Planeswalker points (16/06/2017)</h2>

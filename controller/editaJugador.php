@@ -7,7 +7,7 @@ inputs: id jugador, camp a canviar, nou valor
 
 //entrada
 $id=$_GET['id'];
-if($id=="")die('error: id jugador not set');
+if(empty($id))die('error: id jugador not set');
 
 //si no admin o si !jugador o cookie==id, atura't
 if(!isset($_COOKIE['admin']))

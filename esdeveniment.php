@@ -56,9 +56,34 @@
 
 <!--resultats-->
 <div class=flex>
+	<!--botons veure imatges-->
+	<div style="text-align:left;margin:0 5px;max-width:29%" id=botons_veure>
+		<style>
+			#botons_veure button {
+				padding:1em 1em;
+				margin-bottom:0.5em;
+				display:block;
+				font-size:12px;
+			}
+		</style>
+		<?php
+			$nom=$nomTorneig;
+			if(file_exists("img/torneigs/elim$nom.png"))
+			{ 
+				echo "<button onclick=window.location=('img/torneigs/elim$nom.png')>Veure eliminatòria TOP 8</button>";
+			}
+			if(file_exists("img/torneigs/$nom.jpg"))
+			{ ?>
+				<button onclick="window.location=('img/torneigs/<?php echo $nom ?>.jpg')">Veure cartell i premis</button>
+				<?php
+			}
+		?>
+	</div>
+
+	<!--punts-->
 	<div style=width:70%>
 		<table id=resultats style=width:100%>
-			<tr><th>#<th>Baralla<th>Jugador<th>Punts
+			<tr><th><th>Baralla<th>Jugador<th>Punts
 			<?php
 				$sql="	
 					SELECT 
@@ -106,36 +131,12 @@
 			?>
 		</table>
 	</div>
-
-	<!--botons veure-->
-	<div style=text-align:left;margin-left:5px;max-width:29% id=botons_veure>
-		<style>
-			#botons_veure button {
-				padding:1em 1em;
-				margin-bottom:0.5em;
-				display:block;
-				font-size:12px;
-			}
-		</style>
-		<?php
-			$nom=$nomTorneig;
-			if(file_exists("img/torneigs/elim$nom.png"))
-			{ 
-				echo "<button onclick=window.location=('img/torneigs/elim$nom.png')>Veure eliminatòria TOP 8</button>";
-			}
-			if(file_exists("img/torneigs/$nom.jpg"))
-			{ ?>
-				<button onclick="window.location=('img/torneigs/<?php echo $nom ?>.jpg')">Veure cartell i premis</button>
-				<?php
-			}
-		?>
-	</div>
 </div>
 
-<br>
-<?php
-	if(isset($_COOKIE['admin']))
+<br><?php
+	if(isset($_COOKIE['admin'])){
 		echo "<button onclick=esborrar() style=margin:'2em 0'>Esborrar Esdeveniment</button>";
+	}
 ?>
 
 <?php include 'footer.php' ?>

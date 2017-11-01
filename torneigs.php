@@ -20,6 +20,11 @@
 
 <div class=flex style=margin-top:0.5em>
 
+<!--veure meta-->
+<div style="max-width:28%;">
+	<button style="margin-right:5px;padding:1.5em 0.5em" onclick="window.location='metagame.php'">Veure metagame</button>
+</div>
+
 <!--Torneigs-->
 <div style="max-width:70%;">
 	<table id=torneigs>
@@ -48,11 +53,6 @@
 			}
 		?>
 	</table>
-</div>
-
-<!--veure meta-->
-<div style="max-width:28%;">
-	<button style="margin-left:3px;padding:1.5em 0.5em" onclick="window.location='metagame.php'">Veure metagame</button>
 </div>
 
 </div>

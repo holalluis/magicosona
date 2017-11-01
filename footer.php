@@ -14,9 +14,9 @@
 
 <footer>
 	<div>
-		<a contacte href=contacte.php>Contacte</a>
+		Magic Osona © <?php echo date("Y") ?> — Tots els drets reservats
 	</div>
 	<div>
-		Magic Osona © <?php echo date("Y") ?> — Tots els drets reservats
+		<a contacte href=contacte.php>Contacte</a>
 	</div>
 </footer>
