@@ -52,7 +52,7 @@
 <!--jugadors-->
 <div>
 	<table style=margin:auto>
-		<tr><th>Jugador<th>Link a Magiccardmarket
+		<tr><th>Jugador<th>Cartes en venda
 		<?php
 			$sql="SELECT * FROM jugadors WHERE mkm!='' ORDER BY nom ASC";
 			$result=$mysql->query($sql) or die('error');
@@ -64,7 +64,7 @@
 				$url_mkm="https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=$mkm";
 				echo "<tr>
 					<td> <a href='jugador.php?id=$id'>$nom</a>
-					<td> <a target=_blank href='$url_mkm'>Veure Cartes (id: $mkm)</a>
+					<td> <a target=_blank href='$url_mkm'>Veure Cartes (id $mkm)</a>
 				";
 			}
 		?>

@@ -18,7 +18,7 @@ PW.getPoints=function(dci,container) {
 					ul+="<li>Level: "+json.lvl;
 					ul+="<li>Lifetime points: "+json.lt;
 					ul+="<li>Season points: "+json.se;
-					ul+="<li><a target=_blank href='https://www.wizards.com/Magic/PlaneswalkerPoints/"+dci+"'>Més info (wizards)</a>";
+					ul+="<li><a target=_blank href='https://www.wizards.com/Magic/PlaneswalkerPoints/"+dci+"'>Més (wizards)</a>";
 					ul+="</ul>"
 					return ul;
 				})();

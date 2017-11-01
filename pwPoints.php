@@ -1,8 +1,6 @@
 <?php
 	//show lifetime points and season pw points
-
-	function curl($url)
-	{
+	function curl($url) {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
@@ -29,11 +27,9 @@
 		return $result;
 	}
 
-	function pwPoints($dci)
-	{
+	function pwPoints($dci) {
 		$result=curl("https://www.wizards.com/Magic/PlaneswalkerPoints/JavaScript/GetPointsSummary/$dci");
 		$json=json_decode($result);
-
 
 		$data=$json->Data;
 
@@ -42,7 +38,6 @@
 		$sePoints=$data[10]->Value; //string
 		$currLevl=$data[2]->Value;
 		$proPoints=$data[10]->Value;
-
 
 		//retalla string sePoints per tenir només el número de punts season
 		$sePoints=preg_replace( "/\r|\n/", "",$sePoints);
@@ -59,10 +54,8 @@
 		$proPoints=preg_replace( "/\r|\n/", "",$proPoints);
 		//print "<pre>".$proPoints."</pre>";
 		//acabar TODO
-
 		return "{\"lvl\":\"$currLevl\", \"lt\":\"$ltPoints\", \"se\":\"$se\"}";
 	}
 
 	if(isset($_GET['dci'])) echo pwPoints($_GET['dci']);
-
 ?>
