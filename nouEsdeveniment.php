@@ -3,7 +3,7 @@
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Lliga Osonenca de Modern</title>
+	<title>Nou torneig</title>
 	<script>
 		function desactivaCheckboxs(el)
 		{

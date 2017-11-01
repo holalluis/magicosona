@@ -1,7 +1,7 @@
 <?php include 'mysql.php'; ?>
 <!doctype html> <html> <head>
 	<?php include 'imports.php' ?>
-	<title>Lliga Osonenca de Modern - Jugadors</title>
+	<title>Jugadors</title>
 	<script src=pwPoints.js></script>
 	<style>
 	#navbar [jugadors]{

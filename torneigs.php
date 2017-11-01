@@ -1,7 +1,7 @@
 <?php include 'mysql.php'; ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Magic Osona - Torneigs</title>
+	<title>Torneigs</title>
 	<style>
 		.jugadors_data{font-size:12px}
 		#torneigs td {

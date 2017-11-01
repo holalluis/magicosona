@@ -4,7 +4,7 @@
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Lliga Osonenca de Modern 2015 - Baralles</title>
+	<title>Baralles</title>
 	<script>
 		function esborra(id)
 		{

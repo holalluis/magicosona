@@ -1,7 +1,7 @@
 <?php include 'mysql.php' ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Lliga Osonenca de Modern - Metagame</title>
+	<title>Metagame lliga</title>
 	<style> #metagame th,#metagame td {border-left:none;border-right:none} </style>
 </head><body onload="ordena('metagame',1)"><center>
 <?php include 'menu.php' ?>

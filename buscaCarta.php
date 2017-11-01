@@ -51,7 +51,7 @@
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Magic Osona - Busca Carta</title>
+	<title>Busca Carta</title>
 	<style>
 		img.carta{width:50px;cursor:zoom-in}
 		table.MKMTable tfoot{display:none}

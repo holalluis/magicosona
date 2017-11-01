@@ -13,7 +13,7 @@
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Pàgina de perfil - Editar</title>
+	<title>Editar</title>
 	<script>
 		function actualitza(camp,nouValor,btn) {
 			//si nouValor val "0" ò "": you can't get any more pretty than this :)

@@ -10,7 +10,7 @@
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Magic Osona - Baralla</title>
+	<title>Baralla</title>
 </head><body onload=init()><center>
 <?php include 'menu.php' ?>
 

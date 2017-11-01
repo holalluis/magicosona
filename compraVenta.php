@@ -1,7 +1,7 @@
 <?php include 'mysql.php' ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Lliga Osonenca de Modern - Compra Venta</title>
+	<title>Magiccardmarket</title>
 	<style>
 		#navbar [compraVenta]{
 			background:#fefefe;

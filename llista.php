@@ -28,7 +28,7 @@
 ?>
 <!doctype html><html><head>
 	<?php include 'imports.php' ?>
-	<title>Magic Osona - Llista</title>
+	<title>Llista</title>
 	<style>
 		#carta {
 			width:223px;

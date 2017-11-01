@@ -1,7 +1,7 @@
 <?php include'mysql.php'?>
 <!doctype html><html><head>
 	<?php include'imports.php'?>
-	<title>Lliga Osonenca de Modern - Bases</title>
+	<title>Contacte</title>
 	<style>
 		#navbar [contacte]{
 			background:#fefefe;
