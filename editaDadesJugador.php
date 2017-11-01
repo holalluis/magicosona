@@ -24,7 +24,10 @@
 			sol.open('POST','controller/editaJugador.php?id=<?php echo $id?>',true)
 			sol.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			sol.onreadystatechange=function() {
-			  if(sol.readyState==4 && sol.status==200) alert(sol.responseText);
+			  if(sol.readyState==4 && sol.status==200) {
+					alert(sol.responseText);
+					window.location.reload();
+				}
 			}
 			sol.send("camp="+camp+"&nouValor="+nouValor);
 		}

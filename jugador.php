@@ -80,7 +80,6 @@
 		h4{text-align:left;font-weight:bold}
 		ul{list-style-type:none}
 		.icon-edit:before{content:"\270e";}
-		.jugadors_data{font-size:11px;}
 	</style>
 </head><body><center>
 <?php include'menu.php'?>
@@ -178,74 +177,74 @@
 			}
 		</style>
 
-			<?php
-				include 'dataProximTorneig.php';
-				$assisteix=mysqli_num_rows($mysql->query("SELECT 1 FROM assistentsProximTorneig WHERE id_jugador=$id"));
-				$data=date("d/m/Y",$proximUnix);
-				if($assisteix)
+		<?php
+			include'dataProximTorneig.php';
+			$assisteix=mysqli_num_rows($mysql->query("SELECT 1 FROM assistentsProximTorneig WHERE id_jugador=$id"));
+			$data=date("d/m/Y",$proximUnix);
+			if($assisteix)
+			{
+				//si ja ha confirmat, permet enviar la llista
+				$nom = explode(" ",$row['nom'])[0]; //Agafa el primer nom
+				echo "$nom assistirà al <a href=assistents.php>pròxim torneig</a>";
+
+				$llista=current(mysqli_fetch_assoc($mysql->query("SELECT llista FROM assistentsProximTorneig WHERE id_jugador=$id")));
+
+				//si el client és jugador id o admin
+				if(isset($_COOKIE['jugador']) && $id==$_COOKIE['jugador'] || isset($_COOKIE['admin']))
 				{
-					//si ja ha confirmat, permet enviar la llista
-					$nom = explode(" ",$row['nom'])[0]; //Agafa el primer nom
-					echo "$nom assistirà al <a href=assistents.php>pròxim torneig ($data)</a>";
-
-					$llista=current(mysqli_fetch_assoc($mysql->query("SELECT llista FROM assistentsProximTorneig WHERE id_jugador=$id")));
-
-					//si el client és jugador id o admin
-					if(isset($_COOKIE['jugador']) && $id==$_COOKIE['jugador'] || isset($_COOKIE['admin']))
+					if($llista=="")
 					{
-						if($llista=="")
-						{
-							echo "<li><span style=color:#999>Llista encara no enviada";
-							?>
-								<button onclick=mostraMenuLlista() style="display:block;margin:0.5em 0;padding:1.5em"> Envia la llista (només tu la podràs veure) </button>
-							<?php
-						}
-						if($llista!="")
-						{
-							echo " 
-								<br><div 
-										onclick=mostraMenuLlista() 
-										style='padding:0.3em;
-												border:1px solid #ccc;
-												margin:0.5em 0;cursor:cell;min-width:49%;
-												box-shadow: 0 1px 2px rgba(0,0,0,.1);' 
-												id=llistaContainer 
-												title='Click per modificar'>
-									<style> #llistaContainer:hover {background:#abc} </style>
-									<h5>Llista pròxim torneig (només visible per tu)</h5>
-									<pre id=llista style=margin-top:10px>$llista</pre>
-								</div>";
-						}
+						echo "<li><span style=color:#999>Llista encara no enviada";
+						?>
+							<button onclick=mostraMenuLlista() style="display:block;margin:0.5em 0;padding:1.5em"> Envia la llista (només tu la podràs veure) </button>
+						<?php
 					}
-					else
+					if($llista!="")
 					{
-						if($llista)
-							echo "<li>Llista enviada (<b>oculta</b>)";
-						else
-							echo "<li style=color:#999>Llista no enviada";
+						echo " 
+							<br><div 
+									onclick=mostraMenuLlista() 
+									style='padding:0.3em;
+											border:1px solid #ccc;
+											margin:0.5em 0;cursor:cell;min-width:49%;
+											box-shadow: 0 1px 2px rgba(0,0,0,.1);' 
+											id=llistaContainer 
+											title='Click per modificar'>
+								<style> #llistaContainer:hover {background:#abc} </style>
+								<h5>Llista pròxim torneig (només visible per tu)</h5>
+								<pre id=llista style=margin-top:10px>$llista</pre>
+							</div>";
 					}
 				}
 				else
 				{
-					echo "<span style=color:#999>No ha confirmat assistència al <a href=assistents.php>pròxim torneig ($data)</a>";	
-					if(isset($_COOKIE['jugador']) && $id==$_COOKIE['jugador'] || isset($_COOKIE['admin']))
-					{ ?>
-						<button onclick=emVullApuntar() >Apuntar-me al pròxim torneig!</button>
-						<script>
-							function emVullApuntar()
-							{
-								if(confirm('Vols confirmar que assistiràs al pròxim torneig (<?php echo $data ?>)?'))
-								{
-									var sol = new XMLHttpRequest()
-									sol.open('GET','nouAssistent.php?id_jugador=<?php echo $id?>',false);
-									sol.send()
-									window.location.reload();
-								}
-							}
-						</script>
-					<?php }
+					if($llista)
+						echo "<li>Llista enviada (<b>oculta</b>)";
+					else
+						echo "<li style=color:#999>Llista no enviada";
 				}
-			?>
+			}
+			else
+			{
+				echo "<span style=color:#999>No ha confirmat assistència al <a href=assistents.php>pròxim torneig</a>";	
+				if(isset($_COOKIE['jugador']) && $id==$_COOKIE['jugador'] || isset($_COOKIE['admin']))
+				{ ?>
+					<button onclick=emVullApuntar() >Apuntar-me al pròxim torneig!</button>
+					<script>
+						function emVullApuntar()
+						{
+							if(confirm('Vols confirmar que assistiràs al pròxim torneig (<?php echo $data ?>)?'))
+							{
+								var sol = new XMLHttpRequest()
+								sol.open('GET','nouAssistent.php?id_jugador=<?php echo $id?>',false);
+								sol.send()
+								window.location.reload();
+							}
+						}
+					</script>
+				<?php }
+			}
+		?>
 	</ul>
 </div>
 
@@ -279,8 +278,11 @@
 
 				if($punts!=0)
 				{
-					echo "<tr><td><a href=esdeveniment.php?id=$esd>".$row['nom']." 
-						<span class=jugadors_data>($esd_jugadors jugadors, $data)</span></a>";
+					echo "<tr><td>
+						<a href=esdeveniment.php?id=$esd>".$row['nom']." 
+							<br>
+							<small>($esd_jugadors jugadors, $data)</small>
+						</a>";
 					echo "<td>";
 					if($baralla=='' && (isset($_COOKIE['jugador']) && $_COOKIE['jugador']==$id || isset($_COOKIE['admin']) ))
 					{
@@ -325,7 +327,7 @@
 
 			//punts totals i punts per torneig
 			$ratio= $participacions>0 ? round($punts_totals/$participacions,1) : 0;
-			echo "<tr><th align=center>TOTAL<th colspan=2 align=center><b>$punts_totals punts</b> ($ratio punts/torneig)";
+			echo "<tr><th align=center>TOTAL<th colspan=2 align=center><b>$punts_totals punts</b><br><small>($ratio punts/torneig)</small>";
 		?>
 	</table>
 </div>

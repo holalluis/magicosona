@@ -31,7 +31,7 @@
 <!--NEXT torneig--><?php include 'proximEsdeveniment.php' ?>
 
 <!--pot-->
-<div style=margin:0.5em> 
+<div style=margin:0.5em;font-size:smaller>
 	Pot acumulat (<?php echo current(mysqli_fetch_assoc($mysql->query("SELECT COUNT(1) FROM esdeveniments")))?> torneigs): <b><?php echo comptaPot() ?> €</b> 
 </div>
 

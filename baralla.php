@@ -14,7 +14,7 @@
 </head><body onload=init()><center>
 <?php include 'menu.php' ?>
 
-<h2>Aparicions de <b><?php echo $nomBaralla?></b></h2>
+<h2>Aparicions de la baralla <b><?php echo $nomBaralla?></b></h2>
 
 <!--baralles del mateix tipus-->
 <table cellpadding=5 style="max-width:100%;margin-top:0.5em">
