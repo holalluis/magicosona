@@ -50,9 +50,9 @@
 	<a index       href=index.php>Inici</a>
 	<a torneigs    href=torneigs.php>Torneigs</a>
 	<a jugadors    href=jugadors.php>Jugadors</a>
-	<a comptador   href=comptador>Life count</a>
 	<a compraVenta href=compraVenta.php>Market</a>
 	<a bases       href=bases.php>Bases</a>
+	<a comptador   href=comptador target=_blank>Life Count</a>
 	<?php
 		if(isset($_COOKIE['jugador'])) 
 		{ ?>

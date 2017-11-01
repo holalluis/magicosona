@@ -5,7 +5,7 @@
 	<style>
 		ul{list-style-type:none;padding-left:1em}
 		hr{margin-top:0.5em}
-		div > ul > li{border-bottom:1px solid #ccc;margin-bottom:0.5em;padding-bottom:0.5em}
+		div > ul > li:not(:last-child){border-bottom:1px solid #ccc;margin-bottom:0.5em;padding-bottom:0.5em}
 		table{margin:2px}
 		#navbar [bases]{
 			background:#fefefe;
@@ -102,7 +102,8 @@
 			<li>2. El jugador que hagi fet més tops.
 			<li>3. El jugador que hagi guanyat més torneigs.
 		</ul>
-	<li><b>Salut i Magic!</b>
+	<li>
+	<b>Salut i Magic!</b>
 </ul>
 </div>
 <?php include 'footer.php' ?>

@@ -17,7 +17,9 @@
 <div style="margin:1em">
 	Aquí trobaràs les cartes en venda dels jugadors. 
 	<br>
-	Si vols aparèixer aquí posa el teu nº d'usuari de MKM (id de 5 dígits) a la teva pàgina de perfil!
+	Si vols aparèixer aquí, 
+	escriu el teu nº d'usuari de MKM <b>(número de 5-7 xifres)</b>
+	a la teva pàgina de perfil
 </div>
 
 <!--columna buscar-->
@@ -47,7 +49,7 @@
 <!--jugadors-->
 <div>
 	<table style=margin:auto>
-		<tr><th>Jugador<th>Cartes en venda
+		<tr><th>Jugador<th>Link a Magiccardmarket
 		<?php
 			$sql="SELECT * FROM jugadors WHERE mkm!='' ORDER BY nom ASC";
 			$result=$mysql->query($sql) or die('error');
@@ -59,7 +61,7 @@
 				$url_mkm="https://www.magiccardmarket.eu/?mainPage=browseUserProducts&idCategory=1&idUser=$mkm";
 				echo "<tr>
 					<td> <a href='jugador.php?id=$id'>$nom</a>
-					<td> <a target=_blank href='$url_mkm'>Veure MKM (id $mkm)</a>
+					<td> <a target=_blank href='$url_mkm'>Veure Cartes (id: $mkm)</a>
 				";
 			}
 		?>
