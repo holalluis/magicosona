@@ -226,7 +226,9 @@
 						?>
 							<p>
 								<div><b>Llista pròxim torneig</b></div>
-								<small>recorda que no és pública</small>
+								<small>Recorda que només la pots veure tu</small>
+								<br>
+								<small>Clica sobre el requadre per modificar-la</small>
 								<div onclick=mostraMenuLlista() id=llistaContainer title='Click per modificar'>
 									<style> 
 										#llistaContainer {
@@ -235,7 +237,6 @@
 											margin:0.5em 0;cursor:cell;min-width:49%;
 											box-shadow: 0 1px 2px rgba(0,0,0,.1);
 										}
-										#llistaContainer:hover {background:#abc} 
 									</style>
 									<pre id=llista style=margin-top:10px><?php echo $llista ?></pre>
 								</div>
