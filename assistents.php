@@ -151,7 +151,7 @@
 				{
 					$nom=$row['nom'];
 					$id=$row['id'];
-					$llista=$row['llista'] ? "<span title='Llista oculta' style=cursor:help>Llista enviada</span>" : "<span style=color:#999><small>~llista no enviada</small></span>";
+					$llista=$row['llista'] ? "<small title='Llista oculta' style=cursor:help>Llista enviada</small>" : "<span style=color:#999><small>~llista no enviada</small></span>";
 					$dci=$row['dci'] ? $row['dci'] : "<span style=color:#999>Falta DCI</span>";
 
 					//han d'estar juntes pel tema whatsap les línies (numero i nom)
