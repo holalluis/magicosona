@@ -20,7 +20,8 @@
 	<small>
 		Si vols aparèixer aquí, 
 		escriu el teu nº d'usuari de MKM <b>(número de 5-7 xifres)</b>
-		a la teva pàgina de perfil
+		a la teva pàgina de perfil.
+		<a href="explicaMKM.php">Explicació</a>
 	</small>
 </div>
 
