@@ -7,7 +7,7 @@
 				justify-content:center;
 				padding:5px;
 				font-size:14px;
-				background:rgb(0,150,136);
+				background:#3b5998;
 			}
 			#menuAdmin a {
 				text-decoration:none;
@@ -23,7 +23,7 @@
 			}
 			#menuAdmin .item:hover {
 				background:#3b5998;
-				transition:all 0.5s;
+				transition:all 0.2s;
 				color:gold;
 			}
 			#menuAdmin .item:hover a {

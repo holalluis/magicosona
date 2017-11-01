@@ -35,7 +35,7 @@
 <!--fig planeswalker points-->
 <p style=font-size:smaller>
 	<a href=puntsPW/punts.php>
-		Veure gràfic 'Punts Planeswalker jugadors Osona'
+		Gràfic 'Punts Planeswalker jugadors Osona'
 	</a>
 </p>
 
@@ -49,7 +49,7 @@
 		/*primers 16 files color gold*/
 		#taula tr:nth-child(-n+17) td:first-child {background:gold}
 	</style>
-	<tr><th title="Posició" colspan=2 style=text-align:center><b>Classificació general</b>
+	<tr><th title="Posició" colspan=2 style=text-align:center>Classificació general
 	<?php
 		// Llista d'esdeveniments
 		$sql="SELECT * FROM esdeveniments ORDER BY data ASC";

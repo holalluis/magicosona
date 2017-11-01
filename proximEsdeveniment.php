@@ -6,7 +6,6 @@
 		#faltenBlink {
 			margin-left:0.3em;
 			margin-right:0.3em;
-			font-weight:bold;
 			padding:0.3em;
 			border-radius:0.5em;
 			animation: blink 3s ease 0.5s infinite alternate;
