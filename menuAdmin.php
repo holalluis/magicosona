@@ -40,7 +40,7 @@
 					<div class=item><a href=assistents.php>Pròxim torneig</a></div>
 				</div>
 				<div class=item>
-					Nou Assistent:
+					Nou assistent
 					<select id=id_assistent>
 						<?php
 							$sql="	SELECT id,nom 
