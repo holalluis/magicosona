@@ -12,8 +12,7 @@
 	<?php include 'imports.php' ?>
 	<title>Torneig <?php echo $nom?></title>
 	<script>
-		function esborrar()
-		{
+		function esborrar() {
 			if(confirm("S'esborrarà tot l'esdeveniment. Continuar?"))
 				window.location="controller/esborraEsdeveniment.php?id=<?php echo $id ?>"
 		}
@@ -82,7 +81,7 @@
 
 	<!--punts-->
 	<div style=width:70%>
-		<table id=resultats style=width:100%>
+		<table id=resultats>
 			<tr><th><th>Baralla<th>Jugador<th>Punts
 			<?php
 				$sql="	
