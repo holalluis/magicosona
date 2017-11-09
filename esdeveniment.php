@@ -80,7 +80,7 @@
 	</div>
 
 	<!--punts-->
-	<div style=width:70%>
+	<div style="max-width:70%">
 		<table id=resultats>
 			<tr><th><th>Baralla<th>Jugador<th>Punts
 			<?php
