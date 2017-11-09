@@ -22,6 +22,10 @@
 			background:gold;
 		}
 		h3 {margin-bottom:0.5em}
+		td.top {
+			font-size:smaller;
+			text-align:right;
+		}
 	</style>
 </head>
 <body><center>
