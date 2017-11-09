@@ -1,7 +1,6 @@
 body{
 	margin:0;
 	overflow-y:scroll;
-	font-family:Charter,sans-serif;
 	font-family:'Helvetica Neue','Liberation Sans',sans-serif;
 }
 
@@ -43,7 +42,7 @@ tr:nth-child(even){
 	background:#eee;
 }
 td,th{
-	padding:0.4em;
+	padding:0.35em;
 	border-bottom:1px solid #ccc;
 	border-top:1px solid #ccc;
 }

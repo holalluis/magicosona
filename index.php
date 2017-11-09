@@ -21,6 +21,10 @@
 			background:#fefefe;
 			border-bottom-color:#395693;
 		} 
+		td.top {
+			font-size:smaller;
+			text-align:right;
+		}
 	</style>
 </head><body><center>
 <!--menus--><?php include'menu.php'?>
@@ -121,7 +125,7 @@
 			$i=1;
 			while($row=mysqli_fetch_assoc($res)) {
 				//número i nom
-				echo "<tr><td><small>$i</small><td><a href=jugador.php?id=".$row['id'].">".$row['nom']."</a>";
+				echo "<tr><td class=top>$i<td><a href=jugador.php?id=".$row['id'].">".$row['nom']."</a>";
 				//punts per torneig
 				foreach($torneigs as $key=>$id) {
 					echo "<td><small>".$row["T".($key+1)]."</small>";
