@@ -1,6 +1,6 @@
 <!doctype html><html><head>
 	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<title>MTG Contador</title>
 	<style>
 		body{
@@ -70,7 +70,7 @@
 		var actual_tu
 
 		//funcions
-		function init() {
+		function init(){
 			actual_jo=20;
 			actual_tu=20;
 			render_vides();
@@ -84,7 +84,7 @@
 			document.querySelector('#actual_tu').innerHTML=actual_tu;
 		}
 
-		function jugada(jugador,vides) {
+		function jugada(jugador,vides){
 			var nova_jo=document.querySelector('#nova_jo');
 			var nova_tu=document.querySelector('#nova_tu');
 			if(jugador==0){ 
@@ -95,12 +95,12 @@
 			}
 		}
 
-		function ok(source) {
-			var nova_jo=parseInt(document.querySelector('#nova_jo').innerHTML)
-			var nova_tu=parseInt(document.querySelector('#nova_tu').innerHTML)
+		function ok(source){
+			var nova_jo=parseInt(document.querySelector('#nova_jo').innerHTML);
+			var nova_tu=parseInt(document.querySelector('#nova_tu').innerHTML);
 
 			//si no hi ha canvi, no facis res
-			if(nova_jo==0 && nova_tu==0)return;
+			if(nova_jo==0 && nova_tu==0){return}
 
 			//actualitza vides
 			actual_jo+=nova_jo;
@@ -114,8 +114,8 @@
 			//amaga indicador nova partida al primer registre
 			document.querySelector('#indicador_nova_partida').style.display='none';
 			//jugada
-			var nova_jo=parseInt(document.querySelector('#nova_jo').innerHTML)
-			var nova_tu=parseInt(document.querySelector('#nova_tu').innerHTML)
+			var nova_jo=parseInt(document.querySelector('#nova_jo').innerHTML);
+			var nova_tu=parseInt(document.querySelector('#nova_tu').innerHTML);
 			//inserta jugada a la taula historial
 			var t=document.getElementById('historial');
 			var newRow=t.insertRow(-1);
@@ -135,13 +135,10 @@
 	<tr>
 		<th style=border-top:none colspan=2>YO
 		<th style=border-top:none colspan=2>TÚ
-	</tr>
 	<tr class=vides_actuals>
 		<td id=actual_jo colspan=2>20<td id=actual_tu colspan=2>20
-	</tr>
 	<tr>
 		<td id=nova_jo colspan=2>0<td id=nova_tu colspan=2>0
-	</tr>
 	<tr>
 		<td colspan=2>
 			<div class=flex>
@@ -155,7 +152,6 @@
 				<button onclick=jugada(1,-1)>-1</button>
 			</div>
 		</td>
-	</tr>
 	<tr>
 		<td><button class=source onclick=ok('Tierra')>Tierra</button>
 		<td><button class=source onclick=ok('Ataque')>Ataque</button>
@@ -179,5 +175,5 @@
 </div>
 
 <p style="font-size:smaller;text-align:center;margin-top:50px">
-Comptador oficial de <a href="///magicosona.com">magicosona.com</a>
+Comptador oficial <a href="//magicosona.com">magicosona.com</a>
 </p>
