@@ -41,10 +41,13 @@
 			?>
 				<form action=controller/login.php method=post>
 					<input type=hidden name=user value=admin>
-					<input name=pass type=password placeholder="Admin password" required autocomplete=off>
+					<input id=password name=pass type=password placeholder="Admin password" required autocomplete=off>
 					<button>Ok</button>
 				</form>
 				<small>Avís: els intents d'intrusió quedaran registrats, no facis el trapella :)</small>
+				<script>
+					document.querySelector('#password').focus();
+				</script>
 			<?php
 		}
 	?>

@@ -18,57 +18,48 @@
 	</script>
 </head><body onload=init()><center>
 
-<!-- MENU -->
-<div> <a href=index.php>Pàgina principal</a> </div>
+<!--MENU--><div><a href=index.php>Pàgina principal</a></div>
+<!--TITOL--><h2>Baralles</h2>
+<!--check admin--><?php if(!isset($_COOKIE['admin'])) die('no ets admin')?>
 
-<!-- TITOL -->
-<h2>Baralles</h2>
-
-<!-- check admin -->
-<?php
-	if(!isset($_COOKIE['admin']))
-		die('no ets admin');
-?>
-
-<!-- nova baralla -->
-<div>
-<form action="controller/novaBaralla.php" method=GET>
-	<table cellpadding=5>
-	<tr>
-		<td>Nova Baralla
-		<td><input name=nom placeholder=Nom autocomplete=off required>
-		<td><button type=submit>Guarda</button>
-	</table>
-</form>
+<!--nova baralla-->
+<div style="margin:5px 0">
+	<form action="controller/novaBaralla.php" method=GET>
+		<table cellpadding=5>
+		<tr>
+			<td>Nova Baralla
+			<td><input name=nom placeholder=Nom autocomplete=off required>
+			<td><button type=submit>Guarda</button>
+		</table>
+	</form>
 </div>
 
-<!-- Baralles -->
+<!--baralles-->
 <div>
-<table cellpadding=5>
-	<tr><th>Nº<th>Baralla<th>Esborra<th>Canvia nom
-	<?php
-		// Llista de baralles
-		$sql="SELECT * FROM baralles ORDER BY nom";
-		$res=$mysql->query($sql);
-		$i=1;
-		while($row=mysqli_fetch_assoc($res))
-		{
-			$id=$row['id'];
-			$nom=$row['nom'];
-			echo "<tr><td>$i<td>$nom";
+	<table cellpadding=5>
+		<tr><th>Nº<th>Baralla<th>Esborra<th>Canvia nom
+		<?php
+			// Llista de baralles
+			$sql="SELECT * FROM baralles ORDER BY nom";
+			$res=$mysql->query($sql);
+			$i=1;
+			while($row=mysqli_fetch_assoc($res)) {
+				$id=$row['id'];
+				$nom=$row['nom'];
+				echo "<tr><td>$i<td>$nom";
 
-			//esborrar baralla de la base de dades
-			echo "<td><button onclick=esborra($id)>Esborra</button>";
+				//esborrar baralla de la base de dades
+				echo "<td><button onclick=esborra($id)>Esborra</button>";
 
-			//formulari per canviar el nom de la baralla
-			echo "<td><form action='controller/canviaNomBaralla.php' method=GET>";
-			echo "<input placeholder='Nou Nom' name=nom>";
-			echo "<input name=id value=$id type=hidden>";
-			echo "<button type=submit>Ok</button>";
-			echo "</form>";
+				//formulari per canviar el nom de la baralla
+				echo "<td><form action='controller/canviaNomBaralla.php' method=GET>";
+				echo "<input placeholder='Nou Nom' name=nom>";
+				echo "<input name=id value=$id type=hidden>";
+				echo "<button type=submit>Ok</button>";
+				echo "</form>";
 
-			$i++;
-		}
-	?>
-</table>
+				$i++;
+			}
+		?>
+	</table>
 </div>
