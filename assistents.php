@@ -1,6 +1,5 @@
 <?php
 	//Pàgina per mostrar una llista de jugadors apuntats al pròxim torneig
-
 	include 'mysql.php';
 	include 'dataProximTorneig.php';
 	$ass = isset($_GET['ass']) ? $_GET['ass'] : "si";
@@ -10,13 +9,10 @@
 	$result=$mysql->query($sql) or die('error');
 	$total=mysqli_num_rows($result);
 
-	if($ass=="si")
-	{
+	if($ass=="si") {
 		//request SI
 		$sql="SELECT * FROM assistentsProximTorneig,jugadors WHERE id_jugador=jugadors.id ORDER BY jugadors.nom";	
-	}
-	else
-	{
+	}else{
 		//request NO
 		$sql="SELECT * FROM jugadors 
 			WHERE NOT EXISTS (SELECT 1 FROM assistentsProximTorneig WHERE assistentsProximTorneig.id_jugador = jugadors.id)
@@ -29,9 +25,8 @@
 	<?php include 'imports.php' ?>
 	<title>Assistents Pròxim Torneig</title>
 	<script>
-		function llistaWA() //pel whatsapp
-		//confirm per fer copiar pegar
-		{
+		//pel whatsapp
+		function llistaWA() {
 			var t=document.getElementById('taula')
 			var num,nom,torneig='<?php echo current(mysqli_fetch_assoc($mysql->query('SELECT COUNT(*)+1 FROM esdeveniments'))) ?>'
 			var str=""
@@ -44,7 +39,7 @@
 				str+=num+" "+nom+"\n"
 			}
 			str+="========================\r\n";
-			str+="Queden "+(30-i)+" places. Falten <?php echo $falten?> dies! magicosona.com\r\n";
+			str+="Falten <?php echo $falten?> dies!\r\nmagicosona.com\r\n";
 			prompt("Copia amb ctrl-c",str)
 		}
 		function eliminaAssistent(id) {
@@ -77,8 +72,7 @@
 <!--titol--> <h3>Pròxim torneig: <?php echo $dataProximTorneig?> </h3>
 
 <?php //veure premis
-	if($ass=="si")
-	{
+	if($ass=="si") {
 		$premi = $n*5;
 		?>
 			<div style='display:none;margin:0.3em;background:orange;padding:0.5em;text-align:left;border-radius:0.5em;box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);'>
@@ -102,21 +96,21 @@
 	</p>
 </h4>
 
-
+<!--contingut-->
 <div class=flex>
 	<!--imatge-->
 	<div style=max-width:48%;>
-	<?php
-		if(file_exists('img/torneigs/proxim.jpg'))
-		{ ?>
-			<div>
-				<img src="img/torneigs/proxim.jpg" alt="imatge proxim torneig" style=max-width:99%;cursor:pointer; onclick=window.open('img/torneigs/proxim.jpg')> 
-			</div>
-		<?php }
-	?>
+		<?php
+			if(file_exists('img/torneigs/proxim.jpg'))
+			{ ?>
+				<div>
+					<img src="img/torneigs/proxim.jpg" alt="imatge proxim torneig" style=max-width:99%;cursor:pointer; onclick=window.open('img/torneigs/proxim.jpg')> 
+				</div>
+			<?php }
+		?>
 	</div>
 
-	<!--inscrits-->
+	<!--llista container-->
 	<div style=max-width:50%;>
 		<!--botons EXCEL i whatsapp-->
 		<?php if(isset($_COOKIE['admin'])) { ?>
@@ -140,15 +134,14 @@
 			</div>
 		<?php } ?>
 
+		<!--llista-->
 		<table id=taula>
-			<tr><td colspan="<?php if(isset($_COOKIE['admin'])){echo 5;}else{echo 4;}?>" style=text-align:center>Llista 
-				<?php if($ass=="no") echo "No inscrits"; else echo "Inscrits" ?>
+			<tr><td colspan="<?php if(isset($_COOKIE['admin'])){echo 5;}else{echo 4;}?>" style=text-align:center>
+				<?php if($ass=="no") echo "No inscrits"; else echo "Inscrits" ?> al pròxim torneig
 			</tr>
-
 			<?php
 				$i=1;
-				while($row=mysqli_fetch_assoc($result))
-				{
+				while($row=mysqli_fetch_assoc($result)) {
 					$nom=$row['nom'];
 					$id=$row['id'];
 					$llista=$row['llista'] ? "<small title='Llista oculta' style=cursor:help>Llista enviada</small>" : "<span style=color:#999><small>~llista no enviada</small></span>";
@@ -167,7 +160,6 @@
 			?>
 		</table>
 	</div>
-
 </div>
 
 <?php include 'footer.php' ?>
