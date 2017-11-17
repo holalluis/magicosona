@@ -39,7 +39,7 @@
 <!--fig planeswalker points-->
 <p style=font-size:smaller>
 	<a href=puntsPW/punts.php>
-		Gràfic 'Punts Planeswalker jugadors Osona'
+		Veure Rànking Punts Planeswalker
 	</a>
 </p>
 

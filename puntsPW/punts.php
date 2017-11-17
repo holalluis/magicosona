@@ -17,32 +17,27 @@
 		}
 		#btns_sort {
 			padding:1em 0;
-			display:flex;
-			flex-wrap:wrap;
 		}
 		h3{
 			background:#eee;
 			margin:0;
 			padding:1em;
 		}
-
 		#root{
 			margin:5px;
 		}
 	</style>
-</head><body>
+</head><body><center>
 <h3><a href="../">&larr; Enrere</a></h3>
 
 <div id=root>
-<h2>Planeswalker points (16/06/2017)</h2>
-<h5>[Pàgina en construcció]</h5>
-<div>
-	Punts dels jugadors de la lliga ordenats per punts totals (lifetime points) o de temporada (season points).
-</div>
+<h2>Planeswalker points (consultat el 17/11/2017)</h2>
 <div id=btns_sort>
-	<b>Ordena per:</b>
-	<button onclick=sort('lifetime') style=background:#3366cc>Lifetime points</button>
-	<button onclick=sort('season') style=background:#dc3912>Season points</button>
+	<p>
+		<b>Ordena per: </b>
+		<label><input type=radio name=sorting onclick=sort('lifetime') checked> Lifetime points</label>
+		<label><input type=radio name=sorting onclick=sort('season')>   Season points</label>
+	</p>
 </div>
 <div id="chart" style=vertical-align:top><div style=background:yellow>Carregant...</div></div>
 <script src="https://www.gstatic.com/charts/loader.js"></script>

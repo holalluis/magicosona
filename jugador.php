@@ -35,7 +35,7 @@
 			div.style.left="30%"
 			//titol
 			var h3 = document.createElement('h3')
-			h3.innerHTML="Llista pel pròxim torneig"
+			h3.innerHTML="Llista pel pròxim torneig<br><small>(es recomana format .dec <a href='exemple_dec.txt'>exemple</a>)</small>"
 			div.appendChild(h3)
 			//nova textarea
 			var text=document.createElement('textarea')
@@ -212,7 +212,7 @@
 				{
 					if($llista=="")
 					{
-						echo "<span style=color:#999><small>~llista no especificada</small>";
+						echo "<span style=color:#999> <small>~llista no especificada</small>";
 						?>
 							<big>
 								<button onclick=mostraMenuLlista() style="display:block;margin:0.5em 0;padding:1.5em">
