@@ -104,8 +104,7 @@
 					ORDER BY punts DESC";
 				$res=$mysql->query($sql);
 				$i=1;
-				while($row=mysqli_fetch_assoc($res))
-				{
+				while($row=mysqli_fetch_assoc($res)) {
 					$resultat=$row['resultat'];
 					$llista=$row['llista'];
 					$jugador=$row['jugador'];
@@ -116,19 +115,17 @@
 							<td class=top>$i
 							<td>
 					";
-
-					if($id_baralla>0)
-					{
+					if($id_baralla>0) {
 						$roww=mysqli_fetch_assoc($mysql->query("SELECT nom FROM baralles WHERE id=$id_baralla"));
 						$baralla=$roww['nom'];
-						$color_link = ($llista=="") ? "style=color:#666" : "";
-						echo "<a href=llista.php?id=$resultat $color_link>$baralla</a>";
+						$color_link = ($llista=="") ? "style=color:#999" : "";
+						echo "<a href=llista.php?id=$resultat $color_link title='Llista encara no disponible'>$baralla</a>";
 					}
-					else echo "<span style=color:#aaa;font-family:monospace>~no disponible</span>";
-
+					else {
+            echo "<span style=color:#aaa;font-family:monospace>~no disponible</span>";
+          }
 					echo "<td><a href=jugador.php?id=$id_jugador>$jugador</a>";
 					echo "<td>$punts";
-
 					$i++;
 				}
 			?>
