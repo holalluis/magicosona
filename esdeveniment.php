@@ -118,8 +118,11 @@
 					if($id_baralla>0) {
 						$roww=mysqli_fetch_assoc($mysql->query("SELECT nom FROM baralles WHERE id=$id_baralla"));
 						$baralla=$roww['nom'];
-						$color_link = ($llista=="") ? "style=color:#999" : "";
-						echo "<a href=llista.php?id=$resultat $color_link title='Llista encara no disponible'>$baralla</a>";
+            //CSS
+						$color   = ($llista=="") ? "color:#999"        : "";
+            $cursiva = ($llista=="") ? "font-style:italic" : "";
+            //fi CSS
+						echo "<a href=llista.php?id=$resultat style='$color;$cursiva'>$baralla</a>";
 					}
 					else {
             echo "<span style=color:#aaa;font-family:monospace>~no disponible</span>";
