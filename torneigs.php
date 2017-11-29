@@ -45,10 +45,12 @@
 					<tr>
 						<td>
 							<a href=esdeveniment.php?id=$id>
-							$nom
-							<span class=jugadors_data>($jugadors jugadors, $data_for)</span>
-							</a>
-							<span style=font-size:12px>($timeAgo)</span>
+                $nom
+                &mdash;
+                <span class=jugadors_data>
+                  $jugadors jugadors · $data_for · $timeAgo
+                </span>
+              </a>
 				";
 			}
 		?>
