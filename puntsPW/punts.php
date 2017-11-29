@@ -6,6 +6,7 @@
 	<style>
 		body{
 			margin:0;
+      font-family:'Helvetica Neue','Liberation Sans',sans-serif;
 		}
 		#btns_sort button {
 			padding:1em 0.3em;
