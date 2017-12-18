@@ -198,7 +198,7 @@
 	{
 		?>
 		<div style='background:#efefef;padding:1em;'>
-			<h4>Envia llista (format .dec)</h4>
+			<h4>Envia llista en format .dec (<a href='exemple_dec.txt'>veure exemple</a>)</h4>
 			<div>
 				<textarea name=llista rows=15 cols=60 placeholder="Enganxa la llista aquí"></textarea>
 				<script>
