@@ -10,7 +10,7 @@
 		#navbar [bases]{
 			background:#fefefe;
 			border-bottom-color:#395693;
-		} 
+		}
 	</style>
 </head><body><center>
 <?php include'menu.php'?>
@@ -23,10 +23,10 @@
 			<li>Benvingut a la Lliga Osonenca de Modern!
 			<li>Si no has jugat mai a Magic, llegeix <a target=_blank href="http://media.wizards.com/2014/docs/SP_M15_QckStrtBklt_LR_Crop.pdf">aquesta guia d'inici</a>.
 			<li>El format que juguem és <a target=_blank href="http://magic.wizards.com/es/gameinfo/gameplay/formats/modern">Modern (mira les normes)</a>.
-			<li>Celebrem els torneigs al Club Billar Vic, <a target=_blank href="https://www.google.es/maps/place/Carrer+de+l'Arquebisbe+Alemany,+24,+08500+Vic,+Barcelona/@41.9319626,2.2490315,17z/data=!3m1!4b1!4m2!3m1!1s0x12a5271b7b0f0561:0x9d4451d075aba9b1">C/Arquebisbe Alemany 24-26, Vic</a>.
+			<li>Celebrem els torneigs al Kritik Vic, <a target=_blank href="https://www.google.es/maps/place/Kritik/@41.929656,2.2543263,17z/data=!3m1!4b1!4m5!3m4!1s0x12a52705b37412b7:0xc826350a76d81ee!8m2!3d41.929652!4d2.256515">C/Cardona 1, 08500 Vic, Barcelona</a>.
 			<li>Cada tercer diumenge de mes (normalment).
 			<li>Inscripcions: per la web, o el mateix dia, de 9:00h a 10:00h.
-			<li>Inici del torneig: 10:00h. 
+			<li>Inici del torneig: 10:00h.
 			<li>Preu inscripció: 12€ (10€ per premis i 2€ acumulats per la final). <b>Els preus poden variar si fem premis especials</b>.
 			<li>Al final de la lliga es farà una final on només podran jugar els 16 primers classificats.
 			<li>A cada torneig s'ha de portar la llista, o enviar-la per la pàgina de perfil (queda oculta a la resta).
@@ -41,8 +41,8 @@
 				<tr><td>33-64<td>6 rondes de suís
 				<tr><td>64-128<td>7 rondes de suís
 			</table>
-			<li>Les rondes tindran una durada de 45-50 minuts cadascuna. 
-			<li>Quan s’acabi el temps de ronda, es deixarà als jugadors 5 torns més per acabar la partida. 
+			<li>Les rondes tindran una durada de 45-50 minuts cadascuna.
+			<li>Quan s’acabi el temps de ronda, es deixarà als jugadors 5 torns més per acabar la partida.
 		</ul>
 	<li><b>Puntuació</b>
 		<ul>
