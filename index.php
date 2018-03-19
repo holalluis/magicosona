@@ -20,7 +20,7 @@
 		#navbar [index]{
 			background:#fefefe;
 			border-bottom-color:#395693;
-		} 
+		}
 		td.top {
 			font-size:smaller;
 			text-align:right;
@@ -33,13 +33,13 @@
 <!--pot-->
 <div style=margin:0.5em;font-size:smaller>
 	Pot acumulat (<?php echo current(mysqli_fetch_assoc($mysql->query("SELECT COUNT(1) FROM esdeveniments")))?> torneigs): 
-	<b><?php echo comptaPot() ?> €</b> 
+	<b><?php echo comptaPot() ?> €</b>
 </div>
 
 <!--fig planeswalker points-->
 <p style=font-size:smaller>
-	<a href=puntsPW/punts.php>
-		Veure Rànking Punts Planeswalker
+	<a href="puntsPW/punts.php">
+		Rànking Planeswalker points
 	</a>
 </p>
 

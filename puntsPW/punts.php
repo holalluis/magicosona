@@ -32,11 +32,12 @@
 <h3><a href="../">&larr; Enrere</a></h3>
 
 <div id=root>
-<h2>Planeswalker points (consultat el 17/11/2017)</h2>
+<h2>Planeswalker points (consultat el 19/03/2018)</h2>
 <div id=btns_sort>
 	<p>
-		<b>Ordena per: </b>
+		<b>Ordena per: </b><br>
 		<label><input type=radio name=sorting onclick=sort('lifetime') checked> Lifetime points</label>
+    <br>
 		<label><input type=radio name=sorting onclick=sort('season')>   Season points</label>
 	</p>
 </div>
