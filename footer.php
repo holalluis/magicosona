@@ -16,6 +16,7 @@
 	<div>
 		Magic Osona © <?php echo date("Y") ?> — Tots els drets reservats
 	</div>
+  &mdash;
 	<div>
 		<a contacte href=contacte.php>Contacte</a>
 	</div>
