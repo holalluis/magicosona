@@ -10,7 +10,7 @@
 		#navbar [torneigs]{
 			background:#fefefe;
 			border-bottom-color:#395693;
-		} 
+		}
 	</style>
 </head> <body><center>
 <?php include 'menu.php' ?>
@@ -45,10 +45,9 @@
 					<tr>
 						<td>
 							<a href=esdeveniment.php?id=$id>
-                $nom
-                &mdash;
+                $nom -
                 <span class=jugadors_data>
-                  $jugadors jugadors · $data_for · $timeAgo
+                  $jugadors jugadors, $data_for ($timeAgo)
                 </span>
               </a>
 				";
