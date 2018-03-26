@@ -14,10 +14,10 @@
 
 <footer>
 	<div>
-		Magic Osona © <?php echo date("Y") ?> — Tots els drets reservats
-	</div>
-  &mdash;
-	<div>
-		<a contacte href=contacte.php>Contacte</a>
+		Magic Osona © <?php echo date("Y") ?>
+    &mdash;
+    Tots els drets reservats
+    &mdash;
+    <a contacte href=contacte.php>Contacte</a>
 	</div>
 </footer>
