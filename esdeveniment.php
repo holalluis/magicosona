@@ -71,13 +71,12 @@
 		</style>
 		<?php
 			$nom=$nomTorneig;
-			if(file_exists("img/torneigs/elim$nom.png"))
-			{ 
-				echo "<button onclick=window.location=('img/torneigs/elim$nom.png')>Veure eliminatòria TOP 8</button>";
+			if(file_exists("img/torneigs/elim$nom.png")) {
+				echo "<button onclick=window.open('img/torneigs/elim$nom.png')>Veure eliminatòria TOP 8</button>";
 			}
-			if(file_exists("img/torneigs/$nom.jpg"))
-			{ ?>
-				<button onclick="window.location=('img/torneigs/<?php echo $nom ?>.jpg')">Veure cartell i premis</button>
+			if(file_exists("img/torneigs/$nom.jpg")) {
+        ?>
+				<button onclick="window.open('img/torneigs/<?php echo $nom ?>.jpg')">Veure cartell i premis</button>
 				<?php
 			}
 		?>
