@@ -109,7 +109,6 @@ function dibuixa() {
 	];
 	Jugadors.forEach((j,i)=>{DATA.push([(i+1)+". "+j.nom,j.Lifetime,j.Season]);});
 	var data=google.visualization.arrayToDataTable(DATA);
-
 	var options = {
 		legend:{position:'top'},
 		fontSize:"11",
