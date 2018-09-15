@@ -33,7 +33,7 @@
         <td>$aps";
     }
     if(mysqli_num_rows($res)==0) {
-      echo "<tr><td colspan=2 style=color:#ccc>~0 torneigs celebrats aquesta temporada. Encara no es pot calcular el metagame.";
+      echo "<tr><td colspan=2><small>~0 torneigs celebrats aquesta temporada.<br>Encara no es pot calcular el metagame.</small>";
     }
   ?>
 </table>
