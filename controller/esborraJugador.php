@@ -21,7 +21,7 @@ $sql="DELETE FROM assistentsProximTorneig WHERE id_jugador=$id";
 $mysql->query($sql) or die('error');
 
 echo "Jugador esborrat correctament";
-header("Location: ../index.php");
+header("Location: ../jugadors.php");
 
 ?>
 
